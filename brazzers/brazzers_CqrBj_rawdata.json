@@ -1,5 +1,5 @@
 {
-  "name": "jail",
+  "name": "brazzers",
   "permissions": "NONE",
   "restriction": "1",
   "_id": "CqrBj",
@@ -40,7 +40,7 @@
       "comparison": "0",
       "value": "1",
       "iftrue": "3",
-      "iftrueVal": "8",
+      "iftrueVal": "7",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Parameters"
@@ -55,36 +55,30 @@
     {
       "storage": "1",
       "varName": "user",
-      "width": "256",
-      "height": "256",
+      "width": "500",
+      "height": "500",
       "name": "Resize Image"
     },
     {
+      "url": "https://i.lensdump.com/i/WS86bP.png",
       "storage": "1",
-      "varName": "user",
-      "effect": "6",
-      "name": "Apply Image Effect"
-    },
-    {
-      "url": "https://i.lensdump.com/i/WS8kzZ.png",
-      "storage": "1",
-      "varName": "bars",
+      "varName": "brazzers",
       "name": "Create Image"
     },
     {
       "storage": "1",
-      "varName": "bars",
-      "width": "256",
-      "height": "256",
+      "varName": "brazzers",
+      "width": "75%",
+      "height": "75%",
       "name": "Resize Image"
     },
     {
       "storage": "1",
       "varName": "user",
       "storage2": "1",
-      "varName2": "bars",
-      "x": "1",
-      "y": "1",
+      "varName2": "brazzers",
+      "x": "230",
+      "y": "435",
       "mask": "0",
       "name": "Draw Image on Image"
     },
@@ -109,36 +103,30 @@
     {
       "storage": "1",
       "varName": "userimgg",
-      "width": "256",
-      "height": "256",
+      "width": "500",
+      "height": "500",
       "name": "Resize Image"
     },
     {
+      "url": "https://i.lensdump.com/i/WS86bP.png",
       "storage": "1",
-      "varName": "userimgg",
-      "effect": "6",
-      "name": "Apply Image Effect"
-    },
-    {
-      "url": "https://i.lensdump.com/i/WS8kzZ.png",
-      "storage": "1",
-      "varName": "ooos",
+      "varName": "brazzers",
       "name": "Create Image"
     },
     {
       "storage": "1",
-      "varName": "ooos",
-      "width": "256",
-      "height": "256",
+      "varName": "brazzers",
+      "width": "75%",
+      "height": "75%",
       "name": "Resize Image"
     },
     {
       "storage": "1",
       "varName": "userimgg",
       "storage2": "1",
-      "varName2": "ooos",
-      "x": "1",
-      "y": "1",
+      "varName2": "brazzers",
+      "x": "230",
+      "y": "435",
       "mask": "0",
       "name": "Draw Image on Image"
     },
