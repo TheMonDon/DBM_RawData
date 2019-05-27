@@ -1,0 +1,123 @@
+{
+  "name": "jail",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "CqrBj",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "8",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "user",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "user",
+      "width": "256",
+      "height": "256",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "user",
+      "effect": "6",
+      "name": "Apply Image Effect"
+    },
+    {
+      "url": "https://i.lensdump.com/i/WS8kzZ.png",
+      "storage": "1",
+      "varName": "bars",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "bars",
+      "width": "256",
+      "height": "256",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "user",
+      "storage2": "1",
+      "varName2": "bars",
+      "x": "1",
+      "y": "1",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "user",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "userimgg",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "userimgg",
+      "width": "256",
+      "height": "256",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "userimgg",
+      "effect": "6",
+      "name": "Apply Image Effect"
+    },
+    {
+      "url": "https://i.lensdump.com/i/WS8kzZ.png",
+      "storage": "1",
+      "varName": "ooos",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "ooos",
+      "width": "256",
+      "height": "256",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "userimgg",
+      "storage2": "1",
+      "varName2": "ooos",
+      "x": "1",
+      "y": "1",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "userimgg",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    }
+  ]
+}
