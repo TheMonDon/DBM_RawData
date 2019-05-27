@@ -1,0 +1,362 @@
+{
+  "name": "embed",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "uSnBK",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the title to be?\n\nYou have 1 minute.",
+      "storage": "1",
+      "varName2": "msg1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "23",
+      "storage2": "1",
+      "varName2": "title",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg1",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What do you want the description to be?\n\nYou have 2 minutes.",
+      "storage": "1",
+      "varName2": "msg2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "120000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "20",
+      "storage2": "1",
+      "varName2": "desc",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg2",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the image to be?\n\nYou have 1 minute.\nPS: It has to be an image link.\nPPS: For no image type \"none\" (without quotes)",
+      "storage": "1",
+      "varName2": "msg3",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "17",
+      "iffalse": "3",
+      "iffalseVal": "16",
+      "storage2": "0",
+      "varName2": "image",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg3",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the channel to be?\n\nYou have 1 minute.\nPS: If you mention it you will have to start over",
+      "storage": "1",
+      "varName2": "msg4",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "13",
+      "storage2": "1",
+      "varName2": "channelname",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg4",
+      "name": "Store Member Info"
+    },
+    {
+      "info": "1",
+      "find": "${tempVars(\"channelname\")}",
+      "storage": "1",
+      "varName": "channel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg3",
+      "comparison": "1",
+      "value": "none",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Variable"
+    },
+    {
+      "title": "${tempVars(\"title\")}",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "count": "4",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "${tempVars(\"title\")}",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "${tempVars(\"lmsg3\")}",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "count": "1",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${tempVars(\"desc\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "channel",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg4",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Hey, <@${tempVars(\"id\")}> you waited too long and the command timed out.\nPlease try again, this message self destructs in 30 seconds.",
+      "storage": "1",
+      "varName2": "timedout",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg3",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg4",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg4",
+      "name": "Delete Message"
+    },
+    {
+      "time": "30",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "timedout",
+      "name": "Delete Message"
+    }
+  ],
+  "comType": "0"
+}
