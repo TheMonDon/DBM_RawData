@@ -1,0 +1,180 @@
+{
+  "name": "ship",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "ibWCx",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "2",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "member1",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "2",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "member2",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "2",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "5",
+      "name": "Check Parameters"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "min": "0",
+      "max": "100",
+      "name": "Generate Random Number"
+    },
+    {
+      "title": "💗 Love Calculator 💗",
+      "author": "",
+      "color": "",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "4",
+      "value": "50",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "🔻 ${tempVars(\"member1\")}\n  **${tempVars(\"num\")}%**\n🔺 ${tempVars(\"member2\")}\n\nAmazing! 😍",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "4",
+      "value": "50",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "1",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "3",
+      "value": "50",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "🔻 ${tempVars(\"member1\")}\n  **${tempVars(\"num\")}%**\n🔺 ${tempVars(\"member2\")}\n\nAwe 😟",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "3",
+      "value": "50",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "1",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: Either \"${tempVars(\"member1\")}\" or \"${tempVars(\"member2\")}\" is not a member.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
