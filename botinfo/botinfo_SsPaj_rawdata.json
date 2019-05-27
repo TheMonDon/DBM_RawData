@@ -1,0 +1,107 @@
+{
+  "name": "botinfo",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "SsPaj",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "var uptime = process.uptime();\nvar days = Math.floor((uptime % 31536000) / 86400);\nvar hours = Math.floor((uptime % 86400) / 3600);\nvar minutes = Math.floor((uptime % 3600) / 60);\nvar seconds = Math.round(uptime % 60);\nvar botuptime = (days > 0 ? days + \" days, \":\"\") + (hours > 0 ? hours + \" hours, \":\"\") + (minutes > 0 ? minutes + \" minutes, \":\"\") + (seconds > 0 ? seconds + \" seconds\":\"\")\nthis.storeValue(botuptime, 1, \"uptime-ms\", cache)",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "title": "",
+      "author": "${bot.user.username}",
+      "color": "#2ecc71",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${bot.user.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "${bot.user.displayAvatarURL}",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Uptime",
+      "message": "${tempVars(\"uptime-ms\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Ping",
+      "message": "${Math.floor(client.ping)}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Guilds",
+      "message": "${this.getDBM().Bot.bot.guilds.array().length}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Channels",
+      "message": "${bot.channels.size}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Members",
+      "message": "${bot.users.size}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "RAM Usage",
+      "message": "${Math.floor((process.memoryUsage().heapUsed / 1024)/1024)} MB",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "comType": "0"
+}
