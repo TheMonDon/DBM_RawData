@@ -39,19 +39,22 @@
       "condition": "1",
       "comparison": "0",
       "value": "1",
-      "iftrue": "0",
-      "iftrueVal": "",
-      "iffalse": "2",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
       "iffalseVal": "34",
       "name": "Check Parameters"
     },
     {
-      "member": "1",
+      "channel": "0",
       "varName": "",
-      "info": "3",
-      "storage": "1",
-      "varName2": "authname",
-      "name": "Store Member Info"
+      "message": "You must mention a user in order to use this command.\nUsage: ${server.tag}kill @user",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
     },
     {
       "member": "0",
@@ -63,206 +66,276 @@
     },
     {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "min": "1",
-      "max": "8",
+      "max": "14",
       "name": "Generate Random Number"
     },
     {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "2",
       "value": "1",
-      "iftrue": "3",
-      "iftrueVal": "8",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "10",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} jumped off a building before ${member.displayName} could kill them. 🏛 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "2",
       "value": "2",
-      "iftrue": "3",
-      "iftrueVal": "9",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "11",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} killed ${tempVars(\"mentname\")} with a pistol! 🔫",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "2",
       "value": "3",
-      "iftrue": "3",
-      "iftrueVal": "10",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "12",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} hulk smashes ${tempVars(\"mentname\")} into pulp. 💥",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "2",
       "value": "4",
-      "iftrue": "3",
-      "iftrueVal": "11",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "13",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} died from eating a cactus. 🌵",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "2",
       "value": "5",
-      "iftrue": "3",
-      "iftrueVal": "12",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "14",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} killed ${tempVars(\"mentname\")} by drowning them in a tub of hot chocolate. 🛁 🍫 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "2",
       "value": "6",
-      "iftrue": "3",
-      "iftrueVal": "13",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "15",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} killed ${tempVars(\"mentname\")} by turning back time and giving them a ticket to the Titanic. 🚢",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "1",
       "value": "7",
-      "iftrue": "3",
-      "iftrueVal": "14",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "16",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} slips bleach into ${tempVars(\"mentname\")}'s drink. 🍹",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
     },
     {
       "storage": "1",
-      "varName": "killmsgtobesent",
+      "varName": "num",
       "comparison": "1",
       "value": "8",
-      "iftrue": "3",
-      "iftrueVal": "15",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iftrue": "0",
+      "iftrueVal": "17",
+      "iffalse": "3",
+      "iffalseVal": "1",
       "name": "Check Variable"
     },
     {
-      "name": "End Action Sequence"
-    },
-    {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"mentname\")} jumped off a building before ${tempVars(\"authname\")} could kill them.",
-      "storage": "0",
-      "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
-    },
-    {
-      "name": "End Action Sequence"
-    },
-    {
-      "channel": "0",
-      "varName": "",
-      "message": "${tempVars(\"authname\")} killed ${tempVars(\"mentname\")} with a pistol! 🔫",
+      "message": "${tempVars(\"mentname\")} dies due to ${member.displayName} mentioning them. 💬 ",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
     },
     {
-      "name": "End Action Sequence"
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "9",
+      "iftrue": "0",
+      "iftrueVal": "18",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"authname\")} hulk smashes ${tempVars(\"mentname\")} into pulp.",
+      "message": "${tempVars(\"mentname\")} dies from kissing a rattlesnake. 🐍",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
     },
     {
-      "name": "End Action Sequence"
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "10",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"mentname\")} died from eating a cactus.",
+      "message": "${tempVars(\"mentname\")} died from not forwarding the chain mail recieved from ${member.displayName}. 📧 ",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
     },
     {
-      "name": "End Action Sequence"
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "11",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"authname\")} killed ${tempVars(\"mentname\")} by drowning them in a tub of hot chocolate.",
+      "message": "${member.displayName} was so swagged that ${tempVars(\"mentname\")} died due to it. #Swag",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
     },
     {
-      "name": "End Action Sequence"
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "12",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"authname\")} killed ${tempVars(\"mentname\")} by turning back time and giving them a ticket to the Titanic. 🚢",
-      "storage": "0",
-      "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
-    },
-    {
-      "name": "End Action Sequence"
-    },
-    {
-      "channel": "0",
-      "varName": "",
-      "message": "${tempVars(\"authname\")} slips bleach into ${tempVars(\"mentname\")}'s drink.",
+      "message": "${tempVars(\"mentname\")} was charging their Samsung Galaxy Note 7... 📱",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
     },
     {
-      "name": "End Action Sequence"
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "13",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"mentname\")} dies due to ${tempVars(\"authname\")} mentioning them.",
+      "message": "${tempVars(\"mentname\")} has been found guilty, time to execute them! ",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
     },
     {
-      "name": "End Action Sequence"
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "14",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "Please Mention Atleast 1 user to kill! \nUsage: !kill @user",
+      "message": "${member.displayName} feeds toothpaste-filled Oreos to ${tempVars(\"mentname\")}, who was apparently allergic to flouride. 🍪 ",
       "storage": "0",
       "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
       "name": "Send Message"
-    },
-    {
-      "name": "End Action Sequence"
     }
   ]
 }
