@@ -7,6 +7,37 @@
     {
       "member": "1",
       "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
       "info": "1",
       "storage": "1",
       "varName2": "id",
@@ -36,7 +67,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "23",
+      "iffalseVal": "29",
       "storage2": "1",
       "varName2": "title",
       "name": "Await Response Call Action"
@@ -68,7 +99,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "20",
+      "iffalseVal": "26",
       "storage2": "1",
       "varName2": "desc",
       "name": "Await Response Call Action"
@@ -98,7 +129,7 @@
       "iftrue": "0",
       "iftrueVal": "17",
       "iffalse": "3",
-      "iffalseVal": "16",
+      "iffalseVal": "23",
       "storage2": "0",
       "varName2": "image",
       "name": "Await Response Call Action"
@@ -128,7 +159,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "13",
+      "iffalseVal": "20",
       "storage2": "1",
       "varName2": "channelname",
       "name": "Await Response Call Action"
@@ -333,7 +364,7 @@
       "value": "",
       "iftrue": "0",
       "iftrueVal": "",
-      "iffalse": "1",
+      "iffalse": "3",
       "iffalseVal": "2",
       "name": "Check Variable"
     },
