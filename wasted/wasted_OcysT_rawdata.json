@@ -1,0 +1,121 @@
+{
+  "name": "wasted",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "OcysT",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "8",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "width": "295",
+      "height": "295",
+      "name": "Resize Image"
+    },
+    {
+      "url": "https://i.lensdump.com/i/WSmmgM.png",
+      "storage": "1",
+      "varName": "wasted",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "effect": "0",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "effect": "4",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "storage2": "1",
+      "varName2": "wasted",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "width": "295",
+      "height": "295",
+      "name": "Resize Image"
+    },
+    {
+      "url": "https://i.lensdump.com/i/WSmmgM.png",
+      "storage": "1",
+      "varName": "wasted",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "effect": "0",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "effect": "4",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "storage2": "1",
+      "varName2": "wasted",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    }
+  ]
+}
