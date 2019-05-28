@@ -1,0 +1,387 @@
+{
+  "name": "bug",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "UWmNk",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What is this bug report for?\n> Discord\n> Bot\n> Server",
+      "storage": "1",
+      "varName2": "main",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "30000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "storage2": "0",
+      "varName2": "error1",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "error1",
+      "name": "Store Member Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "tempVars(\"error1\").content.toLowerCase()",
+      "storage": "1",
+      "varName": "error",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "comparison": "1",
+      "value": "\"discord\"",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "comparison": "1",
+      "value": "\"bot\"",
+      "iftrue": "3",
+      "iftrueVal": "12",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "comparison": "1",
+      "value": "\"server\"",
+      "iftrue": "3",
+      "iftrueVal": "20",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error:** Please make sure you typed the word correctly.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "find": "discord-bugs",
+      "storage": "1",
+      "varName": "d_channel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "d_channel",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "discord-bugs",
+      "topic": "Bugs pertaining to the Discord",
+      "position": "",
+      "storage": "1",
+      "varName": "d_channel",
+      "name": "Create Text Channel"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please type the bug report for `discord` below.\nYou will have 2 minutes.",
+      "storage": "1",
+      "varName2": "msg",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "120000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "17",
+      "storage2": "0",
+      "varName2": "discordbug",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "bug",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "5",
+      "varName": "d_channel",
+      "message": "${tempVars(\"bug\")}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "21",
+      "iffalse": "1",
+      "iffalseVal": "10",
+      "name": "Check Variable"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "find": "bot-bugs",
+      "storage": "1",
+      "varName": "b_channel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "b_channel",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "bot-bugs",
+      "topic": "Bugs pertaining to the bot",
+      "position": "",
+      "storage": "1",
+      "varName": "b_channel",
+      "name": "Create Text Channel"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please type the bug report for `bot` below.\nYou will have 2 minutes.",
+      "storage": "1",
+      "varName2": "msg",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "120000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "9",
+      "storage2": "1",
+      "varName2": "botbug",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "bug",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "5",
+      "varName": "b_channel",
+      "message": "${tempVars(\"bug\")}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "12",
+      "iffalse": "1",
+      "iffalseVal": "10",
+      "name": "Check Variable"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "find": "server-bugs",
+      "storage": "1",
+      "varName": "s_channel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "s_channel",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "server-bugs",
+      "topic": "Bugs pertaining to the server",
+      "position": "",
+      "storage": "1",
+      "varName": "s_channel",
+      "name": "Create Text Channel"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please type the bug report for `server` below.\nYou will have 2 minutes.",
+      "storage": "1",
+      "varName2": "msg",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "max": "1",
+      "time": "120000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "storage2": "0",
+      "varName2": "serverbug",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "bug",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "5",
+      "varName": "s_channel",
+      "message": "${tempVars(\"bug\")}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "1",
+      "iffalseVal": "10",
+      "name": "Check Variable"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Bug report timed out.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "main",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "bug",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "✅ Thank you, your bug report has been submitted.",
+      "storage": "1",
+      "varName2": "done",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "done",
+      "name": "Delete Message"
+    }
+  ],
+  "comType": "0"
+}
