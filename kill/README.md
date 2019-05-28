@@ -10,8 +10,4 @@ Also posting to github as original is a link to ghostpin which is shutting down.
 
 Note: Probably requires DBM Beta and Mods.  
 Note2: Only need latest version, leaving _ORIGINAL_ as a key to original author.  
-<<<<<<< HEAD
 At this point I have changed the entire thing and added a lot more sentences and felt time to make it a seperate thing.  
-=======
-At this point I have changed the entire thing and added a lot more sentences and felt time to make it a seperate thing.  
->>>>>>> 475cbfa188e08b385a03c0657940284fddcb6bf0
