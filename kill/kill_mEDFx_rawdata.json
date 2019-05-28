@@ -68,7 +68,7 @@
       "storage": "1",
       "varName": "num",
       "min": "1",
-      "max": "14",
+      "max": "20",
       "name": "Generate Random Number"
     },
     {
@@ -333,6 +333,120 @@
       "channel": "0",
       "varName": "",
       "message": "${member.displayName} feeds toothpaste-filled Oreos to ${tempVars(\"mentname\")}, who was apparently allergic to flouride. 🍪 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "15",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} rigged ${tempVars(\"mentname\")}'s elytra and they fell to their death.  ☠",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "16",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} gave ${tempVars(\"mentname\")} a ticket to Malaysia Airlines Flight 370... ✈",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "17",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} climbed a tree, fell down, and got ate by a rabid bunny. ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "18",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} might have fallen down a well while looking for pennies...",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "19",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "🎵🎵 ${tempVars(\"mentname\")} got ran over by a reindeer 🎵🎵",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "20",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} died while waiting for ${tempVars(\"mentname\")} to die of natural causes.",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
