@@ -5,14 +5,6 @@
   "_id": "UWmNk",
   "actions": [
     {
-      "member": "1",
-      "varName": "",
-      "info": "1",
-      "storage": "1",
-      "varName2": "id",
-      "name": "Store Member Info"
-    },
-    {
       "storage": "0",
       "varName": "",
       "name": "Delete Message"
@@ -28,7 +20,7 @@
     {
       "storage": "0",
       "varName": "",
-      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
       "max": "1",
       "time": "30000",
       "iftrue": "0",
@@ -136,7 +128,7 @@
     {
       "storage": "0",
       "varName": "",
-      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
       "max": "1",
       "time": "120000",
       "iftrue": "0",
@@ -214,7 +206,7 @@
     {
       "storage": "0",
       "varName": "",
-      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
       "max": "1",
       "time": "120000",
       "iftrue": "0",
@@ -292,7 +284,7 @@
     {
       "storage": "0",
       "varName": "",
-      "filter": "content.length > 0 && author.id === '${tempVars(\"id\")}'",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
       "max": "1",
       "time": "120000",
       "iftrue": "0",
