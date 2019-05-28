@@ -6,3 +6,5 @@ the request to mojang, as well as a check after sending to mojang to not crash b
 
 Usage: [p]mcaccount (username)
 This will display the following stats: Name Changes, UUID, NameMC Link, and their skin inside a nice embed message.
+
+Note: Probably requires DBM Beta and Mods.

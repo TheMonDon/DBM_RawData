@@ -6,4 +6,4 @@ Generates two responses based on number of compatibility for the love birds!
 
 This is essentially a love calculator. 
 
-Note: Probably requires DBM beta and mods.
+Note: Probably requires DBM Beta and Mods.

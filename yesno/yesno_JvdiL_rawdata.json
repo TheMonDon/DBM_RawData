@@ -1,0 +1,91 @@
+{
+  "name": "yesno",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "JvdiL",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You must mention a user in order to use this command.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "user1",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "user2",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "user1",
+      "width": "500",
+      "height": "500",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "user2",
+      "width": "500",
+      "height": "500",
+      "name": "Resize Image"
+    },
+    {
+      "url": "resources/blankpehonix.png",
+      "storage": "1",
+      "varName": "template",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "storage2": "1",
+      "varName2": "user1",
+      "x": "870",
+      "y": "15",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "storage2": "1",
+      "varName2": "user2",
+      "x": "870",
+      "y": "560",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    }
+  ]
+}

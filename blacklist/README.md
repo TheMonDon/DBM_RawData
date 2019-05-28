@@ -11,3 +11,5 @@ Command usage: [p]blacklist <add | remove | check> @user> [reason]
 
 Command usage: [p]blacklisted (@user)
 - This command is for users, used by itself tells them if theyre blacklisted or if used with an @user tells them if another user is blacklisted.
+
+Note: Probably requires DBM Beta and Mods.
