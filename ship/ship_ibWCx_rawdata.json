@@ -36,6 +36,18 @@
       "name": "End Action Sequence"
     },
     {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
       "info": "2",
       "infoIndex": "1",
       "storage": "1",
