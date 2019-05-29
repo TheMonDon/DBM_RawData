@@ -12,4 +12,3 @@ I changed some major things with the help of General Wrex to make this command n
 One major change is I changed the API to one that works more reliably as well.
 
 Note: Probably requires DBM Beta and Mods.
-Raw Data: [Github](https://github.com/TheMonDon/DBM_RawData/tree/master/mcaccount)
