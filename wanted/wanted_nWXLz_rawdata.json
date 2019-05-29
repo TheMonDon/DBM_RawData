@@ -1,0 +1,143 @@
+{
+  "name": "wanted",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "nWXLz",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "6",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "width": "400",
+      "height": "400",
+      "name": "Resize Image"
+    },
+    {
+      "url": "https://i.lensdump.com/i/WS4Pkx.png",
+      "storage": "1",
+      "varName": "template",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "storage2": "1",
+      "varName2": "avatar",
+      "x": "170",
+      "y": "305",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "avatar",
+      "width": "400",
+      "height": "400",
+      "name": "Resize Image"
+    },
+    {
+      "url": "https://i.lensdump.com/i/WS4Pkx.png",
+      "storage": "1",
+      "varName": "template",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "storage2": "1",
+      "varName2": "avatar",
+      "x": "170",
+      "y": "305",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "template",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    }
+  ],
+  "_aliases": [
+    "bounty"
+  ]
+}
