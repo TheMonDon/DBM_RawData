@@ -1,0 +1,164 @@
+{
+  "name": "invertimg",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "kUJnL",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "0",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "5",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "8",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "auth_avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "auth_avatar",
+      "effect": "1",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "auth_avatar",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "ment_avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "ment_avatar",
+      "effect": "1",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "ment_avatar",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "url",
+      "name": "Store Command Params"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "require('is-image-url')(tempVars(\"url\")) ? this.callNextAction(cache) : msg.channel.send(\"URL is not an image.\");",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "url": "${tempVars(\"url\")}",
+      "storage": "1",
+      "varName": "url_img",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "url_img",
+      "effect": "1",
+      "name": "Apply Image Effect"
+    },
+    {
+      "storage": "1",
+      "varName": "url_img",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "name": "Send Image"
+    }
+  ]
+}
