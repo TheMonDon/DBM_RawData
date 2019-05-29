@@ -201,11 +201,9 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "Please supply a reason: ${server.tag}blacklist <add | remove | check> @user [reason]",
+      "message": "Please supply a reason: ${server.tag}blacklist add @user [reason]",
       "storage": "0",
       "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
       "name": "Send Message"
     },
     {
