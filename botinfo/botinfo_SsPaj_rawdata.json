@@ -18,11 +18,22 @@
       "varName": "blacklisted",
       "comparison": "1",
       "value": "true",
-      "iftrue": "1",
+      "iftrue": "0",
       "iftrueVal": "",
-      "iffalse": "0",
-      "iffalseVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
       "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
     },
     {
       "behavior": "0",
@@ -31,6 +42,15 @@
       "storage": "0",
       "varName": "",
       "name": "Run Script"
+    },
+    {
+      "text": "${globalVars(\"commands\")}",
+      "text2": "undefined",
+      "text3": "0",
+      "info": "0",
+      "storage": "1",
+      "varName": "commands_format",
+      "name": "Replace Text"
     },
     {
       "title": "",
@@ -82,6 +102,14 @@
       "varName": "embed",
       "fieldName": "Members",
       "message": "${bot.users.size}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Commands",
+      "message": "${tempVars(\"commands_format\")}",
       "inline": "0",
       "name": "Add Embed Field"
     },
