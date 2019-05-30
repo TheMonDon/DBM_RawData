@@ -80,7 +80,7 @@
       "storage": "1",
       "varName": "num",
       "min": "1",
-      "max": "20",
+      "max": "22",
       "name": "Generate Random Number"
     },
     {
@@ -459,6 +459,44 @@
       "channel": "0",
       "varName": "",
       "message": "${member.displayName} died while waiting for ${tempVars(\"mentname\")} to die of natural causes.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "21",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} bought a tesla and could no longer afford food or water.\nBut hey! Elon Musk is richer now.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "22",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} bought a rocket pack from ${member.displayName} but lost control and landed in a zoo exihbit looking like a monkey",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
