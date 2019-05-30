@@ -36,21 +36,24 @@
       "name": "End Action Sequence"
     },
     {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
       "behavior": "0",
       "interpretation": "0",
       "code": "var uptime = process.uptime();\nvar days = Math.floor((uptime % 31536000) / 86400);\nvar hours = Math.floor((uptime % 86400) / 3600);\nvar minutes = Math.floor((uptime % 3600) / 60);\nvar seconds = Math.round(uptime % 60);\nvar botuptime = (days > 0 ? days + \" days, \":\"\") + (hours > 0 ? hours + \" hours, \":\"\") + (minutes > 0 ? minutes + \" minutes, \":\"\") + (seconds > 0 ? seconds + \" seconds\":\"\")\nthis.storeValue(botuptime, 1, \"uptime-ms\", cache)",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
-    },
-    {
-      "text": "${globalVars(\"commands\")}",
-      "text2": "undefined",
-      "text3": "0",
-      "info": "0",
-      "storage": "1",
-      "varName": "commands_format",
-      "name": "Replace Text"
     },
     {
       "title": "",
@@ -109,7 +112,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "Commands",
-      "message": "${tempVars(\"commands_format\")}",
+      "message": "${globalVars(\"commands\")}",
       "inline": "0",
       "name": "Add Embed Field"
     },
