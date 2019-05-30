@@ -5,7 +5,7 @@ To play, simply mention a member of the server and watch the responses from the 
 
 Usage: [p]rps @user
 
-Requested by S h i r o ツ#0101
+Suggested by S h i r o ツ#0101
 
 Note: Probably requires DBM Beta and Mods.
 If you encounter any errors that I did not see, please DM me!
