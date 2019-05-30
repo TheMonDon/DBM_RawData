@@ -1,0 +1,462 @@
+{
+  "name": "rps",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "urrVJ",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please mention a user in order to use this command!\n\nUsage: ${server.tag}rps @user",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "ment_id",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} please type your response below. Your message will be deleted so your opponent doesn't see it.\n\n- Rock\n- Paper\n- Scissors\n\nYou have 1 minute!",
+      "storage": "1",
+      "varName2": "1",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${msg.author.id}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "37",
+      "storage2": "0",
+      "varName2": "",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "auth_reply",
+      "name": "Store Member Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "tempVars(\"auth_reply\").content.toLowerCase()",
+      "storage": "1",
+      "varName": "author_reply",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "author_reply",
+      "comparison": "6",
+      "value": "(rock|paper|scissors)",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error!\nYou have to choose Rock, Paper, or Scissors!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "count": "-7",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "auth_reply",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "1",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Your response has been saved, ${member.displayName}",
+      "storage": "1",
+      "varName2": "saved",
+      "name": "Send Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${mentionedUser} please type your response below. Your opponent has already answered.\n\n- Rock\n- Paper\n- Scissors\n\nYou have 1 minute!",
+      "storage": "1",
+      "varName2": "2",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${tempVars(\"ment_id\")}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "26",
+      "storage2": "0",
+      "varName2": "",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "ment_reply",
+      "name": "Store Member Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "tempVars(\"ment_reply\").content.toLowerCase()",
+      "storage": "1",
+      "varName": "mention_reply",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "mention_reply",
+      "comparison": "6",
+      "value": "(rock|paper|scissors)",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error!\nYou have to choose Rock, Paper, or Scissors!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "count": "-7",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "ment_reply",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "saved",
+      "name": "Delete Message"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "let winner = \"\";\n\nif(tempVars(\"author_reply\") === tempVars(\"mention_reply\")) {\n   winner = \"tie\";\n   this.storeValue(winner, 1, \"winner\", cache);\n   Actions.callNextAction(cache);\n}\nif(tempVars(\"author_reply\") === \"rock\") {\n   if(tempVars(\"mention_reply\") === \"scissors\") {\n      winner = \"author\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else { \n      winner = \"mention\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   }\n}\nif(tempVars(\"author_reply\") === \"paper\") {\n   if(tempVars(\"mention_reply\") === \"rock\") {\n      winner = \"author\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else { \n      if(tempVars(\"mention_reply\") === \"scissors\") {\n         winner = \"mention\";\n         this.storeValue(winner, 1, \"winner\", cache);\n         Actions.callNextAction(cache);\n      }\n   }\n}\nif(tempVars(\"author_reply\") === \"scissors\") {\n   if(tempVars(\"mention_reply\") === \"rock\") {\n      winner = \"mention\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else {\n      if(tempVars(\"mention_reply\") === \"paper\") {\n         winner = \"author\";\n         this.storeValue(winner, 1, \"winner\", cache);\n         Actions.callNextAction(cache);\n      }\n   }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "winner",
+      "comparison": "1",
+      "value": "\"author\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "5",
+      "name": "Check Variable"
+    },
+    {
+      "title": "Rock - Paper - Scissors",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Winner",
+      "message": "The winner was: ${member}!\nThe winning item was: ${tempVars(\"author_reply\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Loser",
+      "message": "The loser was: ${mentionedUser}\nThe losing item was: ${tempVars(\"mention_reply\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "winner",
+      "comparison": "1",
+      "value": "\"mention\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "5",
+      "name": "Check Variable"
+    },
+    {
+      "title": "Rock - Paper - Scissors",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Winner",
+      "message": "The winner was: ${mentionedUser}!\nThe winning item was: ${tempVars(\"mention_reply\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Loser",
+      "message": "The loser was: ${member}\nThe losing item was: ${tempVars(\"author_reply\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Rock - Paper - Scissors",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "No winner this time!\n${member} and ${mentionedUser} both chose the same thing. \n\nThe tied item was: ${tempVars(\"mention_reply\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Error",
+      "author": "",
+      "color": "RED",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": "Sorry, but you waited too long and the game of rock - paper - scissors has timed out.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "1",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "2",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "saved",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "saved",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "auth_reply",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "auth_reply",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "mention_reply",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "ment_reply",
+      "name": "Delete Message"
+    }
+  ]
+}
