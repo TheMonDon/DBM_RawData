@@ -5,4 +5,4 @@ Has actions that await your response and checks each one, will then send embed w
 You can use the image URL or type none for no image.
 You can use Hex color code or RANDOM.
 
-Note: Probably requires DBM Beta and Mods.
+NOTE: REQUIRES MODS AND PROBABLY BETA! DONT FLAG BECAUSE YOU DONT HAVE THE MODS INSTALLED!
