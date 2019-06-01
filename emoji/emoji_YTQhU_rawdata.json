@@ -1,0 +1,131 @@
+{
+  "name": "emoji",
+  "permissions": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "YTQhU",
+  "actions": [
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "param",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "1",
+      "varName": "param",
+      "comparison": "1",
+      "value": "\"add\"",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "param",
+      "comparison": "1",
+      "value": "\"remove\"",
+      "iftrue": "3",
+      "iftrueVal": "10",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Incorrect usage!\nPlease do ${server.tag}emoji <add/remove> <name> (link)",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "name",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "3",
+      "storage": "1",
+      "varName": "link",
+      "name": "Store Command Params"
+    },
+    {
+      "url": "${tempVars(\"link\")}",
+      "storage": "1",
+      "varName": "image",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "image",
+      "width": "32",
+      "height": "32",
+      "name": "Resize Image"
+    },
+    {
+      "emojiName": "${tempVars(\"name\")}",
+      "storage": "1",
+      "varName": "image",
+      "storage2": "0",
+      "varName2": "",
+      "name": "Create Emoji"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Created new emoji with the name `${tempVars(\"name\")}` and the image of `${tempVars(\"link\")}`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "name",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "info": "1",
+      "find": "${tempVars(\"name\")}",
+      "storage": "1",
+      "varName": "emoji",
+      "name": "Find Custom Emoji in Server"
+    },
+    {
+      "emoji": "1",
+      "varName": "emoji",
+      "name": "Delete Emoji"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Deleted the emoji with the name `${tempVars(\"name\")}`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
