@@ -496,7 +496,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "${tempVars(\"mentname\")} bought a rocket pack from ${member.displayName} but lost control and landed in a zoo exihbit looking like a monkey",
+      "message": "${tempVars(\"mentname\")} bought a rocket pack from ${member.displayName} but lost control and landed in a zoo exhibit looking like a monkey.",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
