@@ -1,0 +1,31 @@
+{
+  "name": "reverse",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PcgNv",
+  "actions": [
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "text",
+      "name": "Store Command Params"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "let str = tempVars(\"text\");\n\nstr = str.split(\"\");\nstr = str.reverse();\nstr = str.join(\"\");\nthis.storeValue(str, 1, \"string\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"string\")}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
