@@ -2,7 +2,7 @@
   "name": "bug",
   "permissions": "NONE",
   "restriction": "1",
-  "_id": "UWmNk",
+  "_id": "NonEmbed",
   "actions": [
     {
       "member": "1",
