@@ -59,7 +59,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "29",
+      "iffalseVal": "34",
       "storage2": "1",
       "varName2": "title",
       "name": "Await Response Call Action"
@@ -91,7 +91,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "26",
+      "iffalseVal": "31",
       "storage2": "1",
       "varName2": "desc",
       "name": "Await Response Call Action"
@@ -121,7 +121,7 @@
       "iftrue": "0",
       "iftrueVal": "17",
       "iffalse": "3",
-      "iffalseVal": "23",
+      "iffalseVal": "28",
       "storage2": "0",
       "varName2": "image",
       "name": "Await Response Call Action"
@@ -151,7 +151,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "20",
+      "iffalseVal": "25",
       "storage2": "1",
       "varName2": "channelname",
       "name": "Await Response Call Action"
@@ -162,6 +162,36 @@
       "info": "6",
       "storage": "1",
       "varName2": "lmsg4",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the color to be?\n\nYou can use \"RANDOM\" or a Hex Color Code",
+      "storage": "1",
+      "varName2": "msg5",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "22",
+      "storage2": "1",
+      "varName2": "color",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg5",
       "name": "Store Member Info"
     },
     {
@@ -185,7 +215,7 @@
     {
       "title": "${tempVars(\"title\")}",
       "author": "",
-      "color": "RANDOM",
+      "color": "${tempVars(\"color\")}",
       "timestamp": "true",
       "url": "",
       "authorIcon": "",
@@ -205,7 +235,7 @@
     {
       "title": "${tempVars(\"title\")}",
       "author": "",
-      "color": "RANDOM",
+      "color": "${tempVars(\"color\")}",
       "timestamp": "true",
       "url": "",
       "authorIcon": "",
@@ -276,12 +306,22 @@
       "name": "Delete Message"
     },
     {
+      "storage": "1",
+      "varName": "msg5",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg5",
+      "name": "Delete Message"
+    },
+    {
       "name": "End Action Sequence"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "Hey, <@${tempVars(\"id\")}> you waited too long and the command timed out.\nPlease try again, this message self destructs in 30 seconds.",
+      "message": "Hey, ${member} you waited too long and the command timed out.\nPlease try again, this message self destructs in 30 seconds.",
       "storage": "1",
       "varName2": "timedout",
       "name": "Send Message"
@@ -368,6 +408,27 @@
     {
       "storage": "1",
       "varName": "lmsg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg5",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg5",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg5",
       "name": "Delete Message"
     },
     {
