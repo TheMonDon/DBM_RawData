@@ -2,7 +2,7 @@
   "name": "bug",
   "permissions": "NONE",
   "restriction": "1",
-  "_id": "NonEmbed",
+  "_id": "Embed",
   "actions": [
     {
       "member": "1",
@@ -107,7 +107,7 @@
       "comparison": "1",
       "value": "\"bot\"",
       "iftrue": "3",
-      "iftrueVal": "12",
+      "iftrueVal": "14",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -118,7 +118,7 @@
       "comparison": "1",
       "value": "\"server\"",
       "iftrue": "3",
-      "iftrueVal": "20",
+      "iftrueVal": "24",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -191,12 +191,34 @@
       "name": "Store Member Info"
     },
     {
-      "channel": "5",
-      "varName": "d_channel",
+      "title": "Bug Report",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "\t${msg.author.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
       "message": "${tempVars(\"bug\")}",
-      "storage": "0",
-      "varName2": "",
-      "name": "Send Message"
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "d_channel",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
     },
     {
       "storage": "1",
@@ -204,7 +226,7 @@
       "comparison": "0",
       "value": "",
       "iftrue": "3",
-      "iftrueVal": "21",
+      "iftrueVal": "25",
       "iffalse": "1",
       "iffalseVal": "10",
       "name": "Check Variable"
@@ -269,12 +291,34 @@
       "name": "Store Member Info"
     },
     {
-      "channel": "5",
-      "varName": "b_channel",
+      "title": "Bug Report",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "\t${msg.author.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
       "message": "${tempVars(\"bug\")}",
-      "storage": "0",
-      "varName2": "",
-      "name": "Send Message"
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "b_channel",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
     },
     {
       "storage": "1",
@@ -282,7 +326,7 @@
       "comparison": "0",
       "value": "",
       "iftrue": "3",
-      "iftrueVal": "12",
+      "iftrueVal": "14",
       "iffalse": "1",
       "iffalseVal": "10",
       "name": "Check Variable"
@@ -347,12 +391,34 @@
       "name": "Store Member Info"
     },
     {
-      "channel": "5",
-      "varName": "s_channel",
+      "title": "Bug Report",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "\t${msg.author.displayAvatarURL}",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
       "message": "${tempVars(\"bug\")}",
-      "storage": "0",
-      "varName2": "",
-      "name": "Send Message"
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "s_channel",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
     },
     {
       "storage": "1",
