@@ -1,0 +1,84 @@
+{
+  "name": "wallpaper",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please wait, gathering wallpaper information.",
+      "storage": "1",
+      "varName2": "first",
+      "name": "Send Message"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://wall.alphacoders.com/api2.0/get.php?auth=YOUR_API_KEY_HERE&method=random&count=1",
+      "path": "",
+      "storage": "1",
+      "varName": "wallpaper",
+      "debugMode": "0",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "wallpaper",
+      "path": "$.wallpapers.[url_image]",
+      "storage": "1",
+      "varName": "url_image",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "wallpaper",
+      "path": "$.wallpapers.[url_page]",
+      "storage": "1",
+      "varName": "url_page",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "storage": "1",
+      "varName": "first",
+      "name": "Delete Message"
+    },
+    {
+      "title": "${member.displayName}'s Wallpaper",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "imageUrl": "${tempVars(\"url_image\")}",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "[Image Page](${tempVars(\"url_page\")})",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    }
+  ]
+}
