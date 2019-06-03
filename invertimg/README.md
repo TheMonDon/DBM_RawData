@@ -8,3 +8,4 @@ This requires the node module "is-image-url" to be installed.
 Usage: [p]invertimg <none | @user | URL.png>
 
 Note: Probably requires DBM Beta and Mods.
+Note: Requires node module "is-image-url"
