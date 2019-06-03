@@ -60,7 +60,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "You must mention a user in order to use this command.\nUsage: ${server.tag}kill @user",
+      "message": "You must mention a user in order to use this command.\nUsage: ${server && server.tag || Files.data.settings.tag}kill @user",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
