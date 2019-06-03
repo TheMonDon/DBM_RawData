@@ -179,14 +179,34 @@
       "name": "End Action Sequence"
     },
     {
+      "title": "Error",
+      "author": "",
+      "color": "RED",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": "Please make sure you tagged two different people!\nEither \"${tempVars(\"member1\")}\" or \"${tempVars(\"member2\")}\" is not a member.\n\nUsage: ${server && server.tag || Files.data.settings.tag}ship @member1 @member2",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
       "channel": "0",
-      "varName": "",
-      "message": "Error: Either \"${tempVars(\"member1\")}\" or \"${tempVars(\"member2\")}\" is not a member.",
-      "storage": "0",
       "varName2": "",
+      "storage3": "0",
+      "varName3": "",
       "iffalse": "0",
       "iffalseVal": "",
-      "name": "Send Message"
+      "name": "Send Embed Message"
     }
   ]
 }
