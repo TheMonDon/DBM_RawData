@@ -22,11 +22,9 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "**Incorrect Usage:** Do ${server.tag}blacklist <add | remove | check> @user [reason]",
+      "message": "**Incorrect Usage:** Do ${server && server.tag || Files.data.settings.tag}blacklist <add | remove | check> @user [reason]",
       "storage": "0",
       "varName2": "",
-      "iffalse": "0",
-      "iffalseVal": "",
       "name": "Send Message"
     },
     {
