@@ -48,7 +48,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "Please mention a user in order to use this command!\n\nUsage: ${server.tag}rps @user",
+      "message": "Please mention a user in order to use this command!\n\nUsage: ${server && server.tag || Files.data.settings.tag}rps @user",
       "storage": "0",
       "varName2": "",
       "name": "Send Message"
