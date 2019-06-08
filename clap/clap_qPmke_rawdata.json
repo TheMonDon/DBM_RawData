@@ -78,7 +78,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "let text = tempVars(\"text\");\nlet split = text.split(' ').join(\" 👏 \");\nthis.storeValue(split, 1, \"split\", cache);\nActions.callNextAction(cache);",
+      "code": "let text = tempVars(\"text\");\nif(text.length > 1000) {\nmsg.channel.send('Please keep your text under 1000 characters.'); }\nelse { \nlet split = text.split(' ').join(\"👏\");\nthis.storeValue(split, 1, \"split\", cache);\nActions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
