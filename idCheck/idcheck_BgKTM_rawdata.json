@@ -1,0 +1,90 @@
+{
+  "name": "idcheck",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "BgKTM",
+  "actions": [
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "2",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: Please only enter 1 user ID\nUsage: idcheck (ID)",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "userid",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"userid\")}",
+      "storage": "1",
+      "varName": "userobj",
+      "name": "Find Member"
+    },
+    {
+      "list": "0",
+      "varName": "",
+      "item": "${tempVars(\"userobj\")}",
+      "storage": "1",
+      "varName2": "output",
+      "name": "Find Item in List"
+    },
+    {
+      "text": "${tempVars(\"output\")}",
+      "text2": "undefined",
+      "text3": "nothere",
+      "info": "0",
+      "storage": "1",
+      "varName": "output2",
+      "name": "Replace Text"
+    },
+    {
+      "storage": "1",
+      "varName": "output2",
+      "comparison": "1",
+      "value": "\"nothere\"",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "✅ The user with the ID: ${tempVars(\"userid\")} is in this server.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "❌ The user with the ID: ${tempVars(\"userid\")} is not in this server.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
