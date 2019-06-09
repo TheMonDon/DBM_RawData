@@ -180,7 +180,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "26",
+      "iffalseVal": "27",
       "storage2": "0",
       "varName2": "",
       "name": "Await Response Call Action"
@@ -245,7 +245,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "let winner = \"\";\n\nif(tempVars(\"author_reply\") === tempVars(\"mention_reply\")) {\n   winner = \"tie\";\n   this.storeValue(winner, 1, \"winner\", cache);\n   Actions.callNextAction(cache);\n}\nif(tempVars(\"author_reply\") === \"rock\") {\n   if(tempVars(\"mention_reply\") === \"scissors\") {\n      winner = \"author\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else { \n      winner = \"mention\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   }\n}\nif(tempVars(\"author_reply\") === \"paper\") {\n   if(tempVars(\"mention_reply\") === \"rock\") {\n      winner = \"author\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else { \n      if(tempVars(\"mention_reply\") === \"scissors\") {\n         winner = \"mention\";\n         this.storeValue(winner, 1, \"winner\", cache);\n         Actions.callNextAction(cache);\n      }\n   }\n}\nif(tempVars(\"author_reply\") === \"scissors\") {\n   if(tempVars(\"mention_reply\") === \"rock\") {\n      winner = \"mention\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else {\n      if(tempVars(\"mention_reply\") === \"paper\") {\n         winner = \"author\";\n         this.storeValue(winner, 1, \"winner\", cache);\n         Actions.callNextAction(cache);\n      }\n   }\n}",
+      "code": "let winner = \"\";\n\nif(tempVars(\"author_reply\") === tempVars(\"mention_reply\")) {\n   winner = \"tie\";\n   this.storeValue(winner, 1, \"winner\", cache);\n   Actions.callNextAction(cache);\n}\n\nif(tempVars(\"author_reply\") === \"rock\") {\n   if(tempVars(\"mention_reply\") === \"scissors\") {\n      winner = \"author\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else { \n      winner = \"mention\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   }\n}\n\nif(tempVars(\"author_reply\") === \"paper\") {\n   if(tempVars(\"mention_reply\") === \"rock\") {\n      winner = \"author\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else { \n      if(tempVars(\"mention_reply\") === \"scissors\") {\n         winner = \"mention\";\n         this.storeValue(winner, 1, \"winner\", cache);\n         Actions.callNextAction(cache);\n      }\n   }\n}\n\nif(tempVars(\"author_reply\") === \"scissors\") {\n   if(tempVars(\"mention_reply\") === \"rock\") {\n      winner = \"mention\";\n      this.storeValue(winner, 1, \"winner\", cache);\n      Actions.callNextAction(cache);\n   } else {\n      if(tempVars(\"mention_reply\") === \"paper\") {\n         winner = \"author\";\n         this.storeValue(winner, 1, \"winner\", cache);\n         Actions.callNextAction(cache);\n      }\n   }\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"

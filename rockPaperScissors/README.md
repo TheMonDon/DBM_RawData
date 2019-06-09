@@ -7,5 +7,6 @@ Usage: [p]rps @user
 
 Suggested by S h i r o ツ#0101
 
+Known Bug: If both players choose rock it will give an error, but still say tied.
 Note: Probably requires DBM Beta and Mods.
 If you encounter any errors that I did not see, please DM me!
