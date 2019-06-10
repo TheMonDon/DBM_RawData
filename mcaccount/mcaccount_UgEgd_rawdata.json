@@ -98,7 +98,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "let request = require(\"request\")\nrequest({\n    url: \"https://api.mojang.com/users/profiles/minecraft/${tempVars(\"nick\")}\",\n    json: true\n}, function (error, response, body) {\n    if (!error && response.statusCode === 200) {\n       Actions.callNextAction(cache)\n    }\n    else {\n        console.log(\"${tempVars(\"nick\")} name not found\")\n        jumpto = 20\n        const index = Math.max(jumpto - 1, 0);\n        cache.index = index - 1;\n        Actions.callNextAction(cache)\n    }\n})",
+      "code": "let request = require(\"request\")\nrequest({\n    url: \"https://api.mojang.com/users/profiles/minecraft/${tempVars(\"nick\")}\",\n    json: true\n}, function (error, response, body) {\n    if (!error && response.statusCode === 200) {\n       Actions.callNextAction(cache)\n    }\n    else {\n        jumpto = 22\n        const index = Math.max(jumpto - 1, 0);\n        cache.index = index - 1;\n        Actions.callNextAction(cache)\n    }\n})",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
