@@ -1,0 +1,644 @@
+{
+  "name": "marry",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "pCLTs",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "0",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Usage: ${server && server.tag || Files.data.settings.tag}marry @user\nor ${server && server.tag || Files.data.settings.tag}marry cancel",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "param1",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "1",
+      "varName": "param1",
+      "comparison": "1",
+      "value": "\"cancel\"",
+      "iftrue": "3",
+      "iftrueVal": "57",
+      "iffalse": "0",
+      "iffalseVal": "10",
+      "name": "Check Variable"
+    },
+    {
+      "comment": "Marry @member",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: Incorrect usage!  \nUsage: ${server && server.tag || Files.data.settings.tag}marry @user or marry cancel",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "marry_pend",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "marry_pend",
+      "comparison": "1",
+      "value": "\"pending\"",
+      "iftrue": "0",
+      "iftrueVal": "2",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You already have a marriage proposal pending!  \nPlease wait for that to finish.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "marry",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "marry",
+      "comparison": "1",
+      "value": "\"none\"",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You're already married!\nDo ${server && server.tag || Files.data.settings.tag}spouse",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "marry2",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "marry2",
+      "comparison": "1",
+      "value": "\"none\"",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "This person is already married or has a marriage proposal pending.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "0",
+      "varName2": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You can't marry a bot...",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "MU",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "CU",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "MU",
+      "comparison": "1",
+      "value": "tempVars(\"CU\")",
+      "iftrue": "0",
+      "iftrueVal": "2",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You can't marry yourself, silly!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"MU\")}",
+      "storage": "1",
+      "varName": "marriage_pend_mem",
+      "name": "Find Member"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"pending\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "marriage_pend_mem",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"pending\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "marriage_pend_mem",
+      "info": "3",
+      "storage": "1",
+      "varName2": "ment_display",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}mp",
+      "changeType": "0",
+      "value": "\"${tempVars(\"MU\")}\"",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Your request to marry ${tempVars(\"ment_display\")} has been sent!\nThey will have 10 minutes to reply before auto-denial.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "marriage_pend_mem",
+      "message": "${member} has requested to get married to you!\n\nPlease react with an upvote or downvote depending on whether or not you accept this proposal.\n\nYou have ten minutes to reply before it is deemed automatic-denial.",
+      "storage": "1",
+      "varName2": "proposal",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "proposal",
+      "emoji": "4",
+      "varName2": "✅",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "storage": "1",
+      "varName": "proposal",
+      "emoji": "4",
+      "varName2": "❌",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "message": "1",
+      "varName": "proposal",
+      "info": "1",
+      "find": "✅",
+      "storage": "1",
+      "varName2": "yes",
+      "name": "Find Reaction"
+    },
+    {
+      "message": "1",
+      "varName": "proposal",
+      "info": "1",
+      "find": "❌",
+      "storage": "1",
+      "varName2": "no",
+      "name": "Find Reaction"
+    },
+    {
+      "storage": "1",
+      "varName": "proposal",
+      "filter": "['✅', '❌'].includes(reaction.emoji.name) && user.id === '${tempVars(\"MU\")}'",
+      "max": "1",
+      "time": "600000",
+      "maxEmojis": "",
+      "maxUsers": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "storage2": "1",
+      "varName2": "react",
+      "name": "Await Reaction Call Action"
+    },
+    {
+      "storage": "1",
+      "varName": "proposal",
+      "name": "Delete Message"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "console.log(tempVars(\"react\").emoji.name)",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "reaction": "1",
+      "varName2": "yes",
+      "iftrue": "3",
+      "iftrueVal": "14",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If User Reacted"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "reaction": "1",
+      "varName2": "no",
+      "iftrue": "3",
+      "iftrueVal": "8",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check If User Reacted"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}mp",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "test",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "test",
+      "comparison": "1",
+      "value": "\"none\"",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "5",
+      "varName": "marriage_pend_mem",
+      "message": "You did not reply within the 10 minute time limit and ${member} has been notified that their request has been auto-denied.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "Sorry but ${mentionedUser} did not accept or deny your proposal in time, it has been auto-denied.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "marriage_pend_mem",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "5",
+      "varName": "marriage_pend_mem",
+      "message": "${member} has been informed of your decision to not marry them.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "Sorry but ${mentionedUser} has denied your marriage proposal!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "5",
+      "varName": "marriage_pend_mem",
+      "message": "${member} has been informed of your decision to marry them.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "1",
+      "varName": "",
+      "message": "Yay! ${mentionedUser} has accepted your marriage proposal.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"${tempVars(\"MU\")}\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "0",
+      "varName": "marriage_pend_mem",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"${tempVars(\"CU\")}\"",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "Cancel Pending",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "pending",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "pending",
+      "comparison": "1",
+      "value": "\"pending\"",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You don't currently have a pending marriage proposal!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}mp",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "m_pending",
+      "name": "Store Member Data"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"m_pending\")}",
+      "storage": "1",
+      "varName": "m_pend",
+      "name": "Find Member"
+    },
+    {
+      "channel": "5",
+      "varName": "m_pend",
+      "message": "${member} has decided to cancel their marriage proposal.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Your marriage proposal has been cancelled.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}mp",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "2",
+      "varName": "m_pend",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "fail",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "_aliases": [
+    "marriage",
+    "m"
+  ]
+}

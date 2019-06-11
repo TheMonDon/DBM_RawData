@@ -1,0 +1,45 @@
+{
+  "name": "mreset",
+  "permissions": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "PLwXg",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You have to do ${server.tag}mreset @user",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Marriage data set to \"none\" for ${mentionedUser}.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

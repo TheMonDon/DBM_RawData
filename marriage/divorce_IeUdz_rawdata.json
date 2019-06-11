@@ -1,0 +1,157 @@
+{
+  "name": "divorce",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "IeUdz",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "comment": "Divorce",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "d_pend",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "divorce",
+      "comparison": "1",
+      "value": "\"pending\"",
+      "iftrue": "0",
+      "iftrueVal": "2",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You aren't married, your marriage proposal is still pending!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "defaultVal": "\"none\"",
+      "storage": "1",
+      "varName2": "divorce",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "divorce",
+      "comparison": "1",
+      "value": "\"none\"",
+      "iftrue": "0",
+      "iftrueVal": "2",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You're not married!\nDo ${server && server.tag || Files.data.settings.tag}marry @user",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"divorce\")}",
+      "storage": "1",
+      "varName": "d_member",
+      "name": "Find Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You are now divorced from: ${tempVars(\"d_member\")}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "d_member",
+      "message": "${member} has decided to divorce you.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "2",
+      "varName": "d_member",
+      "dataName": "${server.id}marriage",
+      "changeType": "0",
+      "value": "\"none\"",
+      "name": "Control Member Data"
+    }
+  ]
+}
