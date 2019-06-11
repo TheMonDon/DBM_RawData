@@ -315,9 +315,11 @@
     {
       "channel": "5",
       "varName": "marriage_pend_mem",
-      "message": "${member} has requested to get married to you!\n\nPlease react with an upvote or downvote depending on whether or not you accept this proposal.\n\nYou have ten minutes to reply before it is deemed automatic-denial.",
+      "message": "${member} has requested to get married to you!\n\nPlease react with yes/no depending on whether or not you accept this proposal.\n\nYou have ten minutes to reply before it is deemed automatic-denial.",
       "storage": "1",
       "varName2": "proposal",
+      "iffalse": "0",
+      "iffalseVal": "",
       "name": "Send Message"
     },
     {
@@ -374,14 +376,6 @@
       "storage": "1",
       "varName": "proposal",
       "name": "Delete Message"
-    },
-    {
-      "behavior": "0",
-      "interpretation": "0",
-      "code": "console.log(tempVars(\"react\").emoji.name)",
-      "storage": "0",
-      "varName": "",
-      "name": "Run Script"
     },
     {
       "member": "0",
