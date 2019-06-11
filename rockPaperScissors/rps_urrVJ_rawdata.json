@@ -57,6 +57,30 @@
       "name": "End Action Sequence"
     },
     {
+      "member": "0",
+      "varName": "",
+      "info": "9",
+      "varName2": "",
+      "iftrue": "0",
+      "iftrueVal": "2",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "That's cheating! You can't play against yourself.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
       "storage": "3",
       "varName": "commands",
       "changeType": "1",
