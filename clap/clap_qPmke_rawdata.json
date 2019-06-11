@@ -78,18 +78,10 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "let text = tempVars(\"text\");\nif(text.length > 1000) {\nmsg.channel.send('Please keep your text under 1000 characters.'); }\nelse { \nlet split = text.split(' ').join(\"👏\");\nthis.storeValue(split, 1, \"split\", cache);\nActions.callNextAction(cache);\n}",
+      "code": "let text = tempVars(\"text\");\n\nclap = text.split(' ').join(\"👏\");\n\nif(clap.length < 1000){\n   msg.channel.send(clap);\n   msg.channel.send(clap.length);\n}else{\n    msg.channel.send('That message is to long! After the conversion you had ' + (clap.length) +'/1000 characters')\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
-    },
-    {
-      "channel": "0",
-      "varName": "",
-      "message": "${tempVars(\"split\")}",
-      "storage": "0",
-      "varName2": "",
-      "name": "Send Message"
     }
   ]
 }
