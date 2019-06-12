@@ -26,37 +26,19 @@
       "name": "Check Server Data"
     },
     {
-      "server": "0",
-      "varName": "",
-      "dataName": "mj_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "mj_sys",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "logcount",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "changeType": "1",
-      "value": "1",
-      "name": "Control Server Data"
-    },
-    {
       "member": "2",
       "varName": "member",
       "info": "1",
       "storage": "1",
       "varName2": "id",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "16",
+      "storage": "1",
+      "varName2": "avatar",
       "name": "Store Member Info"
     },
     {
@@ -129,11 +111,10 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "mj_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "mj_sys",
-      "name": "Store Server Data"
+      "dataName": "log_system",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
     },
     {
       "server": "0",
