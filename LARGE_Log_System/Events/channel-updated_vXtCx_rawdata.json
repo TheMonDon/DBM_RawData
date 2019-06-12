@@ -8,15 +8,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled6",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "isenabled",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled6",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -24,32 +15,6 @@
       "iffalse": "1",
       "iffalseVal": "",
       "name": "Check Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "cu_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "cu_sys",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "logcount",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "changeType": "1",
-      "value": "1",
-      "name": "Control Server Data"
     },
     {
       "channel": "3",
@@ -71,8 +36,8 @@
       "varName": "isvoice?",
       "comparison": "0",
       "value": "",
-      "iftrue": "2",
-      "iftrueVal": "46",
+      "iftrue": "3",
+      "iftrueVal": "40",
       "iffalse": "0",
       "iffalseVal": "1",
       "name": "Check Variable"
@@ -96,8 +61,8 @@
     {
       "storage": "1",
       "varName": "channelbeforename",
-      "comparison": "5",
-      "value": "ticket-",
+      "comparison": "10",
+      "value": "\"ticket-\"",
       "iftrue": "1",
       "iftrueVal": "",
       "iffalse": "0",
@@ -572,11 +537,10 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "cu_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "cu_sys",
-      "name": "Store Server Data"
+      "dataName": "log_system",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
     },
     {
       "server": "0",
