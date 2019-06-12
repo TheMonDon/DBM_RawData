@@ -26,11 +26,6 @@
       "name": "Check Server Data"
     },
     {
-      "time": "7",
-      "measurement": "1",
-      "name": "Wait"
-    },
-    {
       "role": "3",
       "varName": "rolecreated",
       "info": "2",
@@ -41,39 +36,13 @@
     {
       "storage": "1",
       "varName": "name",
-      "comparison": "5",
-      "value": "ticket-",
+      "comparison": "10",
+      "value": "\"ticket-\"",
       "iftrue": "1",
       "iftrueVal": "",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "rc_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "rc_sys",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "logcount",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "changeType": "1",
-      "value": "1",
-      "name": "Control Server Data"
     },
     {
       "role": "3",
@@ -137,20 +106,10 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "rc_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "rc_sys",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
       "dataName": "log_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "logcount",
-      "name": "Store Server Data"
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
     },
     {
       "server": "0",
