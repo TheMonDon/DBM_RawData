@@ -26,32 +26,6 @@
       "name": "Check Server Data"
     },
     {
-      "server": "0",
-      "varName": "",
-      "dataName": "cd_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "cd_sys",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "logcount",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "log_system",
-      "changeType": "1",
-      "value": "1",
-      "name": "Control Server Data"
-    },
-    {
       "channel": "3",
       "varName": "channeldeleted",
       "info": "2",
@@ -62,8 +36,8 @@
     {
       "storage": "1",
       "varName": "channelname",
-      "comparison": "5",
-      "value": "ticket-",
+      "comparison": "10",
+      "value": "\"ticket-\"",
       "iftrue": "1",
       "iftrueVal": "",
       "iffalse": "0",
@@ -133,11 +107,10 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "cd_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "cd_sys",
-      "name": "Store Server Data"
+      "dataName": "log_system",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
     },
     {
       "server": "0",
