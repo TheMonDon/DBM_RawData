@@ -78,7 +78,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "let text = tempVars(\"text\");\n\nclap = text.split(' ').join(\"👏\");\n\nif(clap.length < 1000){\n   msg.channel.send(clap);\n   msg.channel.send(clap.length);\n}else{\n    msg.channel.send('That message is to long! After the conversion you had ' + (clap.length) +'/1000 characters')\n}",
+      "code": "const text = tempVars(\"text\");\n\ntext1 = text.replace(/\\n/g, \" \");\n\nclap = text1.split(' ').join(\"👏\");\n\nif(clap.length < 1000){\n   msg.channel.send(clap);\n}else{\n    msg.channel.send('That message is to long! After the conversion you had ' + (clap.length) +'/1000 characters')\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
