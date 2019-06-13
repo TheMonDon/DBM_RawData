@@ -52,6 +52,17 @@
       "name": "Check If Member"
     },
     {
+      "storage": "1",
+      "varName": "message",
+      "comparison": "1",
+      "value": "tempVars(\"messageafter\")",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
       "message": "1",
       "varName": "message",
       "info": "4",
@@ -201,7 +212,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "Other Information",
-      "message": "Had `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**\nList of Mentioned Users: \n${tempVars(\"mention_listafter\")}",
+      "message": "Has `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**\nList of Mentioned Users: \n${tempVars(\"mention_listafter\")}",
       "inline": "1",
       "name": "Add Embed Field"
     },

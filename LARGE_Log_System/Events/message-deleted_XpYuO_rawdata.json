@@ -170,7 +170,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "Other Information",
-      "message": "Has `@everyone` ping? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_count\")}**\nList of Mentioned Users: \n${tempVars(\"mention_list\")}",
+      "message": "Had `@everyone` ping? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_count\")}**\nList of Mentioned Users: \n${tempVars(\"mention_list\")}",
       "inline": "1",
       "name": "Add Embed Field"
     },
