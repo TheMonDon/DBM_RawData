@@ -22,7 +22,7 @@
       "iftrue": "3",
       "iftrueVal": "2",
       "iffalse": "3",
-      "iffalseVal": "18",
+      "iffalseVal": "20",
       "name": "Check Server Data"
     },
     {
@@ -137,10 +137,31 @@
     {
       "server": "0",
       "varName": "",
+      "dataName": "isenabled13",
+      "changeType": "0",
+      "value": "1",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "isenabled14",
+      "changeType": "0",
+      "value": "1",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
       "dataName": "all",
       "changeType": "0",
       "value": "1",
       "name": "Control Server Data"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
     },
     {
       "channel": "0",
@@ -252,10 +273,31 @@
     {
       "server": "0",
       "varName": "",
+      "dataName": "isenabled13",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "isenabled14",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
       "dataName": "all",
       "changeType": "0",
       "value": "0",
       "name": "Control Server Data"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
     },
     {
       "channel": "0",

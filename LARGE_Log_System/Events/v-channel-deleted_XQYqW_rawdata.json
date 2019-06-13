@@ -109,15 +109,6 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "vcd_system",
-      "defaultVal": "0",
-      "storage": "1",
-      "varName2": "vcd_sys",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
       "dataName": "log_system",
       "changeType": "1",
       "value": "1",

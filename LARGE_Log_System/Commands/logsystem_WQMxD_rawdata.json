@@ -124,10 +124,19 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "isenabled1",
-      "defaultVal": "1",
+      "dataName": "ec_system",
+      "defaultVal": "0",
       "storage": "1",
-      "varName2": "enabled1",
+      "varName2": "ec_sys",
+      "name": "Store Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "ed_system",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "ed_sys",
       "name": "Store Server Data"
     },
     {
@@ -590,6 +599,66 @@
       "name": "Control Variable"
     },
     {
+      "server": "0",
+      "varName": "",
+      "dataName": "isenabled13",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Server Data"
+    },
+    {
+      "changeType": "0",
+      "value": "\"✅\"",
+      "storage": "1",
+      "varName": "emoji",
+      "name": "Control Variable"
+    },
+    {
+      "count": "1",
+      "name": "Skip Actions"
+    },
+    {
+      "changeType": "0",
+      "value": "\"❌\"",
+      "storage": "1",
+      "varName": "emoji",
+      "name": "Control Variable"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "isenabled14",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Server Data"
+    },
+    {
+      "changeType": "0",
+      "value": "\"✅\"",
+      "storage": "1",
+      "varName": "emoji",
+      "name": "Control Variable"
+    },
+    {
+      "count": "1",
+      "name": "Skip Actions"
+    },
+    {
+      "changeType": "0",
+      "value": "\"❌\"",
+      "storage": "1",
+      "varName": "emoji",
+      "name": "Control Variable"
+    },
+    {
       "title": "",
       "author": "",
       "color": "#36393F",
@@ -606,7 +675,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "Toggle Status",
-      "message": "**VChannel Created**: *${tempVars(\"enabledis1\")}*\n**VChannel Deleted**: *${tempVars(\"enabledis2\")}*\n**Role Update**: ${tempVars(\"enabledis3\")}\n**Role Created**: ${tempVars(\"enabledis11\")}\n**Role Deleted**: ${tempVars(\"enabledis12\")}\n**Channel Created**: *${tempVars(\"enabledis4\")}*\n**Channel Deleted**: *${tempVars(\"enabledis5\")}*\n**Channel Updated**: *${tempVars(\"enabledis6\")}*\n**Member Joined**: *${tempVars(\"enabledis7\")}*\n**Member Left**: *${tempVars(\"enabledis8\")}*\n**Message Deleted**: *${tempVars(\"enabledis9\")}*\n**Message Edited**: *${tempVars(\"enabledis10\")}*",
+      "message": "**VChannel Created**: *${tempVars(\"enabledis1\")}*\n**VChannel Deleted**: *${tempVars(\"enabledis2\")}*\n**Role Update**: ${tempVars(\"enabledis3\")}\n**Role Created**: ${tempVars(\"enabledis11\")}\n**Role Deleted**: ${tempVars(\"enabledis12\")}\n**Channel Created**: *${tempVars(\"enabledis4\")}*\n**Channel Deleted**: *${tempVars(\"enabledis5\")}*\n**Channel Updated**: *${tempVars(\"enabledis6\")}*\n**Member Joined**: *${tempVars(\"enabledis7\")}*\n**Member Left**: *${tempVars(\"enabledis8\")}*\n**Message Deleted**: *${tempVars(\"enabledis9\")}*\n**Message Edited**: *${tempVars(\"enabledis10\")}*\n**Emoji Created**: *${tempVars(\"emoji\")}*\n**Emoji Deleted**: *${tempVars(\"emoji1\")}*",
       "inline": "0",
       "name": "Add Embed Field"
     },
@@ -614,7 +683,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "System Status",
-      "message": "Total: **${tempVars(\"log_sys\")}**\nDeleted Messages: **${tempVars(\"del_sys\")}**\nEdited Messages: **${tempVars(\"edit_sys\")}**\nChannels Created: **${tempVars(\"cc_sys\")}**\nChannels Deleted: **${tempVars(\"cd_sys\")}**\nChannels Updated: **${tempVars(\"cu_sys\")}**\nMembers Left: **${tempVars(\"ml_sys\")}**\nMembers Joined: **${tempVars(\"mj_sys\")}**\nRoles Created: **${tempVars(\"rc_sys\")}**\nRoles Deleted: **${tempVars(\"rd_sys\")}**\nRoles Updated: **${tempVars(\"ru_sys\")}**\nVoice Channels Created: **${tempVars(\"vcc_sys\")}**\nVoice Channels Deleted: **${tempVars(\"vcd_sys\")}**",
+      "message": "Total: **${tempVars(\"log_sys\")}**\nDeleted Messages: **${tempVars(\"del_sys\")}**\nEdited Messages: **${tempVars(\"edit_sys\")}**\nChannels Created: **${tempVars(\"cc_sys\")}**\nChannels Deleted: **${tempVars(\"cd_sys\")}**\nChannels Updated: **${tempVars(\"cu_sys\")}**\nMembers Left: **${tempVars(\"ml_sys\")}**\nMembers Joined: **${tempVars(\"mj_sys\")}**\nRoles Created: **${tempVars(\"rc_sys\")}**\nRoles Deleted: **${tempVars(\"rd_sys\")}**\nRoles Updated: **${tempVars(\"ru_sys\")}**\nVoice Channels Created: **${tempVars(\"vcc_sys\")}**\nVoice Channels Deleted: **${tempVars(\"vcd_sys\")}**\nEmojis Created: **${tempVars(\"ec_sys\")}**\nEmojis Deleted: **${tempVars(\"ed_sys\")}**",
       "inline": "0",
       "name": "Add Embed Field"
     },
