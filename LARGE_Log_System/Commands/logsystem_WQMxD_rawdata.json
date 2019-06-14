@@ -173,15 +173,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled2",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled2",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled2",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -207,15 +198,6 @@
       "changeType": "0",
       "value": "\"❌\"",
       "name": "Control Variable"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled3",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled3",
-      "name": "Store Server Data"
     },
     {
       "server": "0",
@@ -251,15 +233,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled4",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled4",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled4",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -285,15 +258,6 @@
       "changeType": "0",
       "value": "\"❌\"",
       "name": "Control Variable"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled5",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled5",
-      "name": "Store Server Data"
     },
     {
       "server": "0",
@@ -329,15 +293,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled6",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled6",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled6",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -363,15 +318,6 @@
       "changeType": "0",
       "value": "\"❌\"",
       "name": "Control Variable"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled7",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled7",
-      "name": "Store Server Data"
     },
     {
       "server": "0",
@@ -407,15 +353,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled8",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled8",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled8",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -441,15 +378,6 @@
       "changeType": "0",
       "value": "\"❌\"",
       "name": "Control Variable"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled9",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled9",
-      "name": "Store Server Data"
     },
     {
       "server": "0",
@@ -485,15 +413,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled10",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled10",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled10",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -524,15 +443,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled11",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled11",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled11",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -558,15 +468,6 @@
       "changeType": "0",
       "value": "\"❌\"",
       "name": "Control Variable"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled12",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "enabled12",
-      "name": "Store Server Data"
     },
     {
       "server": "0",
@@ -644,7 +545,7 @@
       "changeType": "0",
       "value": "\"✅\"",
       "storage": "1",
-      "varName": "emoji",
+      "varName": "emoji1",
       "name": "Control Variable"
     },
     {
@@ -655,7 +556,7 @@
       "changeType": "0",
       "value": "\"❌\"",
       "storage": "1",
-      "varName": "emoji",
+      "varName": "emoji1",
       "name": "Control Variable"
     },
     {
@@ -701,5 +602,8 @@
       "varName2": "",
       "name": "Send Embed Message"
     }
+  ],
+  "_aliases": [
+    "ls"
   ]
 }

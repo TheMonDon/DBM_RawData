@@ -5,6 +5,23 @@
   "_id": "nrrth",
   "actions": [
     {
+      "condition": "0",
+      "comparison": "0",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Parameters"
+    },
+    {
+      "count": "117",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
       "info": "0",
       "infoIndex": "1",
       "storage": "1",
@@ -849,7 +866,7 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "isenabled13",
+      "dataName": "isenabled14",
       "changeType": "0",
       "value": "0",
       "name": "Control Server Data"
@@ -892,6 +909,9 @@
       "name": "Send Message"
     },
     {
+      "name": "End Action Sequence"
+    },
+    {
       "title": "",
       "author": "",
       "color": "#36393F",
@@ -925,5 +945,10 @@
       "varName2": "",
       "name": "Send Embed Message"
     }
+  ],
+  "_aliases": [
+    "togglelog",
+    "lt",
+    "tl"
   ]
 }
