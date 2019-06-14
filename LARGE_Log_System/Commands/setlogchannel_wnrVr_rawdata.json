@@ -10,13 +10,6 @@
       "name": "Delete Message"
     },
     {
-      "info": "4",
-      "infoIndex": "1",
-      "storage": "2",
-      "varName": "mlchannel",
-      "name": "Store Command Params"
-    },
-    {
       "member": "1",
       "varName": "",
       "permission": "ADMINISTRATOR",
@@ -97,6 +90,24 @@
     {
       "storage": "2",
       "varName": "mlchannel",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "6",
+      "name": "Check Variable"
+    },
+    {
+      "info": "4",
+      "infoIndex": "1",
+      "storage": "2",
+      "varName": "mlchannel",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "2",
+      "varName": "mlchannel",
       "name": "Save Variable"
     },
     {
@@ -126,17 +137,61 @@
       "name": "Send Embed Message"
     },
     {
+      "name": "End Action Sequence"
+    },
+    {
+      "changeType": "0",
+      "value": "${tempVars(\"mentionedchannel\")}",
+      "storage": "2",
+      "varName": "mlchannel",
+      "name": "Control Variable"
+    },
+    {
+      "info": "4",
+      "infoIndex": "1",
+      "storage": "2",
+      "varName": "mlchannel",
+      "name": "Store Command Params"
+    },
+    {
       "storage": "2",
       "varName": "mlchannel",
       "name": "Save Variable"
     },
     {
-      "server": "0",
-      "varName": "",
-      "info": "2",
+      "title": "Sucessfully Set",
+      "author": "",
+      "color": "RED",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://cdn.discordapp.com/emojis/482184108555108358.png?v=1",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
       "storage": "1",
-      "varName2": "ServerName",
-      "name": "Store Server Info"
+      "varName": "cs",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "cs",
+      "message": "Everything related to logs will be posted in ${serverVars(\"mlchannel\")}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "cs",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
     }
   ]
 }
