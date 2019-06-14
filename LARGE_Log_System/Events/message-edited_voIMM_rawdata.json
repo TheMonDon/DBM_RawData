@@ -18,22 +18,6 @@
     },
     {
       "message": "1",
-      "varName": "message",
-      "info": "2",
-      "storage": "1",
-      "varName2": "text",
-      "name": "Store Message Info"
-    },
-    {
-      "message": "1",
-      "varName": "messageafter",
-      "info": "2",
-      "storage": "1",
-      "varName2": "textafter",
-      "name": "Store Message Info"
-    },
-    {
-      "message": "1",
       "varName": "messageafter",
       "info": "3",
       "storage": "1",
@@ -50,6 +34,22 @@
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check If Member"
+    },
+    {
+      "message": "1",
+      "varName": "message",
+      "info": "2",
+      "storage": "1",
+      "varName2": "text",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
+      "varName": "messageafter",
+      "info": "2",
+      "storage": "1",
+      "varName2": "textafter",
+      "name": "Store Message Info"
     },
     {
       "storage": "1",
@@ -72,26 +72,10 @@
     },
     {
       "message": "1",
-      "varName": "message",
-      "info": "14",
-      "storage": "1",
-      "varName2": "mention_count",
-      "name": "Store Message Info"
-    },
-    {
-      "message": "1",
       "varName": "messageafter",
       "info": "14",
       "storage": "1",
       "varName2": "mention_countafter",
-      "name": "Store Message Info"
-    },
-    {
-      "message": "1",
-      "varName": "message",
-      "info": "13",
-      "storage": "1",
-      "varName2": "mention_list",
       "name": "Store Message Info"
     },
     {
@@ -104,10 +88,10 @@
     },
     {
       "message": "1",
-      "varName": "message",
-      "info": "11",
+      "varName": "messageafter",
+      "info": "15",
       "storage": "1",
-      "varName2": "everyone_ping",
+      "varName2": "msg_url",
       "name": "Store Message Info"
     },
     {
@@ -210,9 +194,35 @@
     },
     {
       "storage": "1",
+      "varName": "mention_countafter",
+      "comparison": "4",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
       "varName": "embed",
       "fieldName": "Other Information",
-      "message": "Has `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**\nList of Mentioned Users: \n${tempVars(\"mention_listafter\")}",
+      "message": "[Message Link](${tempVars(\"msg_url\")})\nHas `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**\nList of Mentioned Users: \n${tempVars(\"mention_listafter\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "count": "2",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Other Information",
+      "message": "[Message Link](${tempVars(\"msg_url\")})\nHas `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**",
       "inline": "1",
       "name": "Add Embed Field"
     },
