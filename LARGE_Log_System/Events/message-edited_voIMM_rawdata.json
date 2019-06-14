@@ -53,9 +53,9 @@
     },
     {
       "storage": "1",
-      "varName": "message",
+      "varName": "text",
       "comparison": "1",
-      "value": "tempVars(\"messageafter\")",
+      "value": "tempVars(\"textafter\")",
       "iftrue": "1",
       "iftrueVal": "",
       "iffalse": "0",
