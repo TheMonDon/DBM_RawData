@@ -1,0 +1,250 @@
+{
+  "name": "color",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "ifezI",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "text",
+      "name": "Store Command Params"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "const isImageUrl = require('is-image-url')\nlet imgurl = tempVars(\"text\");\n\nif (isImageUrl(imgurl)) {\n   Actions.callNextAction(cache);\n} else {\n     cache.index = cache.index + 3;\n     Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "(async () => {\n  const imageurl = tempVars('text')\n  const rgbHex = require('rgb-hex');\n  const { getColorFromURL } = require('color-thief-node')\n  const rgb = await getColorFromURL(imageurl)\n  const hex1 = rgbHex(rgb.join(\",\"));\nlet img = \"true\";\nthis.storeValue(img, 1, \"img\", cache);\nthis.storeValue(hex1, 1, \"text\", cache);\nActions.callNextAction(cache);\n})()",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "count": "5",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//RGB\nconst term = tempVars(\"text\").replace('/\\s/g','');\nlet re = /rgb[\\s+]?\\((:?\\d+\\.?\\d?%?)(,|-|\\/\\|)\\s?(:?\\d+\\.?\\d?%?)(,|-|\\/\\|)\\s?(:?\\d+\\.?\\d?%?)\\)/i\n//Thanks to CoolGuy#9889 for the RGB regex.\n\nif (re.test(term)) {\n   Actions.callNextAction(cache);\n} else {\n     cache.index = cache.index + 3;\n     Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//RGB\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").replace('rgb(','').replace(')','');\ninput = input.split(', ')\n\ntry {\n   css = convert.rgb.keyword(input);\n   hex = convert.rgb.hex(input);\n   hsl = convert.rgb.hsl(input);\n   cmyk = convert.rgb.cmyk(input);\n\nthis.storeValue(css, 1, \"css\", cache);\nthis.storeValue(hex, 1, \"hex\", cache);\nthis.storeValue(input, 1, \"rgb\", cache);\nthis.storeValue(hsl, 1, \"hsl\", cache);\nthis.storeValue(cmyk, 1, \"cmyk\", cache);\nActions.callNextAction(cache);\n}\ncatch (err) {\n   msg.channel.send(\"error: `\" + input + \"` is not a color (hex)\");\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "count": "11",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//HEX\nconst term = tempVars(\"text\");\nconst re = new RegExp(\"^(#|0x)?([a-fA-F0-9]){3,6}$\");\n\nif (re.test(term)) {\n   Actions.callNextAction(cache);\n} else {\n     cache.index = cache.index + 3;\n     Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//HEX\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").toUpperCase();\n\nwhile (true) {\nif(input.charAt() == \"#\") {\ninput = input.substr(1); break;\n} else if(input.charAt() == \"0\" && input.charAt(1) == \"X\") {\ninput = input.substr(2); break; }break;}\n\ntry {\n   css = convert.hex.keyword(input);\n   rgb = convert.hex.rgb(input);\n   hsl = convert.hex.hsl(input);\n   cmyk = convert.hex.cmyk(input);\n\nthis.storeValue(css, 1, \"css\", cache);\nthis.storeValue(input, 1, \"hex\", cache);\nthis.storeValue(rgb, 1, \"rgb\", cache);\nthis.storeValue(hsl, 1, \"hsl\", cache);\nthis.storeValue(cmyk, 1, \"cmyk\", cache);\nActions.callNextAction(cache);\n}\ncatch (err) {\n   msg.channel.send(\"error: `\" + input + \"` is not a color (hex)\");\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "count": "7",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//CSS\nconst term = tempVars(\"text\");\nconst re = new RegExp(\"^[a-zA-Z]+$\");\n\nif (re.test(term)) {\n   Actions.callNextAction(cache);\n} else {\n     cache.index = cache.index + 3;\n     Actions.callNextAction(cache)\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//CSS\nlet convert = require('color-convert');\n\nconst input = tempVars(\"text\").toLowerCase();\n\ntry {\nwhile(input.length < 2){\nif(input === \"r\") {\n   input = \"red\"; break;\n} else if(input === \"g\") {\n   input = \"green\"; break;\n} else if(input === \"b\") {\n   input = \"blue\"; break;\n} else { break; }}\n\n   hex = convert.keyword.hex(input);\n   rgb = convert.keyword.rgb(input);\n   hsl = convert.keyword.hsl(input);\n   cmyk = convert.keyword.cmyk(input);\n\nthis.storeValue(hex, 1, \"hex\", cache);\nthis.storeValue(rgb, 1, \"rgb\", cache);\nthis.storeValue(hsl, 1, \"hsl\", cache);\nthis.storeValue(cmyk, 1, \"cmyk\", cache);\nthis.storeValue(input, 1, \"css\", cache);\nActions.callNextAction(cache);\n} catch (err) {\n   msg.channel.send(\"error: `\" + input + \"` is not a color\");\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "count": "3",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: Your input is incorrect, please try again.\nCorrect Formats:\n`#00FF00` OR `00FF00`\n`blue`\n`rgb(135, 206, 235)` OR `rgb(135,206,235)`\n`(image URL)`",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//Formatting rgb\nlet rgb = tempVars(\"rgb\").toString();\nrgb = rgb.split(',').join(', ');\n\n//Formatting cmyk\nlet cmyk = tempVars(\"cmyk\").toString();\ncmyk = cmyk.split(',').join('%, ') + \"%\";\n\n//Formatting hsl\nlet str = tempVars(\"hsl\").toString();\nh = str.split(',')[0];\ns = str.split(',')[1];\nl = str.split(',')[2];\nhsl = h + \", \" +  s + \"%, \" + l + \"%\"\n\nthis.storeValue(hsl, 1, \"hsl\", cache);\nthis.storeValue(cmyk, 1, \"cmyk\", cache);\nthis.storeValue(rgb, 1, \"rgb\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "rgb",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "img",
+      "comparison": "1",
+      "value": "\"true\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Variable"
+    },
+    {
+      "title": "Dominant Color From Image",
+      "author": "${member.displayName}",
+      "color": "${tempVars(\"hex\")}",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"hex\")}.png&text=+",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "count": "2",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Color Info",
+      "author": "${member.displayName}",
+      "color": "${tempVars(\"hex\")}",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"hex\")}.png&text=+",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "**Name:** ${tempVars(\"css\")}\n**Hex:** #${tempVars(\"hex\")}\n**Rgb:** rgb(${tempVars(\"rgb\")})\n**Hsl:** hsl(${tempVars(\"hsl\")})\n**Cmyk:** cmyk(${tempVars(\"cmyk\")})",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    }
+  ]
+}
