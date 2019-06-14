@@ -9,6 +9,7 @@ Correct Formats:
 `(image URL)`  
 
 # Node Modules
+If you use WrexMods these will be installed automatically.
 This requires a few node modules:
 - is-image-url
 - color-thief-node
