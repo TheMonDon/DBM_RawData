@@ -1,0 +1,332 @@
+{
+  "name": "userinfo",
+  "permissions": "NONE",
+  "restriction": "1",
+  "actions": [
+    {
+      "comment": "Created By: iidxntmodalt#8629 | Edited By: TheMonDon#1721",
+      "color": "#ff80ff",
+      "name": "Comment"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "8",
+      "iffalse": "0",
+      "iffalseVal": "16",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "22",
+      "name": "Check Parameters"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "userid",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"userid\")}",
+      "storage": "1",
+      "varName": "userid_user",
+      "find2": "0",
+      "name": "Find Member"
+    },
+    {
+      "member": "2",
+      "varName": "userid_user",
+      "info": "0",
+      "storage": "1",
+      "varName2": "ment_obj",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "userid_user",
+      "info": "18",
+      "storage": "1",
+      "varName2": "joindate",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "userid_user",
+      "info": "21",
+      "storage": "1",
+      "varName2": "accountcreated",
+      "name": "Store Member Info"
+    },
+    {
+      "count": "4",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "user",
+      "info": "0",
+      "storage": "1",
+      "varName2": "ment_obj",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "0",
+      "varName": "user",
+      "info": "18",
+      "storage": "1",
+      "varName2": "joindate",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "0",
+      "varName": "user",
+      "info": "21",
+      "storage": "1",
+      "varName2": "accountcreated",
+      "name": "Store Member Info"
+    },
+    {
+      "title": "${tempVars(\"ment_obj\").user.username}'s Info",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"ment_obj\").user.displayAvatarURL}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Username**",
+      "message": "${tempVars(\"ment_obj\").user.username}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Username w/ Tag**",
+      "message": "${tempVars(\"ment_obj\").user.tag}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Nickname**",
+      "message": "${tempVars(\"ment_obj\").displayName}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "User ID",
+      "message": "${tempVars(\"ment_obj\").user.id}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Status**",
+      "message": "${tempVars(\"ment_obj\").presence.status}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Joined Server**",
+      "message": "${tempVars(\"joindate\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Account Created**",
+      "message": "${tempVars(\"accountcreated\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Is Bannable?**",
+      "message": "${tempVars(\"ment_obj\").bannable}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "**Roles**",
+      "message": "${tempVars(\"ment_obj\").roles.array()}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "18",
+      "storage": "1",
+      "varName2": "joindate",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "accountcreated",
+      "name": "Store Member Info"
+    },
+    {
+      "title": "${msg.author.username}'s Info",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${msg.author.displayAvatarURL}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "reembed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Username**",
+      "message": "${msg.author.username}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Username w/ Tag**",
+      "message": "${msg.author.tag}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Nickname**",
+      "message": "${member.displayName}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**User ID**",
+      "message": "${msg.author.id}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Status**",
+      "message": "${user.presence.status}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Join Date**",
+      "message": "${tempVars(\"joindate\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Account Created**",
+      "message": "${tempVars(\"accountcreated\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Is Bannable?**",
+      "message": "${member.bannable}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "fieldName": "**Role List**",
+      "message": "${member.roles.array()}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "reembed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_id": "aVVNz",
+  "_aliases": [
+    "ui",
+    "uinfo"
+  ]
+}
