@@ -16,4 +16,4 @@ This requires a few node modules:
 - color-convert
 
 # Output Info: 
-(image) https://i.imgur.com/hEWKQuh.png
+![Output Info](https://i.imgur.com/hEWKQuh.png)
