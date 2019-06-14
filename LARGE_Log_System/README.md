@@ -7,7 +7,7 @@ To set your channel do [p]setlogchannel #logchannel.
 
 Note: Requires DBM Beta and Mods.
 
-#What is logged?
+# What is logged?
 Currently the following things are logged:
 * Channel Created
 * Channel-Deleted
@@ -23,4 +23,4 @@ Currently the following things are logged:
 * Emoji-Created
 * Emoji-Deleted
 
-#If you have any suggestions or things to change, let me know!
+# If you have any suggestions or things to change, let me know!
