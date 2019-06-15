@@ -23,7 +23,8 @@ Currently the following things are logged:
 * Emoji-Deleted
 
 # How do I enable it?
-You do [p]togglelog all
+You do [p]togglelog all  
+You can also do [p]togglelog (individual types) to disable certain "modules" like [p]togglelog emoji-deleted.  
 
 # If you have any suggestions or things to change, let me know!
 
