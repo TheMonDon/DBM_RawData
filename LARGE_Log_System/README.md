@@ -23,7 +23,10 @@ Currently the following things are logged:
 * Emoji-Deleted
 
 # How do I enable it?
-You do [p]togglelog all  
+You have to set your log channel and toggle the modules you want enabled.  
+1. [p]setlogchannel #logchannel  
+2. [p]togglelog all  
+
 You can also do [p]togglelog (individual types) to disable certain "modules" like [p]togglelog emoji-deleted.  
 
 # If you have any suggestions or things to change, let me know!
