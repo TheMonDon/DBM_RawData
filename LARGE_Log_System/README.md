@@ -3,8 +3,6 @@ Original author: DogV2
 
 # Description
 This is an advanced logging system that checks multiple things and sends it to your defined channel.
-To set your channel do [p]setlogchannel #logchannel.
-
 
 # What is logged?
 Currently the following things are logged:
