@@ -28,4 +28,4 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 
 # If you have any suggestions or things to change, let me know!
 
-Note: Requires DBM Beta and Mods.
+Note: Requires DBM Beta and [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/master).
