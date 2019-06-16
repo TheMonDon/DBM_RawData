@@ -30,3 +30,7 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 # If you have any suggestions or things to change, let me know!
 
 Note: Requires DBM Beta and [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/master).
+
+# Known Bugs
+1. If a message is sent prior to bot being online, and message is edited, message edit is not logged.
+2. If a message is sent prior to bot being online, and message is deleted, message deletetion is not logged.
