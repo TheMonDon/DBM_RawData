@@ -27,6 +27,14 @@
     },
     {
       "role": "3",
+      "varName": "roleafter",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Role Info"
+    },
+    {
+      "role": "3",
       "varName": "rolebefore",
       "info": "2",
       "storage": "1",
@@ -58,14 +66,6 @@
       "name": "Store Role Info"
     },
     {
-      "role": "3",
-      "varName": "roleafter",
-      "info": "1",
-      "storage": "1",
-      "varName2": "id",
-      "name": "Store Role Info"
-    },
-    {
       "title": "Role \"${tempVars(\"rolebeforename\")}\" updated",
       "author": "",
       "color": "${tempVars(\"roleaftercolor\")}",
@@ -79,7 +79,7 @@
       "name": "Create Embed Message"
     },
     {
-      "comment": "Do not touch below",
+      "comment": "Role Name",
       "color": "#ff0000",
       "name": "Comment"
     },
@@ -91,7 +91,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "4",
+      "iffalseVal": "3",
       "name": "Check Variable"
     },
     {
@@ -99,13 +99,6 @@
       "varName": "UPDATEDrolename",
       "changeType": "0",
       "value": "\"❌\"",
-      "name": "Control Variable"
-    },
-    {
-      "storage": "1",
-      "varName": "NEWrolename",
-      "changeType": "0",
-      "value": "tempVars(\"rolebeforename\")",
       "name": "Control Variable"
     },
     {
@@ -155,7 +148,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "4",
+      "iffalseVal": "3",
       "name": "Check Variable"
     },
     {
@@ -163,13 +156,6 @@
       "varName": "UPDATEDrolecolor",
       "changeType": "0",
       "value": "\"❌\"",
-      "name": "Control Variable"
-    },
-    {
-      "storage": "1",
-      "varName": "NEWrolecolor",
-      "changeType": "0",
-      "value": "tempVars(\"rolebeforecolor\")",
       "name": "Control Variable"
     },
     {
@@ -208,13 +194,6 @@
     },
     {
       "storage": "1",
-      "varName": "embed",
-      "message": "ID : ${tempVars(\"id\")}",
-      "footerIcon": "",
-      "name": "Set Embed Footer"
-    },
-    {
-      "storage": "1",
       "varName": "UPDATEDrolename",
       "comparison": "1",
       "value": "\"❌\"",
@@ -232,8 +211,15 @@
       "iftrue": "1",
       "iftrueVal": "",
       "iffalse": "0",
-      "iffalseVal": "2",
+      "iffalseVal": "1",
       "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "ID : ${tempVars(\"id\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
     },
     {
       "storage": "1",
