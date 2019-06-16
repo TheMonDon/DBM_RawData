@@ -72,6 +72,14 @@
     },
     {
       "message": "1",
+      "varName": "message",
+      "info": "9",
+      "storage": "1",
+      "varName2": "editnum",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
       "varName": "messageafter",
       "info": "14",
       "storage": "1",
@@ -222,7 +230,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "Other Information",
-      "message": "[Message Link](${tempVars(\"msg_url\")})\nHas `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**",
+      "message": "[Message Link](${tempVars(\"msg_url\")})\nNumber of edits: ${tempVars(\"editnum\").length - 1}\nHas `@everyone` ping now? ${tempVars(\"ping\")} \nMentioned Member count: **${tempVars(\"mention_countafter\")}**",
       "inline": "1",
       "name": "Add Embed Field"
     },
