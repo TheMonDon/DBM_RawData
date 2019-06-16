@@ -88,7 +88,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//RGB\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").trim().replace('rgb(', '').replace(')', '');\ninput = input.replace('/\\s/g', '');\ninput = input.split(',');\n\ntry {\n    css = convert.rgb.keyword(input);\n    hex = convert.rgb.hex(input);\n    hsl = convert.rgb.hsl(input);\n    cmyk = convert.rgb.cmyk(input);\n\n    this.storeValue(css, 1, \"css\", cache);\n    this.storeValue(hex, 1, \"hex\", cache);\n    this.storeValue(input, 1, \"rgb\", cache);\n    this.storeValue(hsl, 1, \"hsl\", cache);\n    this.storeValue(cmyk, 1, \"cmyk\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    //Thanks again to coolguy for this random hex code!\n    let input = Math.floor(Math.random() * 16777215).toString(16);\n    let random = \"true\";\n    css = convert.hex.keyword(input);\n    rgb = convert.hex.rgb(input);\n    hsl = convert.hex.hsl(input);\n    cmyk = convert.hex.cmyk(input);\n\n    this.storeValue(css, 1, \"css\", cache);\n    this.storeValue(input, 1, \"hex\", cache);\n    this.storeValue(rgb, 1, \"rgb\", cache);\n    this.storeValue(hsl, 1, \"hsl\", cache);\n    this.storeValue(cmyk, 1, \"cmyk\", cache);\n    this.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//RGB\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").trim().replace('rgb(', '').replace(')', '');\ninput = input.replace('/\\s/g', '');\ninput = input.split(',');\n\ntry {\nlet color = {\n    \"css\" : convert.rgb.keyword(input),\n    \"hex\" : convert.rgb.hex(input),\n    \"hsl\" : convert.rgb.hsl(input),\n    \"cmyk\" : convert.rgb.cmyk(input),\n    \"rgb\" : input\n}\n    this.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    this.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -111,7 +111,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//HEX\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").toUpperCase();\n\nwhile (true) {\n    if (input.charAt() == \"#\") {\n        input = input.substr(1);\n        break;\n    } else if (input.charAt() == \"0\" && input.charAt(1) == \"X\") {\n        input = input.substr(2);\n        break;\n    }\n    break;\n}\n\ntry {\n    css = convert.hex.keyword(input);\n    rgb = convert.hex.rgb(input);\n    hsl = convert.hex.hsl(input);\n    cmyk = convert.hex.cmyk(input);\n\n    this.storeValue(css, 1, \"css\", cache);\n    this.storeValue(input, 1, \"hex\", cache);\n    this.storeValue(rgb, 1, \"rgb\", cache);\n    this.storeValue(hsl, 1, \"hsl\", cache);\n    this.storeValue(cmyk, 1, \"cmyk\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    //Thanks again to coolguy for this random hex code!\n    let input = Math.floor(Math.random() * 16777215).toString(16);\n    let random = \"true\"\n    css = convert.hex.keyword(input);\n    rgb = convert.hex.rgb(input);\n    hsl = convert.hex.hsl(input);\n    cmyk = convert.hex.cmyk(input);\n\n    this.storeValue(css, 1, \"css\", cache);\n    this.storeValue(input, 1, \"hex\", cache);\n    this.storeValue(rgb, 1, \"rgb\", cache);\n    this.storeValue(hsl, 1, \"hsl\", cache);\n    this.storeValue(cmyk, 1, \"cmyk\", cache);\n    this.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//HEX\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").toUpperCase();\n\nwhile (true) {\n    if (input.charAt() == \"#\") {\n        input = input.substr(1);\n        break;\n    } else if (input.charAt() == \"0\" && input.charAt(1) == \"X\") {\n        input = input.substr(2);\n        break;\n    }\n    break;\n}\n\ntry {\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    this.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    this.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -134,7 +134,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//CSS\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").toLowerCase();\n\ntry {\n    while (input.length < 2) {\n        if (input === \"r\") {\n            input = \"red\";\n            break;\n        } else if (input === \"g\") {\n            input = \"green\";\n            break;\n        } else if (input === \"b\") {\n            input = \"blue\";\n            break;\n        } else {\n            break;\n        }\n    }\n\n    hex = convert.keyword.hex(input);\n    rgb = convert.keyword.rgb(input);\n    hsl = convert.keyword.hsl(input);\n    cmyk = convert.keyword.cmyk(input);\n\n    this.storeValue(hex, 1, \"hex\", cache);\n    this.storeValue(rgb, 1, \"rgb\", cache);\n    this.storeValue(hsl, 1, \"hsl\", cache);\n    this.storeValue(cmyk, 1, \"cmyk\", cache);\n    this.storeValue(input, 1, \"css\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    //Thanks again to coolguy for this random hex code!\n    let input = Math.floor(Math.random() * 16777215).toString(16);\n    let random = \"true\"\n    css = convert.hex.keyword(input);\n    rgb = convert.hex.rgb(input);\n    hsl = convert.hex.hsl(input);\n    cmyk = convert.hex.cmyk(input);\n\n    this.storeValue(css, 1, \"css\", cache);\n    this.storeValue(input, 1, \"hex\", cache);\n    this.storeValue(rgb, 1, \"rgb\", cache);\n    this.storeValue(hsl, 1, \"hsl\", cache);\n    this.storeValue(cmyk, 1, \"cmyk\", cache);\n    this.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//CSS\nlet convert = require('color-convert');\n\nlet input = tempVars(\"text\").toLowerCase();\n\ntry {\n    while (input.length < 2) {\n        if (input === \"r\") {\n            input = \"red\";\n            break;\n        } else if (input === \"g\") {\n            input = \"green\";\n            break;\n        } else if (input === \"b\") {\n            input = \"blue\";\n            break;\n        } else {\n            break;\n        }\n    }\n\n    var color = {\n        \"hex\": convert.keyword.hex(input),\n        \"rgb\": convert.keyword.rgb(input),\n        \"hsl\": convert.keyword.hsl(input),\n        \"cmyk\": convert.keyword.cmyk(input),\n        \"css\": input\n    };\n\n    this.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    this.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -160,14 +160,6 @@
       "name": "End Action Sequence"
     },
     {
-      "behavior": "1",
-      "interpretation": "0",
-      "code": "//Formatting rgb\nlet rgb = tempVars(\"rgb\").toString();\nrgb = rgb.split(',').join(', ');\n\n//Formatting cmyk\nlet cmyk = tempVars(\"cmyk\").toString();\ncmyk = cmyk.split(',').join('%, ') + \"%\";\n\n//Formatting hsl\nlet str = tempVars(\"hsl\").toString();\nh = str.split(',')[0];\ns = str.split(',')[1];\nl = str.split(',')[2];\nhsl = h + \", \" +  s + \"%, \" + l + \"%\"\n\nthis.storeValue(hsl, 1, \"hsl\", cache);\nthis.storeValue(cmyk, 1, \"cmyk\", cache);\nthis.storeValue(rgb, 1, \"rgb\", cache);\nActions.callNextAction(cache);",
-      "storage": "0",
-      "varName": "rgb",
-      "name": "Run Script"
-    },
-    {
       "storage": "1",
       "varName": "img",
       "comparison": "1",
@@ -181,12 +173,12 @@
     {
       "title": "Dominant Color From Image",
       "author": "${member.displayName}",
-      "color": "${tempVars(\"hex\")}",
+      "color": "${tempVars(\"color\").hex}",
       "url": "",
       "authorIcon": "${msg.author.displayAvatarURL}",
       "authorUrl": "",
       "imageUrl": "",
-      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"hex\")}.png&text=+",
+      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"color\").hex}.png&text=+",
       "timestamp": "false",
       "debug": "false",
       "text": "",
@@ -215,18 +207,26 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "3",
+      "iffalseVal": "4",
       "name": "Check Variable"
     },
     {
-      "title": " Invalid color code. Random one assigned: ",
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//Random Color\nlet convert = require('color-convert');\n\nlet input = Math.floor(Math.random() * 16777215).toString(16);\n//Thanks again to coolguy for this random hex code!\n\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    this.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "title": "Invalid color code. Random one assigned: ",
       "author": "${member.displayName}",
-      "color": "${tempVars(\"hex\")}",
+      "color": "${tempVars(\"color\").hex}",
       "url": "",
       "authorIcon": "${msg.author.displayAvatarURL}",
       "authorUrl": "",
       "imageUrl": "",
-      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"hex\")}.png&text=+",
+      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"color\").hex}.png&text=+",
       "timestamp": "false",
       "debug": "false",
       "text": "",
@@ -250,12 +250,12 @@
     {
       "title": "Color Info",
       "author": "${member.displayName}",
-      "color": "${tempVars(\"hex\")}",
+      "color": "${tempVars(\"color\").hex}",
       "url": "",
       "authorIcon": "${msg.author.displayAvatarURL}",
       "authorUrl": "",
       "imageUrl": "",
-      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"hex\")}.png&text=+",
+      "thumbUrl": "https://dummyimage.com/100x100/${tempVars(\"color\").hex}.png&text=+",
       "timestamp": "false",
       "debug": "false",
       "text": "",
@@ -270,9 +270,17 @@
       "name": "Create Embed Message"
     },
     {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//Formatting rgb\nlet rgb = JSON.stringify(tempVars(\"color\").rgb).slice(1, -1);\nrgb = rgb.replace(/['\"]+/g, '').split(',').join(', ');\n\n//Formatting cmyk\nlet cmyk = JSON.stringify(tempVars(\"color\").cmyk).slice(1, -1);\ncmyk = cmyk.split(',').join('%, ') + \"%\";\n\n//Formatting hsl\nlet str = JSON.stringify(tempVars(\"color\").hsl).slice(1, -1);\nh = str.split(',')[0];\ns = str.split(',')[1];\nl = str.split(',')[2];\nhsl = h + \", \" + s + \"%, \" + l + \"%\"\n\n//getting originals back\nlet css = JSON.stringify(tempVars(\"color\").css).slice(1, -1);\nlet hex = JSON.stringify(tempVars(\"color\").hex).slice(1, -1);\n\n//saving color again\nvar color = {\n    \"css\": css,\n    \"hex\": hex,\n    \"rgb\": rgb,\n    \"cmyk\": cmyk,\n    \"hsl\": hsl\n};\nthis.storeValue(color, 1, \"color\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "rgb",
+      "name": "Run Script"
+    },
+    {
       "storage": "1",
       "varName": "embed",
-      "message": "**Name:** ${tempVars(\"css\")}\n**Hex:** #${tempVars(\"hex\")}\n**Rgb:** rgb(${tempVars(\"rgb\")})\n**Hsl:** hsl(${tempVars(\"hsl\")})\n**Cmyk:** cmyk(${tempVars(\"cmyk\")})",
+      "message": "**Name:** ${tempVars(\"color\").css}\n**Hex:** #${tempVars(\"color\").hex}\n**Rgb:** rgb(${tempVars(\"color\").rgb})\n**Hsl:** hsl(${tempVars(\"color\").hsl})\n**Cmyk:** cmyk(${tempVars(\"color\").cmyk})",
       "name": "Set Embed Description"
     },
     {
