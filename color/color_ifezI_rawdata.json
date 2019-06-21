@@ -57,7 +57,7 @@
     {
       "behavior": "0",
       "interpretation": "0",
-      "code": "let text = tempVars(\"text\");\ntext = text.trim().replace(/\\s/g, '');",
+      "code": "let text = tempVars(\"text\");\ntext = text.trim().replace(/\\s/g, '').replace(/\\./g, '');",
       "storage": "1",
       "varName": "text",
       "name": "Run Script"
@@ -213,7 +213,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//Random Color\nlet convert = require('color-convert');\n\nlet input = Math.floor(Math.random() * 16777215).toString(16);\n//Thanks again to coolguy for this random hex code!\n\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    this.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);",
+      "code": "//Random Color\nlet convert = require('color-convert');\n\nlet input = \"000000\".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);})\n\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    this.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -294,5 +294,6 @@
       "iffalseVal": "",
       "name": "Send Embed Message"
     }
-  ]
+  ],
+  "comType": "0"
 }
