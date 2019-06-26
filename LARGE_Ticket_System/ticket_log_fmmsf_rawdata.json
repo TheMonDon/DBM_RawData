@@ -1,0 +1,71 @@
+{
+  "name": "ticket log",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "fmmsf",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "10",
+      "value": "\"ticket-\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "1",
+      "value": "\"ticket-logs\"",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "message": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "text",
+      "name": "Store Message Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "22",
+      "storage": "1",
+      "varName2": "tag",
+      "name": "Store Member Info"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "const d = new Date();\nconst year = d.getFullYear();\nconst month = String(d.getMonth()).padStart(2, \"0\");\nconst day = String(d.getDay()).padStart(2, \"0\");\nconst hour = String(d.getHours()).padStart(2, \"0\");\nconst min = String(d.getMinutes()).padStart(2, \"0\");\nconst timestamp = month + \"/\" + day + \"/\" + year + \" \" +  hour + \":\" + min;\nthis.storeValue(timestamp, 1, \"timestamp\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "input": "${tempVars(\"timestamp\")} - [${tempVars(\"tag\")}]: ${tempVars(\"text\")}",
+      "format": ".txt",
+      "filename": "${tempVars(\"name\")}",
+      "filepath": "./logs/",
+      "filetask": "2",
+      "name": "File Control"
+    }
+  ],
+  "comType": "3"
+}

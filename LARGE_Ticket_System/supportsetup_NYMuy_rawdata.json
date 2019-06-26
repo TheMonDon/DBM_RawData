@@ -1,0 +1,175 @@
+{
+  "name": "supportsetup",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "NYMuy",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "10",
+      "storage": "1",
+      "varName2": "owner",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "owner",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#36393F",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": ":x: You are not authorized!\n\nLacking `GUILD_OWNER` permission.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "roleName": "Support Team",
+      "hoist": "true",
+      "mentionable": "false",
+      "color": "#DB7093",
+      "position": "",
+      "storage": "2",
+      "varName": "supportTeamRole",
+      "name": "Create Role"
+    },
+    {
+      "channelName": "Tickets",
+      "position": "",
+      "storage": "2",
+      "varName": "ticketsCategory",
+      "name": "Create Category Channel"
+    },
+    {
+      "channelName": "On Hold Tickets",
+      "position": "",
+      "storage": "2",
+      "varName": "holdCategory",
+      "name": "Create Category Channel"
+    },
+    {
+      "channel": "4",
+      "varName": "ticketsCategory",
+      "info": "1",
+      "storage": "2",
+      "varName2": "ticketsCategoryID",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "4",
+      "varName": "holdCategory",
+      "info": "1",
+      "storage": "2",
+      "varName2": "holdCategoryID",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "2",
+      "varName": "ticketsCategoryID",
+      "name": "Save Variable"
+    },
+    {
+      "storage": "2",
+      "varName": "holdCategoryID",
+      "name": "Save Variable"
+    },
+    {
+      "channelName": "ticket-logs",
+      "topic": "",
+      "position": "",
+      "storage": "2",
+      "varName": "ticketLogsChannel",
+      "name": "Create Text Channel"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketLogsChannel",
+      "channelType": "0",
+      "toChange": "5",
+      "newState": "${serverVars(\"ticketsCategoryID\")}",
+      "name": "Edit Channel"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketLogsChannel",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketLogsChannel",
+      "permission": "SEND_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketsCategory",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "storage": "4",
+      "varName": "holdCategory",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "channel": "4",
+      "varName": "ticketsCategory",
+      "role": "4",
+      "varName2": "supportTeamRole",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "4",
+      "varName": "holdCategory",
+      "role": "4",
+      "varName2": "supportTeamRole",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Role Channel Perms"
+    }
+  ],
+  "comType": "0",
+  "_aliases": []
+}

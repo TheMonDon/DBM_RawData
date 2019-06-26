@@ -1,0 +1,210 @@
+{
+  "name": "forceclose",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "vaDgD",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "5",
+      "value": "'ticket-'",
+      "iftrue": "3",
+      "iftrueVal": "6",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#36393F",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error1",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error1",
+      "message": ":x: You are not in a ticket channel.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error1",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "errmsg",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "errmsg",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "find": "ticket-logs",
+      "storage": "1",
+      "varName": "ticketlogs",
+      "name": "Find Channel"
+    },
+    {
+      "info": "1",
+      "find": "Support Team",
+      "storage": "1",
+      "varName": "supportTeam",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "supportTeam",
+      "iftrue": "3",
+      "iftrueVal": "6",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#36393F",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": ":x: You are not authorized!\nLacking role: `Support Team`\n\nIf you think this is an error, contact an owner.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "errmsg1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "errmsg1",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "tempVars(\"channelName\").split(\"-\")[1]\n",
+      "storage": "1",
+      "varName": "user",
+      "name": "Run Script"
+    },
+    {
+      "info": "1",
+      "find": "${tempVars(\"user\")}",
+      "storage": "1",
+      "varName": "user1",
+      "find2": "0",
+      "name": "Find Member"
+    },
+    {
+      "channel": "5",
+      "varName": "user1",
+      "file": "./logs/${tempVars(\"name\")}.txt",
+      "message": "Your ticket was force closed by: ${member}.\nHere is the log file from your ticket.",
+      "name": "Send File"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Channel"
+    },
+    {
+      "title": "Ticket Forceclosed",
+      "author": "",
+      "color": "#e65df4",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "forceClosedTicket",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "forceClosedTicket",
+      "message": "A ticket been forcefully closed by Support Member ${member}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "forceClosedTicket",
+      "fieldName": "Ticket ID",
+      "message": "${tempVars(\"channelName\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "forceClosedTicket",
+      "channel": "5",
+      "varName2": "ticketlogs",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": []
+}

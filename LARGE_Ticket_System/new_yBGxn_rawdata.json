@@ -1,0 +1,343 @@
+{
+  "name": "new",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "yBGxn",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "10",
+      "value": "\"ticket-\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You're already in a ticket!",
+      "storage": "1",
+      "varName2": "ait",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "ait",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "text",
+      "name": "Store Command Params"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "0",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error** You need to specify a reason.\n\n`${server && server.tag || Files.data.settings.tag}new <reason>`",
+      "storage": "1",
+      "varName2": "msg2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "tickets",
+      "defaultVal": "1",
+      "storage": "1",
+      "varName2": "ticketcount",
+      "name": "Store Server Data"
+    },
+    {
+      "channelName": "ticket-${member.displayName}-${tempVars(\"ticketcount\")}",
+      "categoryID": "${serverVars(\"ticketsCategoryID\")}",
+      "topic": "${tempVars(\"text\")}",
+      "position": "",
+      "storage": "1",
+      "varName": "newTix",
+      "name": "Create Text Channel"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "tickets",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
+    },
+    {
+      "channel": "3",
+      "varName": "newTix",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Channel Info"
+    },
+    {
+      "comment": "Command message reply",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "title": "Ticket Created",
+      "author": "${member.displayName}",
+      "color": "#e65df4",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "created",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "created",
+      "message": "Thanks for creating a ticket! You can view it by going to ${tempVars(\"newTix\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "created",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "createdmsg",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "comment": "Set Perms",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "info": "1",
+      "find": "Support Team",
+      "storage": "1",
+      "varName": "supportRole",
+      "name": "Find Role"
+    },
+    {
+      "storage": "3",
+      "varName": "newTix",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "channel": "3",
+      "varName": "newTix",
+      "member": "1",
+      "varName2": "",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Member Channel Perms"
+    },
+    {
+      "channel": "3",
+      "varName": "newTix",
+      "role": "3",
+      "varName2": "supportRole",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${tempVars(\"name\")}_creator",
+      "changeType": "0",
+      "value": "1",
+      "name": "Control Member Data"
+    },
+    {
+      "comment": "Logging (inside)",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "title": "",
+      "author": "${member.displayName}",
+      "color": "#00FFFF",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "in",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "in",
+      "fieldName": "Ticket Created",
+      "message": "${member} has created a new ticket.",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "in",
+      "fieldName": "Subject",
+      "message": "${tempVars(\"text\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "in",
+      "channel": "5",
+      "varName2": "newTix",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "comment": "Logging",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "info": "1",
+      "find": "ticket-logs",
+      "storage": "1",
+      "varName": "ticketLogsChannel",
+      "name": "Find Channel"
+    },
+    {
+      "title": "Ticket Created",
+      "author": "",
+      "color": "#e65df4",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "log",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "log",
+      "message": "${member} has opened a new ticket ${tempVars(\"newTix\")}.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "log",
+      "fieldName": "Ticket ID",
+      "message": "ticket-${member.displayName}-${tempVars(\"ticketcount\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "log",
+      "channel": "5",
+      "varName2": "ticketLogsChannel",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "createdmsg",
+      "name": "Delete Message"
+    }
+  ],
+  "_aliases": [],
+  "comType": "0"
+}

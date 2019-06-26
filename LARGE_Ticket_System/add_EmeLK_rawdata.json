@@ -1,0 +1,348 @@
+{
+  "name": "add",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "EmeLK",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "5",
+      "value": "\"ticket-\"",
+      "iftrue": "3",
+      "iftrueVal": "6",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "RED",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": ":x: You are not in a ticket channel.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "errormsg",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "errormsg",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error:** You need to mention a user.\n\n`${server && server.tag || Files.data.settings.tag}add <@member>`",
+      "storage": "1",
+      "varName2": "error2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "error2",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "Permissions",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "chan",
+      "name": "Store Channel Info"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "const output = tempVars(\"chan\").permissionsFor(mentionedUser).has('VIEW_CHANNEL');\nthis.storeValue(output, 1, \"mperms\", cache);\nActions.callNextAction(cache);\n",
+      "storage": "0",
+      "varName": "memberperm",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "mperms",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":x: That user already has access to this ticket!",
+      "storage": "1",
+      "varName2": "err",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "err",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${tempVars(\"name\")}_creator",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error:** You have to be the ticket creator to add people.",
+      "storage": "1",
+      "varName2": "1error",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "1error",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "member": "0",
+      "varName2": "",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Member Channel Perms"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#00FFFF",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "error2",
+      "name": "Create Embed Message"
+    },
+    {
+      "comment": "Logging (inside)",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "error2",
+      "message": "A user has been added to the ticket.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error2",
+      "fieldName": "User Added",
+      "message": "${mentionedUser}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "error2",
+      "fieldName": "Added by",
+      "message": "${member}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "error2",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "comment": "Logging",
+      "color": "#60bff2",
+      "name": "Comment"
+    },
+    {
+      "info": "1",
+      "find": "ticket-logs",
+      "storage": "1",
+      "varName": "ticketLogsChannel",
+      "name": "Find Channel"
+    },
+    {
+      "title": "User added to Ticket",
+      "author": "",
+      "color": "#e65df4",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "addembed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "addembed",
+      "message": "A user has been added to a ticket.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "addembed",
+      "fieldName": "Ticket ID",
+      "message": "${tempVars(\"name\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "addembed",
+      "fieldName": "Added User",
+      "message": "${mentionedUser}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "addembed",
+      "fieldName": "Added By",
+      "message": "${member}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "addembed",
+      "channel": "5",
+      "varName2": "ticketLogsChannel",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": []
+}
