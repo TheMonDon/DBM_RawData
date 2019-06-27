@@ -9,12 +9,12 @@
       "varName": "",
       "info": "2",
       "storage": "1",
-      "varName2": "channelName",
+      "varName2": "name",
       "name": "Store Channel Info"
     },
     {
       "storage": "1",
-      "varName": "channelName",
+      "varName": "name",
       "comparison": "5",
       "value": "'ticket-'",
       "iftrue": "3",
@@ -37,7 +37,7 @@
     {
       "member": "1",
       "varName": "",
-      "dataName": "${tempVars(\"channelName\")}_creator",
+      "dataName": "${tempVars(\"name\")}_creator",
       "comparison": "1",
       "value": "1",
       "iftrue": "3",
