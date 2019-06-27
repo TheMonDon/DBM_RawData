@@ -5,6 +5,11 @@
   "_id": "neOUc",
   "actions": [
     {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
       "channel": "0",
       "varName": "",
       "info": "2",
