@@ -102,7 +102,7 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "ml_system",
+      "dataName": "ml_sys",
       "changeType": "1",
       "value": "1",
       "name": "Control Server Data"

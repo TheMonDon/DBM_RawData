@@ -8,15 +8,6 @@
       "server": "0",
       "varName": "",
       "dataName": "isenabled7",
-      "defaultVal": "1",
-      "storage": "1",
-      "varName2": "isenabled",
-      "name": "Store Server Data"
-    },
-    {
-      "server": "0",
-      "varName": "",
-      "dataName": "isenabled7",
       "comparison": "1",
       "value": "1",
       "iftrue": "0",
@@ -44,9 +35,9 @@
     {
       "member": "2",
       "varName": "member",
-      "info": "16",
+      "info": "22",
       "storage": "1",
-      "varName2": "avatar",
+      "varName2": "tag",
       "name": "Store Member Info"
     },
     {
@@ -56,14 +47,6 @@
       "storage": "1",
       "varName2": "mcount",
       "name": "Store Server Info"
-    },
-    {
-      "member": "2",
-      "varName": "member",
-      "info": "22",
-      "storage": "1",
-      "varName2": "tag",
-      "name": "Store Member Info"
     },
     {
       "title": "Member Joined",
@@ -119,7 +102,7 @@
     {
       "server": "0",
       "varName": "",
-      "dataName": "log_system",
+      "dataName": "mj_sys",
       "changeType": "1",
       "value": "1",
       "name": "Control Server Data"

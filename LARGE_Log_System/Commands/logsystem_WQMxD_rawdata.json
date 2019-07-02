@@ -584,7 +584,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "System Status",
-      "message": "Total: **${tempVars(\"log_sys\")}**\nDeleted Messages: **${tempVars(\"del_sys\")}**\nEdited Messages: **${tempVars(\"edit_sys\")}**\nChannels Created: **${tempVars(\"cc_sys\")}**\nChannels Deleted: **${tempVars(\"cd_sys\")}**\nChannels Updated: **${tempVars(\"cu_sys\")}**\nMembers Left: **${tempVars(\"ml_sys\")}**\nMembers Joined: **${tempVars(\"mj_sys\")}**\nRoles Created: **${tempVars(\"rc_sys\")}**\nRoles Deleted: **${tempVars(\"rd_sys\")}**\nRoles Updated: **${tempVars(\"ru_sys\")}**\nVoice Channels Created: **${tempVars(\"vcc_sys\")}**\nVoice Channels Deleted: **${tempVars(\"vcd_sys\")}**\nEmojis Created: **${tempVars(\"ec_sys\")}**\nEmojis Deleted: **${tempVars(\"ed_sys\")}**",
+      "message": "Total: **${tempVars(\"log_sys\")}**\nDeleted Messages: **${tempVars(\"del_sys\")}**\nEdited Messages: **${tempVars(\"edit_sys\")}**\nChannels Created: **${tempVars(\"cc_sys\")}**\nChannels Deleted: **${tempVars(\"cd_sys\")}**\nChannels Updated: **${tempVars(\"cu_sys\")}**\nMembers Joined: **${tempVars(\"mj_sys\")}**\nMembers Left: **${tempVars(\"ml_sys\")}**\nRoles Created: **${tempVars(\"rc_sys\")}**\nRoles Deleted: **${tempVars(\"rd_sys\")}**\nRoles Updated: **${tempVars(\"ru_sys\")}**\nVoice Channels Created: **${tempVars(\"vcc_sys\")}**\nVoice Channels Deleted: **${tempVars(\"vcd_sys\")}**\nEmojis Created: **${tempVars(\"ec_sys\")}**\nEmojis Deleted: **${tempVars(\"ed_sys\")}**",
       "inline": "0",
       "name": "Add Embed Field"
     },
@@ -605,5 +605,6 @@
   ],
   "_aliases": [
     "ls"
-  ]
+  ],
+  "comType": "0"
 }
