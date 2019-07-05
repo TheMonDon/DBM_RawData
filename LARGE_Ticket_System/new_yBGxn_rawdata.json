@@ -79,13 +79,47 @@
       "name": "Send Message"
     },
     {
-      "time": "5",
+      "time": "10",
       "measurement": "1",
       "name": "Wait"
     },
     {
       "storage": "1",
       "varName": "msg2",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "text",
+      "comparison": "8",
+      "value": "1024",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: Please keep the reason under 1024 characters.",
+      "storage": "1",
+      "varName2": "err1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "err1",
       "name": "Delete Message"
     },
     {
