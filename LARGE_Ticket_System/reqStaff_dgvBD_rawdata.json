@@ -1,0 +1,108 @@
+{
+  "name": "reqStaff",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "dgvBD",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "info": "1",
+      "find": "Support Team",
+      "storage": "1",
+      "varName": "support",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "support",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error:** You need to be support team member to use this command.",
+      "storage": "1",
+      "varName2": "msg1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Parameters"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "const folder = './logs/';\nconst fs = require('fs');\nlet list = [];\n\nfs.readdirSync(folder).forEach(file => {\n  list.push(file)\n});\nlist = list.toString().split(',').join('\\n');\nthis.storeValue(list, 1, \"list\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Files available to request:**\n${tempVars(\"list\")}",
+      "storage": "0",
+      "varName2": "b",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "file",
+      "name": "Store Command Params"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "const fs = require(\"fs\");\nconst path = `./logs/${tempVars(\"file\")}`;\n\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    msg.channel.send(\"That file doesn't exist!\")\n    .then(error => {error.delete(10000)})\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "file": "./logs/${tempVars(\"file\")}",
+      "message": "Here is the file you requested!",
+      "name": "Send File"
+    }
+  ],
+  "comType": "0"
+}
