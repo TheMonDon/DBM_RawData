@@ -164,6 +164,14 @@
       "name": "Send File"
     },
     {
+      "input": "",
+      "format": ".txt",
+      "filename": "${tempVars(\"name\")}",
+      "filepath": "./logs/",
+      "filetask": "3",
+      "name": "File Control"
+    },
+    {
       "storage": "0",
       "varName": "",
       "name": "Delete Channel"
