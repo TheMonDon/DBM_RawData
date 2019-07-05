@@ -31,10 +31,22 @@
     {
       "channel": "0",
       "varName": "",
-      "message": ":x:  You're not in a ticket channel.",
-      "storage": "0",
-      "varName2": "",
+      "message": "**Error:** You're not in a ticket channel.",
+      "storage": "1",
+      "varName2": "msg1",
+      "iffalse": "0",
+      "iffalseVal": "",
       "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
     },
     {
       "name": "End Action Sequence"
@@ -62,7 +74,7 @@
       "name": "Send Message"
     },
     {
-      "time": "5",
+      "time": "10",
       "measurement": "1",
       "name": "Wait"
     },
