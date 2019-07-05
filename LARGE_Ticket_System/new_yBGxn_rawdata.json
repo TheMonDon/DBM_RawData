@@ -220,6 +220,14 @@
       "name": "Comment"
     },
     {
+      "input": "${member.id}",
+      "format": ".txt",
+      "filename": "${tempVars(\"name\")}",
+      "filepath": "./logs/",
+      "filetask": "2",
+      "name": "File Control"
+    },
+    {
       "title": "",
       "author": "${member.displayName}",
       "color": "#00FFFF",

@@ -135,24 +135,30 @@
       "name": "End Action Sequence"
     },
     {
+      "filename": "./logs/${tempVars(\"name\")}.txt",
+      "storage": "1",
+      "varName2": "log",
+      "name": "Read File"
+    },
+    {
       "behavior": "0",
       "interpretation": "0",
-      "code": "tempVars(\"channelName\").split(\"-\")[1]\n",
+      "code": "tempVars(\"log\").split('\\n')[0].replace(/\\s/g, \"\")",
       "storage": "1",
-      "varName": "user",
+      "varName": "id",
       "name": "Run Script"
     },
     {
-      "info": "1",
-      "find": "${tempVars(\"user\")}",
+      "info": "0",
+      "find": "${tempVars(\"id\")}",
       "storage": "1",
-      "varName": "user1",
+      "varName": "creator",
       "find2": "0",
       "name": "Find Member"
     },
     {
       "channel": "5",
-      "varName": "user1",
+      "varName": "creator",
       "file": "./logs/${tempVars(\"name\")}.txt",
       "message": "Your ticket was force closed by: ${member}.\nHere is the log file from your ticket.",
       "name": "Send File"
@@ -194,7 +200,7 @@
       "storage": "1",
       "varName": "forceClosedTicket",
       "fieldName": "Ticket ID",
-      "message": "${tempVars(\"channelName\")}",
+      "message": "${tempVars(\"name\")}",
       "inline": "1",
       "name": "Add Embed Field"
     },
@@ -206,5 +212,6 @@
       "name": "Send Embed Message"
     }
   ],
-  "_aliases": []
+  "_aliases": [],
+  "comType": "0"
 }

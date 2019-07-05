@@ -204,7 +204,7 @@
       "storage": "1",
       "varName": "closedTicket",
       "fieldName": "Ticket",
-      "message": "${tempVars(\"channelName\")}",
+      "message": "${tempVars(\"name\")}",
       "inline": "1",
       "name": "Add Embed Field"
     },
