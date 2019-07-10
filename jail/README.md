@@ -6,3 +6,5 @@ I took this command from Sketch and fixed it up, as his bars photo has poofed of
 Puts jail bars over your or a mentioned users profile pic. Makes the pic more grey-scaled and then sends the image to chat, pretty simple. 
 
 Note: Probably requires DBM Beta and Mods.
+
+# Note: Meme commands are provided as-is and no gaurentee to work with future versions!

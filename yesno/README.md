@@ -7,3 +7,5 @@ Essentially it just puts the mentioned user as no and you as yes.
 Usage: [p]yesno (@user)
 
 Note: Probably requires DBM Beta and Mods.
+
+# Note: Meme commands are provided as-is and no gaurentee to work with future versions!

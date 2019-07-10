@@ -10,3 +10,5 @@ Confirms to user their bug report was sent, deletes all sign of bug report in ch
 Usage: [p]bug
 
 Note: Probably requires DBM Beta and Mods.
+
+# This is currently not updated, if you need any updates done contact me on discord: TheMonDon#1721
