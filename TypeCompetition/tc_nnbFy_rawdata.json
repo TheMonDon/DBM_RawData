@@ -1,0 +1,328 @@
+{
+  "name": "tc",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "nnbFy",
+  "actions": [
+    {
+      "comment": "Command inspired from Jasper#5335 || Revamped by TheMonDon#1721",
+      "color": "#00ffff",
+      "name": "Comment"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//Check if fnt exists else download it!\nconst https = require('https');\nconst fs = require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.fnt`;\n\n(async () => {\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    const request = await https.get(\"https://raw.githubusercontent.com/TheMonDon/storage/master/Moms_Typewriter.fnt\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}\n})()",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "//Check if fnt png exists or download it!\nconst https = require('https');\nconst fs = require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.png`;\n\n(async () => {\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    const request = await https.get(\"https://i.lensdump.com/i/WcIbCo.png\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}\n})()",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "title": "Type competition",
+      "author": "",
+      "color": "#41f4eb",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed",
+      "message": "Who is the fastest? I will send a word, the person who typed it the quickest wins!\nTo start, react both with 🏁!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "1",
+      "varName3": "EmbedSource",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "EmbedSource",
+      "emoji": "4",
+      "varName2": "🏁",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "storage": "1",
+      "varName": "EmbedSource",
+      "filter": "reaction.emoji.name === '🏁'",
+      "max": "3",
+      "time": "60000",
+      "maxEmojis": "3",
+      "maxUsers": "3",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "27",
+      "storage2": "0",
+      "varName2": "",
+      "name": "Await Reaction Call Action"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Ready?  \n5",
+      "storage": "1",
+      "varName2": "Message",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "message": "Ready?\n4",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "message": "Ready?\n3",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "message": "Ready?\n2",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "message": "Ready?\n1",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "message": "GO!",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "this.getWrexMods().require('random-words');\nconst randomWords = require('random-words');\nconst randWord = randomWords(1);\nthis.storeValue(randWord, 1, \"randWord\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "url": "https://i.lensdump.com/i/Wc8DKQ.jpg",
+      "storage": "1",
+      "varName": "img",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "img",
+      "x": "50",
+      "y": "20",
+      "font": "fonts/Moms_Typewriter.fnt",
+      "width": "",
+      "text": "${tempVars(\"randWord\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "img",
+      "channel": "0",
+      "varName2": "",
+      "message": "",
+      "imageName": "TyperCaptcha",
+      "imageFormat": ".png",
+      "storage2": "1",
+      "varName3": "cmdMsg",
+      "name": "Send Image MOD"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.match(/${tempVars(\"randWord\")}/i)",
+      "max": "1",
+      "time": "30000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "10",
+      "storage2": "1",
+      "varName2": "MessageList",
+      "name": "Await Response Call Action"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "0",
+      "search": "${tempVars(\"MessageList\")}",
+      "storage": "1",
+      "varName2": "output",
+      "name": "Find Message"
+    },
+    {
+      "message": "1",
+      "varName": "output",
+      "info": "3",
+      "storage": "1",
+      "varName2": "Winner",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
+      "varName": "output",
+      "info": "5",
+      "storage": "1",
+      "varName2": "t2",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
+      "varName": "cmdMsg",
+      "info": "5",
+      "storage": "1",
+      "varName2": "t1",
+      "name": "Store Message Info"
+    },
+    {
+      "FirstNumber": "${tempVars(\"t2\")}",
+      "info": "1",
+      "SecondNumber": "${tempVars(\"t1\")}",
+      "storage": "1",
+      "varName": "raw_time",
+      "name": "Basic Math Operation"
+    },
+    {
+      "FirstNumber": "${tempVars(\"raw_time\")}",
+      "info": "3",
+      "SecondNumber": "1000",
+      "storage": "1",
+      "varName": "time",
+      "name": "Basic Math Operation"
+    },
+    {
+      "title": "Winner!",
+      "author": "",
+      "color": "#41f4eb",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "Embed1",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed1",
+      "message": "${tempVars(\"Winner\")} won! :tada:\nTime: ${tempVars(\"time\")}s",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "Embed1",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Either no one guessed the word in time or no one reacted.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
