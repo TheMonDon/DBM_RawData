@@ -1,0 +1,58 @@
+{
+  "name": "storeRoles",
+  "temp": "",
+  "event-type": "1",
+  "_id": "puyIt",
+  "actions": [
+    {
+      "behavior": "2",
+      "name": "Run Action Sequence Once"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "info": "14",
+      "storage": "1",
+      "varName2": "roles1",
+      "name": "Store Server Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "serv_id",
+      "name": "Store Server Info"
+    },
+    {
+      "input": "${tempVars(\"roles1\")}",
+      "format": ".txt",
+      "filename": "${tempVars(\"serv_id\")}",
+      "filepath": "./",
+      "filetask": "1",
+      "name": "File Control"
+    },
+    {
+      "filename": "./${tempVars(\"serv_id\")}.txt",
+      "storage": "1",
+      "varName2": "roles",
+      "name": "Read File"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\n\nfor (var i=0; i < arr.length; i++) {\nlet elm = arr[i];\nif (elm !== \"@everyone\") {\nelm = elm.replace('<@&', '').replace('>', '');\nlet myRole = guild.roles.get(elm);\nlet varName = myRole.name;\nthis.storeValue(myRole, 2, varName, cache);\n}}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "input": "",
+      "format": ".txt",
+      "filename": "${tempVars(\"serv_id\")}",
+      "filepath": "./",
+      "filetask": "3",
+      "name": "File Control"
+    }
+  ]
+}
