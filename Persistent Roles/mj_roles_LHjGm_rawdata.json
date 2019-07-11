@@ -53,7 +53,7 @@
     {
       "behavior": "0",
       "interpretation": "0",
-      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst member = tempVars(\"obj\");\n\nfor (var i=0; i < arr.length; i++) {\nlet elm = arr[i];\nif (elm !== \"@everyone\") {\nelm = elm.replace('<@&', '').replace('>', '');\nmember.addRole(elm).catch(console.error);\n}}",
+      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst member = tempVars(\"obj\");\n\n(async()=>{\nfor (var i=0; i < arr.length; i++) {\nlet elm = arr[i];\nif (elm !== \"@everyone\") {\nelm = elm.replace('<@&', '').replace('>', '');\nmember.addRole(elm).catch(console.error);\nawait require('util').promisify(setTimeout)(1000)\n}}})()",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
