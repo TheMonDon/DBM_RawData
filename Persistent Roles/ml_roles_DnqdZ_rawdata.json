@@ -1,0 +1,48 @@
+{
+  "name": "ml_roles",
+  "temp": "mem",
+  "event-type": "7",
+  "_id": "DnqdZ",
+  "actions": [
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "17",
+      "storage": "1",
+      "varName2": "roles",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "5",
+      "storage": "1",
+      "varName2": "serv",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "1",
+      "varName": "serv",
+      "info": "1",
+      "storage": "1",
+      "varName2": "serv_id",
+      "name": "Store Server Info"
+    },
+    {
+      "input": "${tempVars(\"roles\")}",
+      "format": ".txt",
+      "filename": "${tempVars(\"id\")}",
+      "filepath": "./roles/${tempVars(\"serv_id\")}/",
+      "filetask": "1",
+      "name": "File Control"
+    }
+  ]
+}

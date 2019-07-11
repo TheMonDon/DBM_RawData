@@ -1,0 +1,70 @@
+{
+  "name": "mj_roles",
+  "temp": "mem",
+  "event-type": "6",
+  "_id": "LHjGm",
+  "actions": [
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "5",
+      "storage": "1",
+      "varName2": "server",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "1",
+      "varName": "server",
+      "info": "1",
+      "storage": "1",
+      "varName2": "serv_id",
+      "name": "Store Server Info"
+    },
+    {
+      "filename": "./roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check if File Exists"
+    },
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "0",
+      "storage": "1",
+      "varName2": "obj",
+      "name": "Store Member Info"
+    },
+    {
+      "filename": "./roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
+      "storage": "1",
+      "varName2": "roles",
+      "name": "Read File"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst member = tempVars(\"obj\");\n\nfor (var i=0; i < arr.length; i++) {\nlet elm = arr[i];\nif (elm !== \"@everyone\") {\nelm = elm.replace('<@&', '').replace('>', '');\nmember.addRole(elm).catch(console.error);\n}}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "input": "",
+      "format": ".txt",
+      "filename": "${tempVars(\"id\")}",
+      "filepath": "./roles/${tempVars(\"serv_id\")}/",
+      "filetask": "3",
+      "name": "File Control"
+    }
+  ]
+}
