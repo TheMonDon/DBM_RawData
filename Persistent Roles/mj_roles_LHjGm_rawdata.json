@@ -37,6 +37,11 @@
       "name": "Check if File Exists"
     },
     {
+      "server": "1",
+      "varName": "server",
+      "name": "Change Server"
+    },
+    {
       "member": "2",
       "varName": "mem",
       "info": "0",
