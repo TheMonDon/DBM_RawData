@@ -40,7 +40,7 @@
       "input": "${tempVars(\"roles\")}",
       "format": ".txt",
       "filename": "${tempVars(\"id\")}",
-      "filepath": "./roles/${tempVars(\"serv_id\")}/",
+      "filepath": "./data/roles/${tempVars(\"serv_id\")}/",
       "filetask": "1",
       "name": "File Control"
     }

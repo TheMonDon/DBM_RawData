@@ -29,7 +29,7 @@
       "name": "Store Server Info"
     },
     {
-      "filename": "./roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
+      "filename": "./data/roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "1",
@@ -45,7 +45,7 @@
       "name": "Store Member Info"
     },
     {
-      "filename": "./roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
+      "filename": "./data/roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
       "storage": "1",
       "varName2": "roles",
       "name": "Read File"
@@ -59,10 +59,22 @@
       "name": "Run Script"
     },
     {
+      "member": "2",
+      "varName": "mem",
+      "info": "22",
+      "storage": "1",
+      "varName2": "tag",
+      "name": "Store Member Info"
+    },
+    {
+      "tosend": "Added all applicable roles to: ${tempVars(\"tag\")}",
+      "name": "Send Message to Console (Logs)"
+    },
+    {
       "input": "",
       "format": ".txt",
       "filename": "${tempVars(\"id\")}",
-      "filepath": "./roles/${tempVars(\"serv_id\")}/",
+      "filepath": "./data/roles/${tempVars(\"serv_id\")}/",
       "filetask": "3",
       "name": "File Control"
     }
