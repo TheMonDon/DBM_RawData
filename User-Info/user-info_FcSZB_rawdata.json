@@ -1,0 +1,154 @@
+{
+  "name": "user-info",
+  "permissions": "NONE",
+  "restriction": "1",
+  "actions": [
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "10",
+      "iffalse": "0",
+      "iffalseVal": "16",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "14",
+      "name": "Check Parameters"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "userid",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"userid\")}",
+      "storage": "1",
+      "varName": "userid_user",
+      "find2": "0",
+      "name": "Find Member"
+    },
+    {
+      "member": "2",
+      "varName": "userid_user",
+      "info": "0",
+      "storage": "1",
+      "varName2": "ment_obj",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "ment_obj",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "const id = tempVars(\"userid\");\n(async () => {\n    try {\n        member = await client.fetchUser(id);\n        Actions.storeValue(member, 1, \"member1\", cache);\n        cache.index = cache.index + 11;\n        Actions.callNextAction(cache);\n    } catch (err) {\n        msg.channel.send(\"User ID was not found\");\n    }\n})()",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "2",
+      "varName": "ment_obj",
+      "info": "17",
+      "storage": "1",
+      "varName2": "createdAt",
+      "name": "Store Member Info"
+    },
+    {
+      "count": "3",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "user",
+      "info": "0",
+      "storage": "1",
+      "varName2": "ment_obj",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "0",
+      "varName": "user",
+      "info": "17",
+      "storage": "1",
+      "varName2": "createdAt",
+      "name": "Store Member Info"
+    },
+    {
+      "comment": "Mentioned Member",
+      "color": "#00ffff",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "//Mentioned Member  \nfunction getJoinRank(ID, guild) { // Call it with the ID of the user and the guild\n  if (!guild.member(ID)) return; // It will return undefined if the ID is not valid\n\n  let arr = guild.members.array(); // Create an array with every member\n  arr.sort((a, b) => a.joinedAt - b.joinedAt); // Sort them by join date\n\n  for (let index = 0; index < arr.length; index++) { // Loop though every element\n    if (arr[index].id == ID) return index; // When you find the user, return it's position\n  }\n}\nconst joinPosition = getJoinRank(tempVars(\"ment_obj\").user.id, msg.guild)\n//Creduts to General Wrex for helping making this work\nconst moment = this.getWrexMods().require('moment');\nts = moment(tempVars(\"createdAt\"));\nts2 = moment(tempVars(\"ment_obj\").joinedAt);\nconst ca = ts.format(\"MMM Do, YYYY\");\nconst ja = ts2.format(\"MMM Do, YYYY\");\nconst embed = {\n  \"title\": \"\" + tempVars('ment_obj').user.username + \"'s Info\",\n  \"color\": Math.floor(Math.random() * (0xFFFFFF + 1)),\n  \"thumbnail\": {\n    \"url\": tempVars('ment_obj').user.displayAvatarURL\n  },\n  \"author\": {\n    \"name\": member.displayName,\n    \"icon_url\": msg.author.displayAvatarURL\n  },\n  \"fields\": [\n    {\n      \"name\": \"**Username**\",\n      \"value\": \"\" + tempVars('ment_obj').user.username + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Username w/ Tag**\",\n      \"value\": \"\" + tempVars('ment_obj').user.tag + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Nickname**\",\n      \"value\": \"\" + tempVars('ment_obj').displayName + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**User ID**\",\n      \"value\": \"\" + tempVars('ment_obj').user.id + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Status**\",\n      \"value\": \"\" + tempVars('ment_obj').presence.status + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Joined Server**\",\n      \"value\": \"\" + ja + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Account Created**\",\n      \"value\": \"\" + ca + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Is Bannable?**\",\n      \"value\": \"\" + tempVars('ment_obj').bannable + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Join Position**\",\n      \"value\": `${ Number(joinPosition) + 1 }`,\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Roles**\",\n      \"value\": \"\" + tempVars('ment_obj').roles.array() + \"\",\n      \"inline\": true\n    }\n  ]\n};\nmsg.delete();\nmsg.channel.send({ embed });",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "Command Author",
+      "color": "#00ffff",
+      "name": "Comment"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "//Command Author\nfunction getJoinRank(ID, guild) { // Call it with the ID of the user and the guild\n  if (!guild.member(ID)) return; // It will return undefined if the ID is not valid\n\n  let arr = guild.members.array(); // Create an array with every member\n  arr.sort((a, b) => a.joinedAt - b.joinedAt); // Sort them by join date\n\n  for (let index = 0; index < arr.length; index++) { // Loop though every element\n    if (arr[index].id == ID) return index; // When you find the user, return it's position\n  }\n}\nconst joinPosition = getJoinRank(msg.author.id, msg.guild)\n//Creduts to General Wrex for helping making this work\nconst moment = this.getWrexMods().require('moment');\nts = moment(msg.author.createdAt);\nts2 = moment(member.joinedAt);\nconst ca = ts.format(\"MMM Do, YYYY\");\nconst ja = ts2.format(\"MMM Do, YYYY\");\nconst embed = {\n  \"title\": \"\" + msg.author.username + \"'s Info\",\n  \"color\": Math.floor(Math.random() * (0xFFFFFF + 1)),\n  \"thumbnail\": {\n    \"url\": msg.author.displayAvatarURL\n  },\n  \"author\": {\n    \"name\": member.displayName,\n    \"icon_url\": msg.author.displayAvatarURL\n  },\n  \"fields\": [\n    {\n      \"name\": \"**Username**\",\n      \"value\": \"\" + msg.author.username + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Username w/ Tag**\",\n      \"value\": \"\" + msg.author.tag + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Nickname**\",\n      \"value\": \"\" + member.displayName + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**User ID**\",\n      \"value\": \"\" + msg.author.id + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Status**\",\n      \"value\": \"\" + user.presence.status + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Joined Server**\",\n      \"value\": \"\" + ja + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Account Created**\",\n      \"value\": \"\" + ca + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Is Bannable?**\",\n      \"value\": \"\" + member.bannable + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Join Position**\",\n      \"value\": `${ Number(tempVars('joinPosition')) + 1 }`,\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Roles**\",\n      \"value\": \"\" + member.roles.array() + \"\",\n      \"inline\": true\n    }\n  ]\n};\nmsg.delete();\nmsg.channel.send({ embed });",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "User ID Member",
+      "color": "#00ffff",
+      "name": "Comment"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "//User ID Member\nconst moment = this.getWrexMods().require('moment');\nts = moment(tempVars(\"member1\").createdAt);\nconst ca = ts.format(\"MMM Do, YYYY\");\nconst embed = {\n  \"title\": \"User Information\",\n  \"color\": Math.floor(Math.random() * (0xFFFFFF + 1)),\n  \"thumbnail\": {\n    \"url\": tempVars('member1').displayAvatarURL\n  },\n  \"author\": {\n    \"name\": member.displayName,\n    \"icon_url\": msg.author.displayAvatarURL\n  },\n  \"fields\": [\n    {\n      \"name\": \"**Username**\",\n      \"value\": \"\" + tempVars('member1').username + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Username w/ Tag**\",\n      \"value\": \"\" + tempVars('member1').tag + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**User ID**\",\n      \"value\": \"\" + tempVars('member1').id + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Is Bot?**\",\n      \"value\": \"\" + tempVars('member1').bot + \"\",\n      \"inline\": true\n    },\n    {\n      \"name\": \"**Account Created**\",\n      \"value\": \"\" + ca + \"\",\n      \"inline\": true\n    },\n  ]\n};\nmsg.delete();\nmsg.channel.send({ embed });",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "_id": "FcSZB",
+  "_aliases": [
+    "ui",
+    "userinfo"
+  ],
+  "comType": "0"
+}
