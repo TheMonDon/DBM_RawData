@@ -57,7 +57,7 @@
     {
       "behavior": "0",
       "interpretation": "0",
-      "code": "let text = tempVars(\"text\");\ntext = text.trim().replace(/\\s/g, '').replace(/\\./g, '');",
+      "code": "let text = tempVars(\"text\");\ntext = text.trim().replace(/\\s/g, '');",
       "storage": "1",
       "varName": "text",
       "name": "Run Script"
@@ -65,7 +65,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "const isImageUrl = this.getWrexMods().require('is-image-url');\nlet imageurl = tempVars(\"text\");\n\nif (isImageUrl(imageurl)) {\n    (async () => {\n        const rgbHex = this.getWrexMods().require('rgb-hex');\n        const { getColorFromURL } = this.getWrexMods().require('color-thief-node');\n        let rgb = await getColorFromURL(imageurl);\n        let hex1 = rgbHex(rgb.join(\",\"));\n        let img = \"true\";\n        Actions.storeValue(img, 1, \"img\", cache);\n        Actions.storeValue(hex1, 1, \"text\", cache);\n        Actions.callNextAction(cache);\n    })()\n} else {\n    cache.index = cache.index + 2;\n    Actions.callNextAction(cache);\n}",
+      "code": "const isImageUrl = this.getWrexMods().require('is-image-url');\nconst isURL = this.getWrexMods().require('is-url');\nlet imageurl = tempVars(\"text\");\nif (isURL(imageurl)) {\nif (isImageUrl(imageurl)) {\n    (async () => {\n        const rgbHex = this.getWrexMods().require('rgb-hex');\n        const { getColorFromURL } = this.getWrexMods().require('color-thief-node');\n        let rgb = await getColorFromURL(imageurl);\n        let hex1 = rgbHex(rgb.join(\",\"));\n        const img = \"true\";\n        Actions.storeValue(img, 1, \"img\", cache);\n        Actions.storeValue(hex1, 1, \"text\", cache);\n        Actions.callNextAction(cache);\n    })()\n} else {\n    cache.index = cache.index + 2;\n    Actions.callNextAction(cache);\n}} else {\n    cache.index = cache.index + 2;\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -103,7 +103,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//HEX Regex\nconst term = tempVars(\"text\");\nconst re = new RegExp(\"^(^(#|0x)?([a-fA-F0-9]){6}$)|(^(#|0x)?([a-fA-F0-9]){3}$)?$\");\n\nif (re.test(term)) {\n    Actions.callNextAction(cache);\n} else {\n    cache.index = cache.index + 3;\n    Actions.callNextAction(cache);\n}",
+      "code": "//HEX Regex\nconst term = tempVars(\"text\");\nconst re = new RegExp(\"(^(#|0x)?([a-fA-F0-9]){6}$)|(^(#|0x)?([a-fA-F0-9]){3}$)\");\n\nif (re.test(term)) {\n    Actions.callNextAction(cache);\n} else {\n    cache.index = cache.index + 3;\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -111,7 +111,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//HEX color info\nconst convert = this.getWrexMods().require('color-convert');\n\nlet input = tempVars(\"text\").toUpperCase();\n\nwhile (true) {\n    if (input.charAt() == \"#\") {\n        input = input.substr(1);\n        break;\n    } else if (input.charAt() == \"0\" && input.charAt(1) == \"X\") {\n        input = input.substr(2);\n        break;\n    }\n    break;\n}\n\nif (input.length = \"3\") {\ninput = input.slice();\nconst pos1 = input[0];\nconst pos2 = input[1];\nconst pos3 = input[2];\ninput = pos1 + pos1 + pos2 + pos2 + pos3 + pos3;\n}\n\ntry {\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//HEX color info\nconst convert = this.getWrexMods().require('color-convert');\nlet input = tempVars(\"text\").toUpperCase();\nconsole.log(\"hex\");\nwhile (true) {\n    if (input.charAt() == \"#\") {\n        input = input.substr(1);\n        break;\n    } else if (input.charAt() == \"0\" && input.charAt(1) == \"X\") {\n        input = input.substr(2);\n        break;\n    }\n    break;\n}\n\nif (input.length = \"3\") {\ninput = input.slice();\nconst pos1 = input[0];\nconst pos2 = input[1];\nconst pos3 = input[2];\ninput = pos1 + pos1 + pos2 + pos2 + pos3 + pos3;\n}\n\ntry {\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -134,7 +134,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//CSS Color info\nconst convert = this.getWrexMods().require('color-convert');\n\nlet input = tempVars(\"text\").toLowerCase();\n\ntry {\n    while (input.length < 2) {\n        if (input === \"r\") {\n            input = \"red\";\n            break;\n        } else if (input === \"g\") {\n            input = \"green\";\n            break;\n        } else if (input === \"b\") {\n            input = \"blue\";\n            break;\n        } else {\n            break;\n        }\n    }\n\n    var color = {\n        \"hex\": convert.keyword.hex(input),\n        \"rgb\": convert.keyword.rgb(input),\n        \"hsl\": convert.keyword.hsl(input),\n        \"cmyk\": convert.keyword.cmyk(input),\n        \"css\": input\n    };\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//CSS Color info\nconst convert = this.getWrexMods().require('color-convert');\nlet input = tempVars(\"text\").toLowerCase();\nconsole.log(\"css\");\ntry {\n    while (input.length < 2) {\n        if (input === \"r\") {\n            input = \"red\";\n            break;\n        } else if (input === \"g\") {\n            input = \"green\";\n            break;\n        } else if (input === \"b\") {\n            input = \"blue\";\n            break;\n        } else {\n            break;\n        }\n    }\n\n    var color = {\n        \"hex\": convert.keyword.hex(input),\n        \"rgb\": convert.keyword.rgb(input),\n        \"hsl\": convert.keyword.hsl(input),\n        \"cmyk\": convert.keyword.cmyk(input),\n        \"css\": input\n    };\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -193,7 +193,7 @@
       "name": "Create Embed Message"
     },
     {
-      "count": "6",
+      "count": "7",
       "name": "Skip Actions"
     },
     {
