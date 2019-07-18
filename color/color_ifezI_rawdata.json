@@ -111,7 +111,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//HEX color info\nconst convert = this.getWrexMods().require('color-convert');\nlet input = tempVars(\"text\").toUpperCase();\nconsole.log(\"hex\");\nwhile (true) {\n    if (input.charAt() == \"#\") {\n        input = input.substr(1);\n        break;\n    } else if (input.charAt() == \"0\" && input.charAt(1) == \"X\") {\n        input = input.substr(2);\n        break;\n    }\n    break;\n}\n\nif (input.length = \"3\") {\ninput = input.slice();\nconst pos1 = input[0];\nconst pos2 = input[1];\nconst pos3 = input[2];\ninput = pos1 + pos1 + pos2 + pos2 + pos3 + pos3;\n}\n\ntry {\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//HEX color info\nconst convert = this.getWrexMods().require('color-convert');\nlet input = tempVars(\"text\").toUpperCase();\n\nwhile (true) {\n    if (input.charAt() == \"#\") {\n        input = input.substr(1);\n        break;\n    } else if (input.charAt() == \"0\" && input.charAt(1) == \"X\") {\n        input = input.substr(2);\n        break;\n    }\n    break;\n}\n\nif (input.length = \"3\") {\ninput = input.slice();\nconst pos1 = input[0];\nconst pos2 = input[1];\nconst pos3 = input[2];\ninput = pos1 + pos1 + pos2 + pos2 + pos3 + pos3;\n}\n\ntry {\nlet color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -134,7 +134,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//CSS Color info\nconst convert = this.getWrexMods().require('color-convert');\nlet input = tempVars(\"text\").toLowerCase();\nconsole.log(\"css\");\ntry {\n    while (input.length < 2) {\n        if (input === \"r\") {\n            input = \"red\";\n            break;\n        } else if (input === \"g\") {\n            input = \"green\";\n            break;\n        } else if (input === \"b\") {\n            input = \"blue\";\n            break;\n        } else {\n            break;\n        }\n    }\n\n    var color = {\n        \"hex\": convert.keyword.hex(input),\n        \"rgb\": convert.keyword.rgb(input),\n        \"hsl\": convert.keyword.hsl(input),\n        \"cmyk\": convert.keyword.cmyk(input),\n        \"css\": input\n    };\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
+      "code": "//CSS Color info\nconst convert = this.getWrexMods().require('color-convert');\nlet input = tempVars(\"text\").toLowerCase();\n\ntry {\n    while (input.length < 2) {\n        if (input === \"r\") {\n            input = \"red\";\n            break;\n        } else if (input === \"g\") {\n            input = \"green\";\n            break;\n        } else if (input === \"b\") {\n            input = \"blue\";\n            break;\n        } else {\n            break;\n        }\n    }\n\n    var color = {\n        \"hex\": convert.keyword.hex(input),\n        \"rgb\": convert.keyword.rgb(input),\n        \"hsl\": convert.keyword.hsl(input),\n        \"cmyk\": convert.keyword.cmyk(input),\n        \"css\": input\n    };\n\n    Actions.storeValue(color, 1, \"color\", cache);\n    Actions.callNextAction(cache);\n} catch (err) {\n    let random = \"true\";\n    Actions.storeValue(random, 1, \"random\", cache);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -212,7 +212,7 @@
     },
     {
       "behavior": "1",
-      "interpretation": "0",
+      "interpretation": "1",
       "code": "//Random Color\nconst convert = this.getWrexMods().require('color-convert');\n\nconst input = \"000000\".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);})\n\nconst color = {\n    \"css\" : convert.hex.keyword(input),\n    \"rgb\" : convert.hex.rgb(input),\n    \"hsl\" : convert.hex.hsl(input),\n    \"cmyk\" : convert.hex.cmyk(input),\n    \"hex\" : input\n}\n\nActions.storeValue(color, 1, \"color\", cache);\nActions.callNextAction(cache);",
       "storage": "0",
       "varName": "",
