@@ -1,22 +1,24 @@
 # Advanced Ticket System
 Credits:  
-Ticket Log: Blue Label#0001
+Ticket Log Idea: Blue Label#0001
+
+Created By: TheMonDon#1721
 
 # Description
-This is a large/advaned ticket system which is in its beta phases. I believe everything is working but I am not 100% sure. Please report any problems to me on discord.
+This is a large/advaned ticket system which is in its beta phases. I believe everything is working but I am not 100% sure. Please report any problems to me on discord: TheMonDon#1721
 
 # What is ...?
-TBD
+Description coming soon...
 
 # How do I enable it?
-TBA
+Description coming soon...
 
 # If you have any suggestions or things to change, let me know!
 
 Note: Requires DBM Beta and [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/master).
 
 # Known Bugs
-TBD
+No known bugs currently.
 
 # Versioning
 **1.0.0**
