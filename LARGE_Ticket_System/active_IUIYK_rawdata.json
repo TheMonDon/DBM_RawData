@@ -68,7 +68,7 @@
       "name": "Send Embed Message"
     },
     {
-      "time": "5",
+      "time": "10",
       "measurement": "1",
       "name": "Wait"
     },
@@ -82,18 +82,18 @@
     },
     {
       "info": "1",
-      "find": "Management Team",
+      "find": "Support Team",
       "storage": "1",
-      "varName": "mteam",
+      "varName": "support",
       "name": "Find Role"
     },
     {
       "member": "1",
       "varName": "",
       "role": "3",
-      "varName2": "mteam",
+      "varName2": "support",
       "iftrue": "3",
-      "iftrueVal": "4",
+      "iftrueVal": "6",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check If Member has Role"
@@ -122,7 +122,21 @@
       "varName": "error",
       "channel": "0",
       "varName2": "",
+      "storage3": "1",
+      "varName3": "err",
+      "iffalse": "0",
+      "iffalseVal": "",
       "name": "Send Embed Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "err",
+      "name": "Delete Message"
     },
     {
       "name": "End Action Sequence"

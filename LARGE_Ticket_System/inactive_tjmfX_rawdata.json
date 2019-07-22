@@ -68,7 +68,7 @@
       "name": "Send Embed Message"
     },
     {
-      "time": "5",
+      "time": "10",
       "measurement": "1",
       "name": "Wait"
     },
@@ -82,16 +82,16 @@
     },
     {
       "info": "1",
-      "find": "Management Team",
+      "find": "Support Team",
       "storage": "1",
-      "varName": "mteam",
+      "varName": "support",
       "name": "Find Role"
     },
     {
       "member": "1",
       "varName": "",
       "role": "3",
-      "varName2": "mteam",
+      "varName2": "support",
       "iftrue": "3",
       "iftrueVal": "4",
       "iffalse": "0",
@@ -136,15 +136,53 @@
       "name": "Edit Channel"
     },
     {
+      "title": "Inactive Ticket",
+      "author": "${member.displayName}",
+      "color": "ORANGE",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "This ticket has been set as inactive.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
       "channel": "0",
-      "varName": "",
-      "message": ":x: The ticket is now set as inactive.",
-      "storage": "0",
       "varName2": "",
+      "storage3": "0",
+      "varName3": "",
       "iffalse": "0",
       "iffalseVal": "",
-      "name": "Send Message"
+      "name": "Send Embed Message"
+    },
+    {
+      "input": "[ALERT] Set as inactive by ${msg.author.tag}",
+      "format": ".txt",
+      "filename": "${tempVars(\"name\")}",
+      "filepath": "./logs/",
+      "filetask": "2",
+      "name": "File Control"
     }
   ],
-  "_aliases": []
+  "_aliases": [],
+  "comType": "0"
 }
