@@ -43,23 +43,15 @@
       "name": "Store Message Info"
     },
     {
-      "member": "1",
-      "varName": "",
-      "info": "22",
-      "storage": "1",
-      "varName2": "tag",
-      "name": "Store Member Info"
-    },
-    {
       "behavior": "1",
       "interpretation": "0",
-      "code": "const d = new Date();\nconst year = d.getFullYear();\nconst month = String(d.getMonth()).padStart(2, \"0\");\nconst day = String(d.getDay()).padStart(2, \"0\");\nconst hour = String(d.getHours()).padStart(2, \"0\");\nconst min = String(d.getMinutes()).padStart(2, \"0\");\nconst timestamp = month + \"/\" + day + \"/\" + year + \" \" +  hour + \":\" + min;\nthis.storeValue(timestamp, 1, \"timestamp\", cache);\nActions.callNextAction(cache);",
+      "code": "const d = new Date();\nconst year = d.getFullYear();\nconst month = String(d.getMonth()+1).padStart(2, \"0\");\nconst day = String(d.getDay()).padStart(2, \"0\");\nconst hour = String(d.getHours()).padStart(2, \"0\");\nconst min = String(d.getMinutes()).padStart(2, \"0\");\nconst timestamp = month + \"/\" + day + \"/\" + year + \" \" +  hour + \":\" + min;\nthis.storeValue(timestamp, 1, \"timestamp\", cache);\nActions.callNextAction(cache);",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
     },
     {
-      "input": "${tempVars(\"timestamp\")} - [${tempVars(\"tag\")}]: ${tempVars(\"text\")}",
+      "input": "${tempVars(\"timestamp\")} - [${msg.author.tag}]: ${tempVars(\"text\")}",
       "format": ".txt",
       "filename": "${tempVars(\"name\")}",
       "filepath": "./logs/",

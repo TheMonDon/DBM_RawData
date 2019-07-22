@@ -21,6 +21,11 @@ Note: Requires DBM Beta and [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM
 No known bugs currently.
 
 # Versioning
+**1.1.0**
+- Inactive (Fixed role being broken, added file info)
+- Active (Fixed role being broken, added file info)
+- ReqStaff (Request current channel log for any ticket. Requires Support Team Role! **BETA**)
+
 **1.0.0**
 - New (create ticket command)
 - Add (add user to ticket. Must be ticket creator!)
