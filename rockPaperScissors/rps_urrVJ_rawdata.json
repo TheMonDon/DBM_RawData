@@ -122,7 +122,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "37",
+      "iffalseVal": "39",
       "storage2": "0",
       "varName2": "",
       "name": "Await Response Call Action"
@@ -204,7 +204,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "27",
+      "iffalseVal": "29",
       "storage2": "0",
       "varName2": "",
       "name": "Await Response Call Action"
@@ -413,7 +413,25 @@
       "name": "Send Embed Message"
     },
     {
+      "changeType": "0",
+      "value": "1",
+      "storage": "1",
+      "varName": "test",
+      "name": "Control Variable"
+    },
+    {
       "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "test",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
     },
     {
       "title": "Error",
