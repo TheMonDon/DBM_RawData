@@ -8,20 +8,12 @@
       "member": "1",
       "varName": "",
       "info": "10",
-      "storage": "1",
-      "varName2": "owner",
-      "name": "Store Member Info"
-    },
-    {
-      "storage": "1",
-      "varName": "owner",
-      "comparison": "0",
-      "value": "",
+      "varName2": "",
       "iftrue": "3",
-      "iftrueVal": "4",
+      "iftrueVal": "5",
       "iffalse": "0",
       "iffalseVal": "",
-      "name": "Check Variable"
+      "name": "Check If Member"
     },
     {
       "title": "",
@@ -58,6 +50,24 @@
       "name": "Delete Message"
     },
     {
+      "info": "1",
+      "find": "Support Team",
+      "storage": "1",
+      "varName": "supportTeamRole",
+      "name": "Find Role"
+    },
+    {
+      "storage": "1",
+      "varName": "supportTeamRole",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
       "roleName": "Support Team",
       "hoist": "true",
       "mentionable": "false",
@@ -68,11 +78,47 @@
       "name": "Create Role"
     },
     {
+      "info": "1",
+      "find": "Tickets",
+      "storage": "1",
+      "varName": "ticketsCategory",
+      "name": "Find Category"
+    },
+    {
+      "storage": "1",
+      "varName": "ticketsCategory",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
       "channelName": "Tickets",
       "position": "",
       "storage": "2",
       "varName": "ticketsCategory",
       "name": "Create Category Channel"
+    },
+    {
+      "info": "1",
+      "find": "On Hold Tickets",
+      "storage": "1",
+      "varName": "hold_category",
+      "name": "Find Category"
+    },
+    {
+      "storage": "1",
+      "varName": "hold_category",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
     },
     {
       "channelName": "On Hold Tickets",
@@ -106,6 +152,24 @@
       "storage": "2",
       "varName": "holdCategoryID",
       "name": "Save Variable"
+    },
+    {
+      "info": "1",
+      "find": "ticket-logs",
+      "storage": "1",
+      "varName": "ticketLogsChannel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "ticketLogsChannel",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "9",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
     },
     {
       "channelName": "ticket-logs",
@@ -168,6 +232,19 @@
       "permission": "READ_MESSAGES",
       "state": "0",
       "name": "Set Role Channel Perms"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The ticket system has already been setup in this server!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
     }
   ],
   "comType": "0",
