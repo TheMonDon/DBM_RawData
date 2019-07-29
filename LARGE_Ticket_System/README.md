@@ -21,6 +21,9 @@ Note: Requires DBM Beta and latest [Mods](https://github.com/Discord-Bot-Maker-M
 No known bugs currently.
 
 # Versioning
+**1.1.1**
+- Updated `supportSetup` command to the latest mods.
+
 **1.1.0**
 - Inactive (Fixed role being broken, added file info)
 - Active (Fixed role being broken, added file info)

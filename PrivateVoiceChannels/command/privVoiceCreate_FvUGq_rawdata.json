@@ -1,0 +1,48 @@
+{
+  "name": "privVoiceCreate",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "FvUGq",
+  "actions": [
+    {
+      "channelName": "Private Voice",
+      "position": "",
+      "storage": "1",
+      "varName": "cat",
+      "name": "Create Category Channel"
+    },
+    {
+      "category": "1",
+      "varName": "cat",
+      "info": "0",
+      "storage": "1",
+      "varName2": "cat_id",
+      "name": "Store Category Info"
+    },
+    {
+      "channelName": "Join to Create",
+      "categoryID": "${tempVars(\"cat_id\")}",
+      "bitrate": "",
+      "userLimit": "",
+      "storage": "2",
+      "varName": "createVoice",
+      "name": "Create Voice Channel"
+    },
+    {
+      "storage": "2",
+      "varName": "createVoice",
+      "name": "Save Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The category and voice channel has been created, users can join the voice channel to get their own voice channel!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "0"
+}
