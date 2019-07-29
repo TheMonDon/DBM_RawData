@@ -1,0 +1,172 @@
+{
+  "name": "reactSetup",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "yRxuw",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "10",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "5",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#36393F",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": ":x: You are not authorized!\n\nLacking `GUILD_OWNER` permission.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "info": "1",
+      "find": "new-ticket",
+      "storage": "1",
+      "varName": "new_tix_chan",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "new_tix_chan",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "new-ticket",
+      "categoryID": "${serverVars(\"ticketsCategoryID\")}",
+      "topic": "React to make a new ticket!",
+      "position": "1",
+      "storage": "1",
+      "varName": "new_tix_chan",
+      "name": "Create Text Channel"
+    },
+    {
+      "title": "New Ticket",
+      "author": "",
+      "color": "GREEN",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "To create a new ticket react with 📰 below!\n\nIf your reaction isn't auto removed, remove it and retry.\n\nWe look forward to helping you.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "new_tix_chan",
+      "storage3": "2",
+      "varName3": "new_tix_msg",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "2",
+      "varName": "new_tix_msg",
+      "emoji": "4",
+      "varName2": "📰",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot",
+      "name": "Get Bot as Member"
+    },
+    {
+      "channel": "3",
+      "varName": "new_tix_chan",
+      "member": "2",
+      "varName2": "bot",
+      "permission": "SEND_MESSAGES",
+      "state": "0",
+      "name": "Set Member Channel Perms"
+    },
+    {
+      "channel": "3",
+      "varName": "new_tix_chan",
+      "role": "2",
+      "varName2": "",
+      "permission": "SEND_MESSAGES",
+      "state": "2",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "3",
+      "varName": "new_tix_chan",
+      "role": "2",
+      "varName2": "",
+      "permission": "ADD_REACTIONS",
+      "state": "2",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The reaction menu has been setup!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "0"
+}

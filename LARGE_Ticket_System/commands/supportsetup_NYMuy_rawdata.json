@@ -31,7 +31,7 @@
     {
       "storage": "1",
       "varName": "error",
-      "message": ":x: You are not authorized!\n\nLacking `GUILD_OWNER` permission.",
+      "message": ":x: You are not authorized!\n\nYou have to be the guild owner to setup the ticket system.",
       "name": "Set Embed Description"
     },
     {
@@ -166,7 +166,7 @@
       "comparison": "0",
       "value": "",
       "iftrue": "3",
-      "iftrueVal": "9",
+      "iftrueVal": "10",
       "iffalse": "0",
       "iffalseVal": "",
       "name": "Check Variable"
@@ -232,6 +232,16 @@
       "permission": "READ_MESSAGES",
       "state": "0",
       "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The ticket system has been setup and is ready to go!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
     },
     {
       "name": "End Action Sequence"

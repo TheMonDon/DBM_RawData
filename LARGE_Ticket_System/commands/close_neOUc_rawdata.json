@@ -62,7 +62,7 @@
       "name": "Send Message"
     },
     {
-      "time": "5",
+      "time": "10",
       "measurement": "1",
       "name": "Wait"
     },

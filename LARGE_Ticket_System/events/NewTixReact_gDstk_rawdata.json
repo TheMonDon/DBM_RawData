@@ -1,129 +1,93 @@
 {
-  "name": "new",
-  "permissions": "NONE",
-  "restriction": "1",
-  "_id": "yBGxn",
+  "name": "NewTixReact",
+  "temp": "reaction",
+  "event-type": "28",
+  "_id": "gDstk",
   "actions": [
     {
-      "storage": "0",
-      "varName": "",
-      "name": "Delete Message"
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "0",
+      "storage": "1",
+      "varName2": "message_obj",
+      "name": "Store Reaction Info"
     },
     {
-      "channel": "0",
-      "varName": "",
+      "message": "1",
+      "varName": "message_obj",
+      "info": "4",
+      "storage": "1",
+      "varName2": "chan",
+      "name": "Store Message Info"
+    },
+    {
+      "channel": "3",
+      "varName": "chan",
       "info": "2",
       "storage": "1",
-      "varName2": "name",
+      "varName2": "chan_name",
       "name": "Store Channel Info"
     },
     {
       "storage": "1",
-      "varName": "name",
-      "comparison": "10",
-      "value": "\"ticket-\"",
+      "varName": "chan_name",
+      "comparison": "1",
+      "value": "\"new-ticket\"",
       "iftrue": "0",
       "iftrueVal": "",
-      "iffalse": "3",
-      "iffalseVal": "4",
-      "name": "Check Variable"
-    },
-    {
-      "channel": "0",
-      "varName": "",
-      "message": "You're already in a ticket!",
-      "storage": "1",
-      "varName2": "ait",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
-    },
-    {
-      "time": "10",
-      "measurement": "1",
-      "name": "Wait"
-    },
-    {
-      "storage": "1",
-      "varName": "ait",
-      "name": "Delete Message"
-    },
-    {
-      "name": "End Action Sequence"
-    },
-    {
-      "info": "1",
-      "infoIndex": "1",
-      "storage": "1",
-      "varName": "text",
-      "name": "Store Command Params"
-    },
-    {
-      "condition": "0",
-      "comparison": "2",
-      "value": "0",
-      "iftrue": "3",
-      "iftrueVal": "4",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Check Parameters"
-    },
-    {
-      "channel": "0",
-      "varName": "",
-      "message": "**Error** You need to specify a reason.\n\n`${server && server.tag || Files.data.settings.tag}new <reason>`",
-      "storage": "1",
-      "varName2": "msg2",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Message"
-    },
-    {
-      "time": "10",
-      "measurement": "1",
-      "name": "Wait"
-    },
-    {
-      "storage": "1",
-      "varName": "msg2",
-      "name": "Delete Message"
-    },
-    {
-      "name": "End Action Sequence"
-    },
-    {
-      "storage": "1",
-      "varName": "text",
-      "comparison": "8",
-      "value": "1024",
-      "iftrue": "3",
-      "iftrueVal": "4",
-      "iffalse": "0",
+      "iffalse": "1",
       "iffalseVal": "",
       "name": "Check Variable"
     },
     {
-      "channel": "0",
-      "varName": "",
-      "message": "Error: Please keep the reason under 1024 characters.",
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "7",
       "storage": "1",
-      "varName2": "err1",
+      "varName2": "last_user",
+      "name": "Store Reaction Info"
+    },
+    {
+      "member": "2",
+      "varName": "last_user",
+      "info": "0",
+      "varName2": "",
+      "iftrue": "1",
+      "iftrueVal": "",
       "iffalse": "0",
       "iffalseVal": "",
-      "name": "Send Message"
+      "name": "Check If Member"
     },
     {
-      "time": "10",
-      "measurement": "1",
-      "name": "Wait"
+      "member": "2",
+      "varName": "last_user",
+      "info": "3",
+      "storage": "1",
+      "varName2": "displayName",
+      "name": "Store Member Info"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "member": "2",
+      "varName2": "last_user",
+      "name": "Remove Reaction"
     },
     {
       "storage": "1",
-      "varName": "err1",
-      "name": "Delete Message"
+      "varName": "last_user",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
     },
     {
-      "name": "End Action Sequence"
+      "comment": "-- Create New Tix Channel --",
+      "color": "#00ffff",
+      "name": "Comment"
     },
     {
       "server": "0",
@@ -135,9 +99,9 @@
       "name": "Store Server Data"
     },
     {
-      "channelName": "ticket-${member.displayName}-${tempVars(\"ticketcount\")}",
+      "channelName": "ticket-${tempVars(\"displayName\")}-${tempVars(\"ticketcount\")}",
       "categoryID": "${serverVars(\"ticketsCategoryID\")}",
-      "topic": "${tempVars(\"text\")}",
+      "topic": "",
       "position": "",
       "storage": "1",
       "varName": "newTix",
@@ -165,11 +129,16 @@
       "name": "Comment"
     },
     {
+      "time": "500",
+      "measurement": "0",
+      "name": "Wait"
+    },
+    {
       "title": "Ticket Created",
-      "author": "${member.displayName}",
+      "author": "",
       "color": "#e65df4",
       "url": "",
-      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorIcon": "",
       "authorUrl": "",
       "imageUrl": "",
       "thumbUrl": "",
@@ -195,8 +164,8 @@
     {
       "storage": "1",
       "varName": "created",
-      "channel": "0",
-      "varName2": "",
+      "channel": "5",
+      "varName2": "chan",
       "storage3": "1",
       "varName3": "createdmsg",
       "iffalse": "0",
@@ -225,8 +194,8 @@
     {
       "channel": "3",
       "varName": "newTix",
-      "member": "1",
-      "varName2": "",
+      "member": "2",
+      "varName2": "last_user",
       "permission": "READ_MESSAGES",
       "state": "0",
       "name": "Set Member Channel Perms"
@@ -241,8 +210,8 @@
       "name": "Set Role Channel Perms"
     },
     {
-      "member": "1",
-      "varName": "",
+      "member": "2",
+      "varName": "last_user",
       "dataName": "${tempVars(\"name\")}_creator",
       "changeType": "0",
       "value": "1",
@@ -254,15 +223,7 @@
       "name": "Comment"
     },
     {
-      "input": "Author ID: [${member.id}]",
-      "format": ".txt",
-      "filename": "${tempVars(\"name\")}",
-      "filepath": "./logs/",
-      "filetask": "2",
-      "name": "File Control"
-    },
-    {
-      "input": "Topic: [${tempVars(\"text\")}]",
+      "input": "Author ID: [${tempVars(\"last_user\").id}] \" + \\n + \"\nTopic: [N/A - Created from reaction menu]",
       "format": ".txt",
       "filename": "${tempVars(\"name\")}",
       "filepath": "./logs/",
@@ -271,10 +232,10 @@
     },
     {
       "title": "",
-      "author": "${member.displayName}",
+      "author": "",
       "color": "#00FFFF",
       "url": "",
-      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorIcon": "",
       "authorUrl": "",
       "imageUrl": "",
       "thumbUrl": "",
@@ -295,7 +256,7 @@
       "storage": "1",
       "varName": "in",
       "fieldName": "Ticket Created",
-      "message": "${member} has created a new ticket.",
+      "message": "${tempVars(\"last_user\")} has created a new ticket.",
       "inline": "1",
       "name": "Add Embed Field"
     },
@@ -303,7 +264,7 @@
       "storage": "1",
       "varName": "in",
       "fieldName": "Subject",
-      "message": "${tempVars(\"text\")}",
+      "message": "N/A - Created from reaction menu",
       "inline": "1",
       "name": "Add Embed Field"
     },
@@ -355,14 +316,14 @@
     {
       "storage": "1",
       "varName": "log",
-      "message": "${member} has opened a new ticket ${tempVars(\"newTix\")}.",
+      "message": "${tempVars(\"last_user\")} has opened a new ticket ${tempVars(\"newTix\")}.",
       "name": "Set Embed Description"
     },
     {
       "storage": "1",
       "varName": "log",
       "fieldName": "Ticket ID",
-      "message": "ticket-${member.displayName}-${tempVars(\"ticketcount\")}",
+      "message": "ticket-${tempVars(\"displayName\")}-${tempVars(\"ticketcount\")}",
       "inline": "1",
       "name": "Add Embed Field"
     },
@@ -387,7 +348,5 @@
       "varName": "createdmsg",
       "name": "Delete Message"
     }
-  ],
-  "_aliases": [],
-  "comType": "0"
+  ]
 }

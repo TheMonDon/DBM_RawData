@@ -141,12 +141,17 @@
       "name": "Read File"
     },
     {
-      "behavior": "0",
-      "interpretation": "0",
-      "code": "tempVars(\"log\").split('\\n')[0].replace(/\\s/g, \"\")",
-      "storage": "1",
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const regex = /\\[([0-9]+?)\\]/\nconst string = tempVars(\"log\").split('\\n')[0].replace(/\\s/g, \"\");\nconst matched = regex.exec(string)[1];\nActions.storeValue(matched, 1, \"id\", cache);\nActions.callNextAction(cache);",
+      "storage": "0",
       "varName": "id",
       "name": "Run Script"
+    },
+    {
+      "time": "500",
+      "measurement": "0",
+      "name": "Wait"
     },
     {
       "info": "0",
@@ -162,6 +167,11 @@
       "file": "./logs/${tempVars(\"name\")}.txt",
       "message": "Your ticket was force closed by: ${member}.\nHere is the log file from your ticket.",
       "name": "Send File"
+    },
+    {
+      "time": "500",
+      "measurement": "0",
+      "name": "Wait"
     },
     {
       "input": "",
