@@ -10,6 +10,18 @@
       "name": "Comment"
     },
     {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
       "behavior": "1",
       "interpretation": "0",
       "code": "//Check if fnt exists else download it!\nconst https = require('https');\nconst fs = require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.fnt`;\n\n(async () => {\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    const request = await https.get(\"https://raw.githubusercontent.com/TheMonDon/storage/master/Moms_Typewriter.fnt\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}\n})()",
@@ -156,19 +168,6 @@
       "name": "Edit Message"
     },
     {
-      "time": "1",
-      "measurement": "1",
-      "name": "Wait"
-    },
-    {
-      "storage": "1",
-      "varName": "Message",
-      "message": "GO!",
-      "storage2": "1",
-      "varName2": "",
-      "name": "Edit Message"
-    },
-    {
       "behavior": "1",
       "interpretation": "0",
       "code": "this.getWrexMods().require('random-words');\nconst randomWords = require('random-words');\nconst randWord = randomWords(1);\nthis.storeValue(randWord, 1, \"randWord\", cache);\nActions.callNextAction(cache);",
@@ -181,6 +180,14 @@
       "storage": "1",
       "varName": "img",
       "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "Message",
+      "message": "GO!",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
     },
     {
       "storage": "1",
@@ -324,5 +331,6 @@
       "iffalseVal": "",
       "name": "Send Message"
     }
-  ]
+  ],
+  "comType": "0"
 }
