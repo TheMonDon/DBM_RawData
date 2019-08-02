@@ -31,7 +31,7 @@
     {
       "storage": "1",
       "varName": "error",
-      "message": ":x: You are not authorized!\n\nLacking `GUILD_OWNER` permission.",
+      "message": ":x: You are not authorized!\n\nYou have to be the guild owner to setup the ticket system.",
       "name": "Set Embed Description"
     },
     {
