@@ -3,6 +3,7 @@ Credits:
 Ticket Log Idea: Blue Label#0001
 
 Created By: TheMonDon#1721
+Requires DBM Beta and latest [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/master) as of **July 28th, 2019!**
 
 # Description
 This is a large/advaned ticket system which is in its beta phases. I believe everything is working but I am not 100% sure. Please report any problems to me on discord: TheMonDon#1721
@@ -14,8 +15,6 @@ Description coming soon...
 To get the basic system up and running run the command `supportSetup`, if it's already set up it will tell you.
 
 # If you have any suggestions or things to change, let me know!
-
-Note: Requires DBM Beta and latest [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/master) as of **July 28th, 2019!**
 
 # Known Bugs
 No known bugs currently.
