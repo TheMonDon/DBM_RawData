@@ -1,0 +1,46 @@
+{
+  "name": "weather",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "RbcSb",
+  "actions": [
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "0",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please enter a city to get the weather in!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "city",
+      "name": "Store Command Params"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const city = tempVars(\"city\");\nconst weather = this.getWrexMods().require('weather-js');\nconst { RichEmbed } = require('discord.js');\n//Created by TheMonDon :3\n\nweather.find({search: city, degreeType: 'F'}, function(err, result) {\n    if(err) console.log(err);\n\n    if (result.length === 0) {\n        msg.channel.send(`No data was available for the location \\`${city}\\``);\n    } else {\n    \n    const embed = new RichEmbed()\n        .setColor('RANDOM')\n        .setTitle(`Weather in: ${result[0].location.name}`)\n        .setThumbnail(result[0].current.imageUrl)\n        .addField('Tempature: ', `${result[0].current.temperature}°F`, true)\n        .addField('Feels Like: ', `${result[0].current.feelslike}°F`, true)\n        .addField('Humidity: ', `${result[0].current.humidity}%`, true)\n        .setDescription(`**Sky weather:** ${result[0].current.skytext} \\n\\n **Wind info:** ${result[0].current.winddisplay}`);\n    msg.channel.send(embed);\n}\n});",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ]
+}
