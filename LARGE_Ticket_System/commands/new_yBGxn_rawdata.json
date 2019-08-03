@@ -362,7 +362,7 @@
       "storage": "1",
       "varName": "log",
       "fieldName": "Ticket ID",
-      "message": "ticket-${member.displayName}-${tempVars(\"ticketcount\")}",
+      "message": "${tempVars(\"name\")}",
       "inline": "1",
       "name": "Add Embed Field"
     },
