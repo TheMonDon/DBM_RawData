@@ -34,7 +34,7 @@
       "info": "0",
       "find": "${tempVars(\"userid\")}",
       "storage": "1",
-      "varName": "userid_user",
+      "varName": "member1",
       "find2": "0",
       "name": "Find Member"
     },
