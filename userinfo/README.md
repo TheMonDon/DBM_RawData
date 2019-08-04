@@ -6,6 +6,9 @@ Get user information:
 
 Command is based off UnbelivaBoats command, but added features.
 
+# Mod Info
+**Requires latest mods as of July 28th, 2019!**
+
 # What information does this give?
 For command author, mentioned users, and user IDS inside the server:
 - Username
