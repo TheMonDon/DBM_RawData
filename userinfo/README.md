@@ -6,8 +6,9 @@ Get user information:
 
 Command is based off UnbelivaBoats command, but added features.
 
-# Mod Info
+# Needed Info
 **Requires latest mods as of July 28th, 2019!**
+Requires node module 'moment' will be installed with wrexMods.
 
 # What information does this give?
 For command author, mentioned users, and user IDS inside the server:
