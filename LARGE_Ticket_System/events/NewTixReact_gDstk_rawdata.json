@@ -59,12 +59,12 @@
       "name": "Check If Member"
     },
     {
-      "member": "2",
-      "varName": "last_user",
+      "reaction": "1",
+      "varName": "reaction",
       "info": "3",
       "storage": "1",
-      "varName2": "displayName",
-      "name": "Store Member Info"
+      "varName2": "emoji_name",
+      "name": "Store Reaction Info"
     },
     {
       "reaction": "1",
@@ -74,10 +74,29 @@
       "name": "Remove Reaction"
     },
     {
+      "member": "2",
+      "varName": "last_user",
+      "info": "3",
+      "storage": "1",
+      "varName2": "displayName",
+      "name": "Store Member Info"
+    },
+    {
       "storage": "1",
       "varName": "last_user",
       "comparison": "0",
       "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "emoji_name",
+      "comparison": "1",
+      "value": "\"📰\"",
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "1",
@@ -101,7 +120,7 @@
     {
       "channelName": "ticket-${tempVars(\"displayName\")}-${tempVars(\"ticketcount\")}",
       "categoryID": "${serverVars(\"ticketsCategoryID\")}",
-      "topic": "",
+      "topic": "N/A - Created from reaction menu",
       "position": "",
       "storage": "1",
       "varName": "newTix",
