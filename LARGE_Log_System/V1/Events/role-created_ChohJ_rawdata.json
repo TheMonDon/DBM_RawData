@@ -17,22 +17,6 @@
       "name": "Check Server Data"
     },
     {
-      "role": "3",
-      "varName": "rolecreated",
-      "info": "2",
-      "storage": "1",
-      "varName2": "name",
-      "name": "Store Role Info"
-    },
-    {
-      "role": "3",
-      "varName": "rolecreated",
-      "info": "1",
-      "storage": "1",
-      "varName2": "id",
-      "name": "Store Role Info"
-    },
-    {
       "title": "Role Created",
       "author": "",
       "color": "BLACK",
@@ -66,7 +50,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "ID",
-      "message": "${tempVars(\"id\")}",
+      "message": "${tempVars(\"rolecreated\").id}",
       "inline": "0",
       "name": "Add Embed Field"
     },

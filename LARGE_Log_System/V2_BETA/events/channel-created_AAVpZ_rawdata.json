@@ -1,0 +1,16 @@
+{
+  "name": "channel-created",
+  "temp": "channelcreated",
+  "event-type": "8",
+  "_id": "AAVpZ",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst fs = wm.require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst channelcreated = tempVars('channelcreated');\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get('log_system.channel-created');\n    if (log_system === \"enabled\") {\n        if (!channelcreated.name.startsWith(\"ticket-\")) {\n            embed.setTitle('Channel Created');\n            embed.setColor('#20fc3a');\n            embed.setTimestamp();\n            embed.addField('Name', channelcreated, true);\n            embed.addField('Category', (channelcreated.parent && channelcreated.parent.anem) ? channelcreated.parent.name : \"None\", true);\n            embed.setFooter(`ID: ${channelcreated.id}`);\n            console.log(log_chan);\n            server.channels.get(log_chan).send(embed);\n            db.add('logs.channel_created', 1);\n            db.add('logs.all', 1);\n        }\n    }\n}\n",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ]
+}

@@ -19,25 +19,6 @@
     {
       "role": "3",
       "varName": "roledeleted",
-      "info": "2",
-      "storage": "1",
-      "varName2": "name",
-      "name": "Store Role Info"
-    },
-    {
-      "storage": "1",
-      "varName": "name",
-      "comparison": "5",
-      "value": "\"ticket-\"",
-      "iftrue": "1",
-      "iftrueVal": "",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Check Variable"
-    },
-    {
-      "role": "3",
-      "varName": "roledeleted",
       "info": "1",
       "storage": "1",
       "varName2": "id",
@@ -68,7 +49,7 @@
       "storage": "1",
       "varName": "embed",
       "fieldName": "Name",
-      "message": "${tempVars(\"name\")}",
+      "message": "${tempVars(\"roledeleted\").name}",
       "inline": "0",
       "name": "Add Embed Field"
     },
@@ -83,7 +64,7 @@
     {
       "storage": "1",
       "varName": "embed",
-      "message": "ID : ${tempVars(\"id\")}",
+      "message": "ID : ${tempVars(\"roledeleted\").id}",
       "footerIcon": "",
       "name": "Set Embed Footer"
     },

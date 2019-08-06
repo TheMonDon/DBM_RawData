@@ -32,8 +32,14 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 
 # Versions
 > **2.0 (coming soon! 8/4/2019+)**
-- Everything from 1.0
-- Uses file system rather than DBM Data Actions.
+- Everything from 1.0+
+- Uses quick.db rather than DBM storage.
+- Mostly if not all run script! (less actions)
+
+> **1.0.1 (minor update 8/6/2019)**
+- Role-Created (Event) :: Removed unecessary stuff
+- Role-Deleted (Event) :: Removed unecessary stuff
+(Likely final update to V1!)
 
 > **1.0 (includes everything updated prior)**
 
