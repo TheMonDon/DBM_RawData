@@ -3,29 +3,26 @@ Get user information:
 - Command author
 - Mentioned User
 - Member ID
-
-Command is based off UnbelivaBoats command, but added features.
+- Member displayName
+- Member Username
+- User ID
 
 # Needed Info
-**Requires latest mods as of July 28th, 2019!**
 Requires node module 'moment' will be installed with wrexMods.
 
 # What information does this give?
-For command author, mentioned users, and user IDS inside the server:
-- Username
-- Username w/ Tag
+For people in the current server:
+- User Tag
 - Nickname
 - User ID
 - Status (online|idle|busy|offline)
-- Joined Server
-- Account Created
-- Is Bannable?
+- Joined Server Date
+- Account Created Date
 - Join Position
-- Roles List
+- Roles List (sorted highest to lowest)
 
 For user IDs not in the server:
-- Username
-- Username w/ Tag
+- User Tag
 - User ID
 - Is Bot?
-- Account Created
+- Account Created Date
