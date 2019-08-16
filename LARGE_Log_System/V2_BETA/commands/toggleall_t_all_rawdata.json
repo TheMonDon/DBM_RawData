@@ -1,0 +1,19 @@
+{
+  "name": "toggleall",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "t_all",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst nodegyp = wm.require(`node-gyp`);\nconst db = wm.require(`quick.db`);\n\nconst all = db.get(`${server.id}log_system.all`);\nconst enable = {\n    'channel-created': 'enabled',\n    'channel-deleted': 'enabled',\n    'channel-updated': 'enabled',\n    'member-join': 'enabled',\n    'member-leave': 'enabled',\n    'message-deleted': 'enabled',\n    'message-edited': 'enabled',\n    'role-created': 'enabled',\n    'role-deleted': 'enabled',\n    'role-updated': 'enabled',\n    'v-channel-created': 'enabled',\n    'v-channel-deleted': 'enabled',\n    'emoji-created': 'enabled',\n    'emoji-deleted': 'enabled',\n    all: 'enabled'\n};\nconst disable = {\n    'channel-created': 'disabled',\n    'channel-deleted': 'disabled',\n    'channel-updated': 'disabled',\n    'member-join': 'disabled',\n    'member-leave': 'disabled',\n    'message-deleted': 'disabled',\n    'message-edited': 'disabled',\n    'role-created': 'disabled',\n    'role-deleted': 'disabled',\n    'role-updated': 'disabled',\n    'v-channel-created': 'disabled',\n    'v-channel-deleted': 'disabled',\n    'emoji-created': 'disabled',\n    'emoji-deleted': 'disabled',\n    all: 'disabled'\n};\n\nif (all === \"enabled\") {\n    db.set(`${server.id}log_system`, disable);\n    msg.delete();\n    msg.channel.send('Everything has been disabled.')\n} else if (all === \"disabled\") {\n    db.set(`${server.id}log_system`, enable);\n    msg.delete();\n    msg.channel.send('Everything has been enabled.')\n} else {\n    msg.delete();\n    msg.channel.send('An error occured, this is probably due to the log system not beign setup in this server.');\n}\n",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "_aliases": [
+    "ta"
+  ]
+}

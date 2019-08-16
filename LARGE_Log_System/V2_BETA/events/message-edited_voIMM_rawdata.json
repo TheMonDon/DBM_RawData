@@ -1,0 +1,18 @@
+{
+  "name": "message-edited",
+  "temp": "msg1",
+  "event-type": "26",
+  "_id": "voIMM",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst fs = wm.require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst msg1 = tempVars('msg1');\nconst msg2 = tempVars(\"msg2\");\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.message-edited`);\n    if (log_system === \"enabled\") {\n        if (msg1.author.bot == false) {\n            embed.setTitle('Message Edited');\n            embed.setURL(msg2.url);\n            embed.setAuthor(msg1.author.tag, msg1.author.displayAvatarURL);\n            embed.setColor('#EE82EE');\n            embed.setThumbnail(msg1.author.displayAvatarURL);\n            embed.addField('Original Message', (msg1.content.length <= 1024) ? msg1.content : `${msg1.content.substring(0, 1020)}...`, true);\n            embed.addField('Edited Message', (msg2.content.length <= 1024) ? msg2.content : `${msg2.content.substring(0, 1020)}...`, true);\n            embed.addField('Channel', msg1.channel, true);\n            embed.addField('Message Author', `${msg1.author} (${msg1.author.tag})`, true);\n            embed.addField('Number of Edits', msg2.edits.length, true);\n            (msg2.mentions.users.size === 0) ? embed.addField('Mentioned Users', 'None', true): embed.addField('Mentioned Users', `Mentioned Member Count: ${msg2.mentions.users.array().length} \\n Mentioned Users List: \\n ${msg2.mentions.users.array()}`, true);\n            embed.setTimestamp();\n            server.channels.get(log_chan).send(embed);\n            db.add('logs.message_edited', 1);\n            db.add('logs.all', 1);\n        }\n    }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "temp2": "msg2",
+  "restriction": "0"
+}

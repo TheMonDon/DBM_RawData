@@ -1,0 +1,25 @@
+{
+  "name": "message-deleted",
+  "temp": "msgdel",
+  "event-type": "18",
+  "_id": "XpYuO",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('VIEW_AUDIT_LOG')) {\n    server.fetchAuditLogs()\n        .then(audit => {\n            this.storeValue(audit.entries.first()\n                .executor, 1, \"delby\", cache);\n            Actions.callNextAction(cache);\n        })\n        .catch(console.error);\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst fs = wm.require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst msgdel = tempVars('msgdel');\nconst delby = tempVars(\"delby\");\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.message-deleted`);\n    if (log_system === \"enabled\") {\n        if (msgdel.author.bot == false) {\n            embed.setTitle('Message Deleted');\n            embed.setURL(msgdel.url);\n            embed.setAuthor(msgdel.author.tag, msgdel.author.displayAvatarURL);\n            embed.setThumbnail(msgdel.author.displayAvatarURL);\n            embed.addField('Deleted Text', (msgdel.content.length <= 1024) ? msgdel.content : `${msgdel.content.substring(0, 1020)}...`, true);\n            embed.addField('Channel', msgdel.channel, true);\n            embed.addField('Message Author', `${msgdel.author} (${msgdel.author.tag})`, true);\n            (delby) ? (msgdel.author !== delby) ? embed.addField('Deleted By', delby, true): '' : '';\n            (msgdel.mentions.users.size === 0) ? embed.addField('Mentioned Users', 'None', true): embed.addField('Mentioned Users', `Mentioned Member Count: ${msgdel.mentions.users.array().length} \\n Mentioned Users List: \\n ${msgdel.mentions.users.array()}`, true);\n            embed.setTimestamp();\n            server.channels.get(log_chan)\n                .send(embed);\n            db.add('logs.message_deleted', 1);\n            db.add('logs.all', 1);\n        }\n    }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "restriction": "0"
+}

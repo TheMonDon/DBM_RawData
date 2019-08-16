@@ -1,0 +1,16 @@
+{
+  "name": "logsystem",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "LieNT",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst nodegyp = wm.require(`node-gyp`);\nconst db = wm.require(`quick.db`);\nconst stripIndents = wm.require(`strip-indent`);\nlet embed = new DiscordJS.RichEmbed();\n\nembed.setColor(`#36393F`);\nembed.addField(`Toggle Status`, stripIndents(`\n**Channel Created:** ${db.get(`${server.id}log_system.channel-created`)}\n**Channel Deleted:** ${db.get(`${server.id}log_system.channel-deleted`)}\n**Channel Updated:** ${db.get(`${server.id}log_system.channel-updated`)}\n**Voice Channel Created:** ${db.get(`${server.id}log_system.v-channel-created`)}  \n**Voice Channel Deleted:** ${db.get(`${server.id}log_system.v-channel-deleted`)}  \n**Member Joined:** ${db.get(`${server.id}log_system.member-join`)}\n**Member Leave:** ${db.get(`${server.id}log_system.member-leave`)}\n**Message Edited:** ${db.get(`${server.id}log_system.message-edited`)}\n**Message Deleted:** ${db.get(`${server.id}log_system.message-deleted`)}\n**Role Created:** ${db.get(`${server.id}log_system.role-created`)}\n**Role Deleted:** ${db.get(`${server.id}log_system.role-deleted`)}\n**Role Updated:** ${db.get(`${server.id}log_system.role-updated`)}\n**Emoji Created:** ${db.get(`${server.id}log_system.emoji-created`)}\n**Emoji Deleted:** ${db.get(`${server.id}log_system.emoji-deleted`)}\n`), true);\nembed.addField('System Status', stripIndents(`\n**Total:** ${db.get(`${server.id}logs.all`)}\n**Channels Created:** ${db.get(`${server.id}logs.channel_created`)}\n**Channels Deleted:** ${db.get(`${server.id}logs.channel_deleted`)}\n**Channels Updated:** ${db.get(`${server.id}logs.channel_updated`)}\n**Voice Channels Created:** ${db.get(`${server.id}logs.v_channel_created`)}\n**Voice Channels Deleted:** ${db.get(`${server.id}logs.v_channel_deleted`)}\n**Members Joined:** ${db.get(`${server.id}logs.member_joined`)}\n**Members Left:** ${db.get(`${server.id}logs.member_leave`)}\n**Messages Edited:** ${db.get(`${server.id}logs.message_edited`)}\n**Messages Deleted:** ${db.get(`${server.id}logs.message_deleted`)}\n**Roles Created:** ${db.get(`${server.id}logs.role_created`)}\n**Roles Deleted:** ${db.get(`${server.id}logs.role_deleted`)}\n**Roles Updated:** ${db.get(`${server.id}logs.role_updated`)}\n**Emojis Created:** ${db.get(`${server.id}logs.emoji_created`)}\n**Emojis Deleted:** ${db.get(`${server.id}logs.emoji_deleted`)}\n`), true);\nmsg.delete();\nmsg.channel.send(embed);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ]
+}

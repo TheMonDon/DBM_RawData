@@ -6,6 +6,7 @@ Made by: TheMonDon
 This is an advanced logging system that checks multiple things and sends it to your defined channel.
 
 Note: Requires DBM Beta and [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/beta).
+**NOTE: Requires node module quick.db!**
 
 # What is logged?
 Currently the following things are logged:
@@ -31,14 +32,15 @@ You have to set your log channel and toggle the modules you want enabled.
 You can also do [p]togglelog (individual types) to disable certain "modules" like [p]togglelog emoji-deleted.  
 
 # Versions
-> **2.0 (coming soon! 8/4/2019+)**
+> **2.0 (BETA!!)**
 - Everything from 1.0+
 - Uses quick.db rather than DBM storage.
 - Mostly if not all run script! (less actions)
+- Please report any bugs.
 
 > **1.0.1 (minor update 8/6/2019)**
 - Role-Created (Event) :: Removed unecessary stuff
-- Role-Deleted (Event) :: Removed unecessary stuff
+- Role-Deleted (Event) :: Removed unecessary stuff  
 (Likely final update to V1!)
 
 > **1.0 (includes everything updated prior)**

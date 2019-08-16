@@ -1,0 +1,17 @@
+{
+  "name": "v-channel-created",
+  "temp": "channelcreated",
+  "event-type": "14",
+  "_id": "YOeFC",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst fs = wm.require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst channelcreated = tempVars('channelcreated');\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.v-channel-created`);\n    if (log_system === \"enabled\") {\n        embed.setTitle('Voice Channel Created');\n        embed.setColor('#20fc3a');\n        embed.addField('Name', channelcreated.name, true);\n        embed.addField('Category', (channelcreated.parent && channelcreated.parent.name) ? channelcreated.parent.name : \"None\", true);\n        embed.addField('User Limit', channelcreated.userLimit, true);\n        embed.setFooter(`ID: ${channelcreated.id}`);\n        embed.setTimestamp();\n        server.channels.get(log_chan)\n            .send(embed);\n        db.add('logs.v_channel_created', 1);\n        db.add('logs.all', 1);\n    }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "restriction": "0"
+}
