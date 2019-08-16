@@ -11,24 +11,55 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "3",
+      "iffalseVal": "5",
       "name": "Check Parameters"
     },
     {
-      "storage": "0",
-      "varName": "",
-      "name": "Delete Message"
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "text",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"text\")}",
+      "storage": "1",
+      "varName": "bl_user",
+      "find2": "0",
+      "name": "Find Member"
+    },
+    {
+      "storage": "1",
+      "varName": "bl_user",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
     },
     {
       "channel": "0",
       "varName": "",
-      "message": "**Incorrect Usage:** Do ${server && server.tag || Files.data.settings.tag}blacklist <add | remove | check> @user [reason]",
+      "message": "**Incorrect Usage:** Do ${server && server.tag || Files.data.settings.tag}blacklist <add | remove | check> [user] [reason]",
       "storage": "0",
       "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
       "name": "Send Message"
     },
     {
       "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "bl_user",
+      "name": "Store Member Info"
     },
     {
       "storage": "3",
@@ -57,18 +88,13 @@
       "name": "Store Command Params"
     },
     {
-      "member": "0",
-      "varName": "",
+      "member": "2",
+      "varName": "bl_user",
       "dataName": "${msg.guild.id}blacklist",
       "defaultVal": "false",
       "storage": "1",
       "varName2": "blacklist",
       "name": "Store Member Data"
-    },
-    {
-      "storage": "0",
-      "varName": "",
-      "name": "Delete Message"
     },
     {
       "storage": "1",
@@ -120,7 +146,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "${mentionedUser} is not on the blacklist.",
+      "message": "${tempVars(\"bl_user\").displayName} is not on the blacklist.",
       "storage": "0",
       "varName2": "",
       "iffalse": "0",
@@ -131,8 +157,8 @@
       "name": "End Action Sequence"
     },
     {
-      "member": "0",
-      "varName": "",
+      "member": "2",
+      "varName": "bl_user",
       "dataName": "${msg.guild.id}blacklist",
       "changeType": "0",
       "value": "false",
@@ -141,7 +167,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "${mentionedUser} has been removed from the blacklist.",
+      "message": "${tempVars(\"bl_user\").displayName} has been removed from the blacklist.",
       "storage": "0",
       "varName2": "",
       "iffalse": "0",
@@ -149,8 +175,8 @@
       "name": "Send Message"
     },
     {
-      "channel": "2",
-      "varName": "",
+      "channel": "5",
+      "varName": "bl_user",
       "message": "You have been unblacklisted from using commands in: **${msg.guild.name}**",
       "storage": "0",
       "varName2": "",
@@ -175,7 +201,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "${mentionedUser} is already on the blacklist.",
+      "message": "${tempVars(\"bl_user\").displayName} is already on the blacklist.",
       "storage": "0",
       "varName2": "",
       "iffalse": "0",
@@ -189,7 +215,7 @@
       "storage": "1",
       "varName": "reason",
       "comparison": "10",
-      "value": "\"!blacklist\"",
+      "value": "`${server.tag}blacklist`",
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
@@ -208,8 +234,8 @@
       "name": "End Action Sequence"
     },
     {
-      "member": "0",
-      "varName": "",
+      "member": "2",
+      "varName": "bl_user",
       "dataName": "${msg.guild.id}blacklist",
       "changeType": "0",
       "value": "true",
@@ -218,14 +244,16 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "${mentionedUser} has been added to the blacklist with the reason: **${tempVars(\"reason\") || \"No Reason Provided\"}**",
+      "message": "${tempVars(\"bl_user\").displayName} has been added to the blacklist with the reason: **${tempVars(\"reason\") || \"No Reason Provided\"}**",
       "storage": "0",
       "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
       "name": "Send Message"
     },
     {
-      "channel": "2",
-      "varName": "",
+      "channel": "5",
+      "varName": "bl_user",
       "message": "You have been blacklisted from using commands in: **${msg.guild.name}**\nFor the reason: **${tempVars(\"reason\")}**",
       "storage": "0",
       "varName2": "",
@@ -239,7 +267,7 @@
     {
       "channel": "0",
       "varName": "",
-      "message": "Is ${mentionedUser} blacklisted? ${tempVars(\"blacklist\")}",
+      "message": "Is ${tempVars(\"bl_user\").displayName} blacklisted? ${tempVars(\"blacklist\")}",
       "storage": "0",
       "varName2": "",
       "iffalse": "0",
