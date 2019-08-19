@@ -32,6 +32,14 @@ You have to set your log channel and toggle the modules you want enabled.
 You can also do [p]togglelog (individual types) to disable certain "modules" like [p]togglelog emoji-deleted.  
 
 # Versions
+
+> **2.1 (BETA!!)**
+- Fixed incorrect permissions
+- Fixed file not being created and throwing error
+- Changed all ADMINISTRATOR permissions to MANAGE_GUILD
+- Cleaned up code
+- Please report any bugs.
+
 > **2.0 (BETA!!)**
 - Everything from 1.0+
 - Uses quick.db rather than DBM storage.
