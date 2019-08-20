@@ -77,9 +77,12 @@
       "name": "Send Embed Message"
     },
     {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();",
       "storage": "0",
       "varName": "",
-      "name": "Delete Message"
+      "name": "Run Script"
     },
     {
       "storage": "1",
@@ -212,9 +215,12 @@
       "name": "Send Image MOD"
     },
     {
-      "storage": "1",
-      "varName": "Message",
-      "name": "Delete Message"
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) tempVars(\"Message\").delete();",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
     },
     {
       "storage": "0",
