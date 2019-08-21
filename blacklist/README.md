@@ -1,7 +1,8 @@
 # BlackListDBM
 Blacklist command for Discord Bot Maker
 
-The main command and the blacklist_test command are required, the blacklist test shows you the four things you need to put before all of your commands to get the blacklist to work.
+The main command and the blacklist_test command are required.
+**Put the run script from blacklist_test before all other commands! Make SURE to select do not call next action and evaluate text directly!!!**
 
 The third command, blacklisted is for users to check wether or not theyre blacklisted.
 

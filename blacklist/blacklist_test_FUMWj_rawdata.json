@@ -1,0 +1,26 @@
+{
+  "name": "blacklist_test",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "FUMWj",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You're not blacklisted! woo!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}
