@@ -20,6 +20,13 @@ To get the basic system up and running run the command `supportSetup`, if it's a
 No known bugs currently.
 
 # Versioning
+
+**2.1.0**
+- Added check if ticket is setup before every command
+- Fixed all issued with `reactSetup`!
+- Add checks for permissions to setup `supportSetup` and `reactSetup`
+- Changed all perms from `GUILD_OWNER` to `MANAGE_GUILD`. Requested and better!
+
 **2.0.0**
 - Added reaction role! :: download the event inside the events folder and the new `reactSetup` command to get started with it. Remember, it needs general Wrexes on-cached-reaction thing! **BETA**
 - add (Increased message deletion time from 5 to 10 seconds)

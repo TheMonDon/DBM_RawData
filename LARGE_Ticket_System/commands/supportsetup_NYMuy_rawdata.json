@@ -7,13 +7,12 @@
     {
       "member": "1",
       "varName": "",
-      "info": "10",
-      "varName2": "",
+      "permission": "MANAGE_GUILD",
       "iftrue": "3",
-      "iftrueVal": "5",
+      "iftrueVal": "4",
       "iffalse": "0",
       "iffalseVal": "",
-      "name": "Check If Member"
+      "name": "Check Member Permissions"
     },
     {
       "title": "",
@@ -31,7 +30,7 @@
     {
       "storage": "1",
       "varName": "error",
-      "message": ":x: You are not authorized!\n\nYou have to be the guild owner to setup the ticket system.",
+      "message": ":x: You are not authorized!\n\nYou need **MANAGE_GUILD** permission to setup the ticket system.",
       "name": "Set Embed Description"
     },
     {
@@ -45,9 +44,20 @@
       "name": "End Action Sequence"
     },
     {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();",
       "storage": "0",
       "varName": "",
-      "name": "Delete Message"
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
     },
     {
       "info": "1",
@@ -126,6 +136,11 @@
       "storage": "2",
       "varName": "holdCategory",
       "name": "Create Category Channel"
+    },
+    {
+      "time": "500",
+      "measurement": "0",
+      "name": "Wait"
     },
     {
       "channel": "4",

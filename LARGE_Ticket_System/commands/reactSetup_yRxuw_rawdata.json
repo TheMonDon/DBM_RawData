@@ -7,13 +7,12 @@
     {
       "member": "1",
       "varName": "",
-      "info": "10",
-      "varName2": "",
+      "permission": "MANAGE_GUILD",
       "iftrue": "3",
-      "iftrueVal": "5",
+      "iftrueVal": "4",
       "iffalse": "0",
       "iffalseVal": "",
-      "name": "Check If Member"
+      "name": "Check Member Permissions"
     },
     {
       "title": "",
@@ -31,7 +30,7 @@
     {
       "storage": "1",
       "varName": "error",
-      "message": ":x: You are not authorized!\n\nYou have to be the guild owner to setup the ticket system.",
+      "message": ":x: You are not authorized!\n\nYou need **MANAGE_GUILD** permission to setup the reaction ticket system.",
       "name": "Set Embed Description"
     },
     {
@@ -45,9 +44,12 @@
       "name": "End Action Sequence"
     },
     {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();",
       "storage": "0",
       "varName": "",
-      "name": "Delete Message"
+      "name": "Run Script"
     },
     {
       "info": "1",
@@ -68,7 +70,7 @@
       "name": "Check Variable"
     },
     {
-      "channelName": "new-ticket",
+      "channelName": "New-Ticket",
       "categoryID": "${serverVars(\"ticketsCategoryID\")}",
       "topic": "React to make a new ticket!",
       "position": "1",
@@ -77,51 +79,12 @@
       "name": "Create Text Channel"
     },
     {
-      "title": "New Ticket",
-      "author": "",
-      "color": "GREEN",
-      "url": "",
-      "authorIcon": "",
-      "authorUrl": "",
-      "imageUrl": "",
-      "thumbUrl": "",
-      "timestamp": "false",
-      "debug": "false",
-      "text": "",
-      "year": "",
-      "month": "",
-      "day": "",
-      "hour": "",
-      "minute": "",
-      "second": "",
-      "storage": "1",
-      "varName": "embed",
-      "name": "Create Embed Message"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "message": "To create a new ticket react with 📰 below!\n\nIf your reaction isn't auto removed, remove it and retry.\n\nWe look forward to helping you.",
-      "name": "Set Embed Description"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "channel": "5",
-      "varName2": "new_tix_chan",
-      "storage3": "2",
-      "varName3": "new_tix_msg",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Embed Message"
-    },
-    {
-      "storage": "2",
-      "varName": "new_tix_msg",
-      "emoji": "4",
-      "varName2": "📰",
-      "varName3": "",
-      "name": "Add Reaction"
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const new_tix_msg = serverVars('new_tix_msg')\n\nif (new_tix_msg != null) {\n    msg.channel.send('The reaction ticket system has already been setup.');\n} else if (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else if (serverVars(\"ticketsCategoryID\") == null) {\n    msg.channel.send(`Please use \\`${server.tag}supportsetup\\` before running this.`);\n} else {\n    Actions.callNextAction(cache);\n}\n",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
     },
     {
       "server": "0",
@@ -142,6 +105,15 @@
     {
       "channel": "3",
       "varName": "new_tix_chan",
+      "member": "2",
+      "varName2": "bot",
+      "permission": "ADD_REACTIONS",
+      "state": "0",
+      "name": "Set Member Channel Perms"
+    },
+    {
+      "channel": "3",
+      "varName": "new_tix_chan",
       "role": "2",
       "varName2": "",
       "permission": "SEND_MESSAGES",
@@ -156,6 +128,30 @@
       "permission": "ADD_REACTIONS",
       "state": "2",
       "name": "Set Role Channel Perms"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "new_tix_chan",
+      "storage3": "2",
+      "varName3": "new_tix_msg",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "(async () => {\nconst embed = new DiscordJS.RichEmbed()\n    .setTitle('New Ticket')\n    .setColor('GREEN')\n    .setDescription(`To create a new ticket react with 📰 below!\n\\n If your reaction isn't auto removed, remove it and retry.\n\\n We look forward to helping you.\n`);\nconst new_tix_msg = await tempVars(\"new_tix_chan\").send(embed);\nnew_tix_msg.react(\"📰\");\n\nthis.storeValue(new_tix_msg, 2, \"new_tix_msg\", cache);\nActions.callNextAction(cache);\n})();",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "storage": "2",
+      "varName": "new_tix_msg",
+      "name": "Save Variable"
     },
     {
       "channel": "0",

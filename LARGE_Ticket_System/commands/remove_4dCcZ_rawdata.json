@@ -5,9 +5,12 @@
   "_id": "4dCcZ",
   "actions": [
     {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (serverVars(\"ticketsCategoryID\") != null) {\nActions.callNextAction(cache);\n} else {\nmsg.channel.send('The ticket system is not setup in this server.');\n}\n",
       "storage": "0",
       "varName": "",
-      "name": "Delete Message"
+      "name": "Run Script"
     },
     {
       "channel": "0",

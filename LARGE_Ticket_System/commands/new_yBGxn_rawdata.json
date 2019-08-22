@@ -5,9 +5,20 @@
   "_id": "yBGxn",
   "actions": [
     {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "//blacklist check (can be removed)\nconst blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
-      "name": "Delete Message"
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (serverVars(\"ticketsCategoryID\") != null) {\nActions.callNextAction(cache);\n} else {\nmsg.channel.send('The ticket system is not setup in this server.');\n}\n",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
     },
     {
       "channel": "0",
@@ -133,6 +144,14 @@
       "storage": "1",
       "varName2": "ticketcount",
       "name": "Store Server Data"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (!me.permissions.has('MANAGE_CHANNELS')) {\nmsg.channel.send('The bot is missing the **MANAGE_CHANNELS** permission.');\n} else {\nActions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
     },
     {
       "channelName": "ticket-${member.displayName}-${tempVars(\"ticketcount\")}",
