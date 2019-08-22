@@ -1,0 +1,28 @@
+{
+  "name": "channel-info",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "hvZOm",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const moment = this.getWrexMods()\n    .require('moment');\n\nconst prefix = (server && server.tag) || this.getDBM()\n    .Files.data.settings.tag;\nconst text = msg.content.slice(prefix.length)\n    .trim()\n    .split(/ +/g);\ntext.shift();\nlet infoChan;\n\nif (!text || text.length < 1) {\n    infoChan = msg.channel;\n} else {\n    infoChan = msg.mentions.channels.first() ||\n        server.channels.find(c => c.id === `${text.join(' ')}`) ||\n        server.channels.find(c => c.name.toLowerCase() === `${text.join(' ').toLowerCase()}`) ||\n        server.channels.find(c => c.name.toLowerCase()\n            .includes(`${text.join(' ').toLowerCase()}`)) ||\n        client.channels.find(c => c.id === `${text.join(' ')}`) ||\n        client.channels.find(c => c.name.toLowerCase()\n            .includes(`${text.join(' ').toLowerCase()}`));\n}\nlet cCount = this.getVariable(3, \"commands\", cache);\ncCount = Number(cCount) + 1;\nthis.storeValue(cCount, 3, \"commands\", cache);\nthis.getDBM()\n    .Files.saveGlobalVariable('commands', cCount);\n\nconst then = moment(infoChan.createdAt);\nconst time = then.from(moment());\nconst ca = then.format(\"MMM Do, YYYY\");\n\nconst embed = new DiscordJS.RichEmbed()\n    .setTitle('Channel Information')\n    .setColor('RANDOM')\n    .setAuthor(msg.member.displayName, msg.author.displayAvatarURL)\n    .addField('**Name**', infoChan.name, true)\n    .addField('**ID**', infoChan.id, true)\n    .addField('**Type**', infoChan.type, true)\n    .addField('**Position**', infoChan.position, true);\nif (infoChan.guild != msg.guild) embed.addField('**Server**', infoChan.guild.name, true);\nif (infoChan.type == \"text\") embed.addField('**NSFW**', infoChan.nsfw, true);\nif (infoChan.type == \"voice\") {\n    embed.addField('**User Limit**', infoChan.userLimit, true);\n    embed.addField('**Bitrate**', infoChan.bitrate, true);\n}\nembed.addField('**Created At**', `${ca} \\n (${time})`, true);\nif (infoChan.parent) embed.addField('**Parent**', `${infoChan.parent.name} \\n \\`${infoChan.parentID}\\``, true);\nembed.addField('**Mention**', `\\`${infoChan}\\``, true);\nif (infoChan.type == \"text\") embed.addField('**Topic**', `${(infoChan.topic) || \"None\"}`, false);\nmsg.channel.send(embed);\nif (me.permissions.has('MANAGE_MESSAGES')) msg.delete();",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "_aliases": [
+    "ci",
+    "channelinfo"
+  ]
+}
