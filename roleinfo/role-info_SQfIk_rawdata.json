@@ -1,0 +1,29 @@
+{
+  "name": "role-info",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "SQfIk",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const moment = this.getWrexMods()\n    .require('moment');\n\nconst prefix = (server && server.tag) || this.getDBM()\n    .Files.data.settings.tag;\nconst text = msg.content.slice(prefix.length)\n    .trim()\n    .split(/ +/g);\ntext.shift();\nlet infoRole;\n\nif (!text || text.length < 1) {\n    msg.channel.send(`:x: Incorrect Usage: ${server.tag}roleinfo <Role Name | role ID | @role>`);\n    if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\n} else {\n    infoRole = msg.mentions.roles.first() || server.roles.find(r => r.name === `${text.join(' ')}`) || server.roles.find(r => r.id === `${text.join(' ')}`) || server.roles.find(r => r.name.toLowerCase() === `${text.join(' ').toLowerCase()}`) || server.roles.find(r => r.id === `${text.join(' ').replace('<@&', '').replace('>', '')}`);\n\nlet commands = this.getVariable(3, 'commands', cache);\ncommands = commands += 1;\nthis.storeValue(commands, 3, 'commands', cache);\nthis.getDBM().Files.saveGlobalVariable('commands', commands);\n\n    if (!infoRole) {\n        msg.channel.send(`:x: Incorrect Usage: ${server.tag}roleinfo <Role Name | role ID | @role>`);\n        if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\n    } else {\n        //time\n        const then = moment(infoRole.createdAt);\n        const time = then.from(moment());\n        const ca = then.format(\"MMM Do, YYYY\");\n        //color\n        const decimal = infoRole.color;\n        const hex = '#' + decimal.toString(16)\n            .toUpperCase();\n        const embed = new DiscordJS.RichEmbed()\n            .setTitle(`${infoRole.name}'s Information`)\n            .setColor(infoRole.color)\n            .setAuthor(member.displayName, msg.author.displayAvatarURL)\n            .addField('**Name**', infoRole.name, true)\n            .addField('**ID**', infoRole.id, true)\n            .addField('**Mention**', `\\`${infoRole}\\``, true)\n            .addField('**Color**', hex, true)\n            .addField('**Members**', infoRole.members.size, true)\n            .addField('**Position**', `${infoRole.position}/${server.roles.size}`, true)\n            .addField('**Hoisted**', infoRole.hoist, true)\n            .addField('**Mentionable**', infoRole.mentionable, true)\n            .addField('**Managed**', infoRole.managed, true)\n            .addField('**Created At**', `${ca} (${time})`, true);\n        msg.channel.send(embed);\n        let cCount = this.getVariable(3, \"commands\", cache);\n        cCount = Number(cCount) + 1;\n        this.storeValue(cCount, 3, \"commands\", cache);\n        if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\n    }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "_aliases": [
+    "ri",
+    "roleinfo"
+  ],
+  "comType": "0"
+}
