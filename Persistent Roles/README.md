@@ -5,4 +5,6 @@ This was requested by NathanDontGotDis#1783 in DBM Network.
 It will save the users roles into a file under ./roles/(SERVER_ID)/(MEMBER_ID).txt
 It will delete the file after they rejoin the server.
 
-Note: Probably requires DBM Beta and Mods.
+9/5/2019: Added pr **COMMAND** this will enable/disable the system per server, very simple.
+
+Note: Requires DBM Beta and Mods.

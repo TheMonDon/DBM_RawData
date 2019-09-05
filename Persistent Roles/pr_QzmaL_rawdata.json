@@ -1,0 +1,68 @@
+{
+  "name": "pr",
+  "permissions": "MANAGE_GUILD",
+  "restriction": "1",
+  "_id": "QzmaL",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "p_roles",
+      "defaultVal": "\"enabled\"",
+      "storage": "1",
+      "varName2": "p_roles",
+      "name": "Store Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "p_roles",
+      "comparison": "1",
+      "value": "\"enabled\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Check Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "p_roles",
+      "changeType": "0",
+      "value": "\"disabled\"",
+      "name": "Control Server Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The persistent roles system has been disabled in this server.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "p_roles",
+      "changeType": "0",
+      "value": "\"enabled\"",
+      "name": "Control Server Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The persistent roles system has been enabled in this server.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ]
+}

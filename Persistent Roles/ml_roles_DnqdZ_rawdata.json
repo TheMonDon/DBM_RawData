@@ -5,9 +5,21 @@
   "_id": "DnqdZ",
   "actions": [
     {
+      "server": "0",
+      "varName": "",
+      "dataName": "p_roles",
+      "comparison": "1",
+      "value": "\"enabled\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Server Data"
+    },
+    {
       "member": "2",
       "varName": "mem",
-      "info": "17",
+      "info": "13",
       "storage": "1",
       "varName2": "roles",
       "name": "Store Member Info"

@@ -5,6 +5,18 @@
   "_id": "LHjGm",
   "actions": [
     {
+      "server": "0",
+      "varName": "",
+      "dataName": "p_roles",
+      "comparison": "1",
+      "value": "\"enabled\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Server Data"
+    },
+    {
       "member": "2",
       "varName": "mem",
       "info": "1",
@@ -58,7 +70,7 @@
     {
       "behavior": "0",
       "interpretation": "0",
-      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst member = tempVars(\"obj\");\n\n(async()=>{\nfor (var i=0; i < arr.length; i++) {\nlet elm = arr[i];\nif (elm !== \"@everyone\") {\nelm = elm.replace('<@&', '').replace('>', '');\nmember.addRole(elm).catch(console.error);\nawait require('util').promisify(setTimeout)(1000)\n}}})()",
+      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst member = tempVars(\"obj\");\n\n(async () => {\n    for (var i = 0; i < arr.length; i++) {\n        let elm = arr[i];\n        if (elm !== \"@everyone\") {\n            elm = elm.replace('<@&', '')\n                .replace('>', '');\n            member.addRole(elm)\n                .catch(console.error);\n            await require('util')\n                .promisify(setTimeout)(1000)\n        }\n    }\n})()",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -66,7 +78,7 @@
     {
       "member": "2",
       "varName": "mem",
-      "info": "22",
+      "info": "18",
       "storage": "1",
       "varName2": "tag",
       "name": "Store Member Info"
