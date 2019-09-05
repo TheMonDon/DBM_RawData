@@ -17,6 +17,14 @@
       "name": "Check Server Data"
     },
     {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_ROLES')) {\n    Actions.callNextAction(cache);\n} else {\n    console.error(`The bot doesn't have manage roles permission.`);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
       "member": "2",
       "varName": "mem",
       "info": "13",
