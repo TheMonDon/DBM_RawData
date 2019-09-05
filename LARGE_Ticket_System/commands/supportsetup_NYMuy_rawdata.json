@@ -44,9 +44,9 @@
       "name": "End Action Sequence"
     },
     {
-      "behavior": "0",
+      "behavior": "1",
       "interpretation": "1",
-      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\n\nif (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -54,7 +54,7 @@
     {
       "behavior": "1",
       "interpretation": "1",
-      "code": "if (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else {\n    Actions.callNextAction(cache);\n}",
+      "code": "if (!DiscordJS.version >= '11.5.1') {\n    msg.channel.send('Please update Discord.js to at least 11.5.1!');\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -167,6 +167,13 @@
       "storage": "2",
       "varName": "holdCategoryID",
       "name": "Save Variable"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot_mem",
+      "name": "Get Bot as Member"
     },
     {
       "info": "1",

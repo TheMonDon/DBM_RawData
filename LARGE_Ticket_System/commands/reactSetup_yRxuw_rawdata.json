@@ -46,7 +46,7 @@
     {
       "behavior": "0",
       "interpretation": "1",
-      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (!DiscordJS.version >= '11.5.1') {\n    msg.channel.send('Please update Discord.js to at least 11.5.1!');\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
