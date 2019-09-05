@@ -49,28 +49,15 @@
       "name": "Check if File Exists"
     },
     {
-      "server": "1",
-      "varName": "server",
-      "name": "Change Server"
-    },
-    {
-      "member": "2",
-      "varName": "mem",
-      "info": "0",
-      "storage": "1",
-      "varName2": "obj",
-      "name": "Store Member Info"
-    },
-    {
       "filename": "./data/roles/${tempVars(\"serv_id\")}/${tempVars(\"id\")}.txt",
       "storage": "1",
       "varName2": "roles",
       "name": "Read File"
     },
     {
-      "behavior": "0",
-      "interpretation": "0",
-      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst member = tempVars(\"obj\");\n\n(async () => {\n    for (var i = 0; i < arr.length; i++) {\n        let elm = arr[i];\n        if (elm !== \"@everyone\") {\n            elm = elm.replace('<@&', '')\n                .replace('>', '');\n            member.addRole(elm)\n                .catch(console.error);\n            await require('util')\n                .promisify(setTimeout)(1000)\n        }\n    }\n})()",
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const roles = tempVars(\"roles\");\nconst arr = roles.split(',');\nconst guild = client.guilds.get(tempVars(\"serv_id\"));\nconst mem = tempVars(\"mem\");\n\nif (!roles) console.error('Role list is undefined, cant add roels.');\n\n(async () => {\n    for (var i = 0; i < arr.length; i++) {\n        let elm = arr[i];\n        if (elm !== \"@everyone\") {\n            elm = elm.replace('<@&', '')\n                .replace('>', '');\n            mem.addRole(elm)\n                .catch(console.error);\n            await require('util')\n                .promisify(setTimeout)(1000)\n        }\n    }\nActions.callNextAction(cache);\n})()",
       "storage": "0",
       "varName": "",
       "name": "Run Script"

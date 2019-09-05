@@ -22,7 +22,7 @@
       "iftrue": "0",
       "iftrueVal": "",
       "iffalse": "3",
-      "iffalseVal": "4",
+      "iffalseVal": "3",
       "name": "Check Server Data"
     },
     {
