@@ -33,6 +33,17 @@
       "name": "Store Member Info"
     },
     {
+      "storage": "1",
+      "varName": "roles",
+      "comparison": "1",
+      "value": "\"@everyone\"",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
       "member": "2",
       "varName": "mem",
       "info": "1",
