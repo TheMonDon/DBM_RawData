@@ -33,6 +33,9 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 
 # Versions
 
+> **2.1.1 (BETA!)**
+- Fixed logtoggle not working.
+
 > **2.1 (BETA!!)**
 - Fixed incorrect permissions
 - Fixed file not being created and throwing error
