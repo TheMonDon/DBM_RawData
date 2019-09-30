@@ -5,6 +5,14 @@
   "_id": "FvUGq",
   "actions": [
     {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (member.permissions.has('MANAGE_CHANNELS')) {\n    if (!me.permissions.has('MANAGE_CHANNELS')) {\n        msg.channel.send('The bot does not have the required **Manage Channels** permission.');\n    } else if (!me.permissions.has('MOVE_MEMBERS')) {\n        msg.channel.send('The bot does not have the required **Move Members** permission.')\n    } else {\n        Actions.callNextAction(cache);\n    }\n} else {\n    msg.channel.send('You do not have the required **Manage Channels** permission.')\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
       "channelName": "Private Voice",
       "position": "",
       "storage": "1",
