@@ -5,6 +5,14 @@
   "_id": "nnbFy",
   "actions": [
     {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
       "comment": "Command inspired from Jasper#5335 || Revamped by TheMonDon#1721",
       "color": "#00ffff",
       "name": "Comment"
@@ -24,7 +32,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//Check if fnt exists else download it!\nconst https = require('https');\nconst fs = require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.fnt`;\n\n(async () => {\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    const request = await https.get(\"https://raw.githubusercontent.com/TheMonDon/storage/master/Moms_Typewriter.fnt\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}\n})()",
+      "code": "//Check if fnt exists else download it!\nconst wm = this.getWrexMods();\nconst https = wm.require('https');\nconst fs = wm.require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.fnt`;\n\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    https.get(\"https://raw.githubusercontent.com/TheMonDon/storage/master/Moms_Typewriter.fnt\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -32,7 +40,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "//Check if fnt png exists or download it!\nconst https = require('https');\nconst fs = require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.png`;\n\n(async () => {\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    const request = await https.get(\"https://i.lensdump.com/i/WcIbCo.png\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}\n})()",
+      "code": "//Check if fnt png exists or download it!\nconst https = require('https');\nconst fs = require(\"fs\");\nconst path = `./fonts/Moms_Typewriter.png`;\n\nif (fs.existsSync(path)) {\n    Actions.callNextAction(cache);\n} else {\n    const file = fs.createWriteStream(path);\n    https.get(\"https://i.lensdump.com/i/WcIbCo.png\", function(response) {\n    response.pipe(file);});\n    console.log('Downloaded file to: ' + path);\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
@@ -225,7 +233,7 @@
     {
       "storage": "0",
       "varName": "",
-      "filter": "content.match(/${tempVars(\"randWord\")}/i)",
+      "filter": "content.match(/${tempVars(\"randWord\")}^/i)",
       "max": "1",
       "time": "30000",
       "iftrue": "0",
