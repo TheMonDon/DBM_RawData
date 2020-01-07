@@ -1,0 +1,16 @@
+{
+    "name": "steam",
+    "permissions": "NONE",
+    "restriction": "1",
+    "_id": "KsBTc",
+    "actions": [
+      {
+        "behavior": "1",
+        "interpretation": "1",
+        "code": "//Steam info command\nconst wm = this.getWrexMods();\nconst snekfetch = wm.require('snekfetch');\n\nconst p = (server && server.tag) || Files.data.settings.tag;\nconst prefix = (msg.content.startsWith(String(me))) ? String(me) : p;\nconst text = msg.content.slice(prefix.length)\n    .trim()\n    .split(/ +/g);\ntext.shift();\nconst query = text.join(' ');\n\n(async () => {\n    if (!text || text.length < 1) {\n        const em = new DiscordJS.RichEmbed()\n            .setAuthor(msg.member.displayName, msg.author.displayAvatarURL)\n            .setTitle('Please provide something to search for')\n            .setDescription(`Incorrect Usage: ${p}steam <game search>`)\n            .setTimestamp();\n        return msg.channel.send(em);\n    }\n\n    const search = await snekfetch\n        .get('https://store.steampowered.com/api/storesearch')\n        .query({\n            cc: 'us',\n            l: 'en',\n            term: query\n        });\n\n    if (!search.body.items.length) return msg.channel.send(`No results found for **${query}**!`);\n\n    const {\n        id,\n        tiny_image\n    } = search.body.items[0];\n\n    const {\n        body\n    } = await snekfetch\n        .get('https://store.steampowered.com/api/appdetails')\n        .query({\n            appids: id\n        });\n\n    const {\n        data\n    } = body[id.toString()];\n    const current = data.price_overview ? `$${data.price_overview.final / 100}` : 'Free';\n    const original = data.price_overview ? `$${data.price_overview.initial / 100}` : 'Free';\n    const price = current === original ? current : `~~${original}~~ ${current}`;\n    const platforms = [];\n    if (data.platforms) {\n        if (data.platforms.windows) platforms.push('Windows');\n        if (data.platforms.mac) platforms.push('Mac');\n        if (data.platforms.linux) platforms.push('Linux');\n    }\n\n    const embed = new DiscordJS.RichEmbed()\n        .setColor(0x101D2F)\n        .setAuthor('Steam', 'https://i.imgur.com/xxr2UBZ.png', 'http://store.steampowered.com/')\n        .setTitle(data.name)\n        .setURL(`http://store.steampowered.com/app/${data.steam_appid}`)\n        .setImage(tiny_image)\n        .addField('❯\\u2000Price', `•\\u2000 ${price}`, true)\n        .addField('❯\\u2000Metascore', `•\\u2000 ${data.metacritic ? data.metacritic.score : '???'}`, true)\n        .addField('❯\\u2000Recommendations', `•\\u2000 ${data.recommendations ? data.recommendations.total : '???'}`, true)\n        .addField('❯\\u2000Platforms', `•\\u2000 ${platforms.join(', ') || 'None'}`, true)\n        .addField('❯\\u2000Release Date', `•\\u2000 ${data.release_date ? data.release_date.date : '???'}`, true)\n        .addField('❯\\u2000DLC Count', `•\\u2000 ${data.dlc ? data.dlc.length : 0}`, true)\n        .addField('❯\\u2000Developers', `•\\u2000 ${data.developers ? data.developers.join(', ') || '???' : '???'}`, true)\n        .addField('❯\\u2000Publishers', `•\\u2000 ${data.publishers ? data.publishers.join(', ') || '???' : '???'}`, true);\n    return msg.channel.send(embed)\n})();",
+        "storage": "0",
+        "varName": "",
+        "name": "Run Script"
+      }
+    ]
+  }
