@@ -1,0 +1,16 @@
+{
+  "name": "emoji-deleted",
+  "temp": "emojideleted",
+  "event-type": "17",
+  "_id": "iwEZQ",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const wm = this.getWrexMods();\nconst fs = require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst emojideleted = tempVars('emojideleted');\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.emoji-deleted`);\n    if (log_system === \"enabled\") {\n        embed.setTitle('Emoji Deleted');\n        embed.setColor('RED');\n        embed.setThumbnail(emojideleted.url);\n        embed.addField('Name', emojideleted.name, true);\n        embed.addField('Identifier', emojideleted.identifier, true);\n        embed.addField('Is Animated?', emojideleted.animated, true);\n        embed.setFooter(`ID: ${emojideleted.id}`);\n        embed.setTimestamp();\n        server.channels.get(log_chan).send(embed);\n        db.add(`${server.id}logs.emoji_deleted`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ]
+}
