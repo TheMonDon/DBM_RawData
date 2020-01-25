@@ -33,6 +33,10 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 
 # Versions
 
+> **2.2**
+- Removed 'fs' from being required by wrexMods.
+- Also believe this isn't beta anymore.
+
 > **2.1.1 (BETA!)**
 - Fixed logtoggle not working.
 
