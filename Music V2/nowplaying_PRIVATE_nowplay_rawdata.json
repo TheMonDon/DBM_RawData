@@ -1,0 +1,144 @@
+{
+  "name": "nowplaying",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE_nowplay",
+  "actions": [
+    {
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check is Bot in Voice Channel"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Nothing is playing!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "changeType": "0",
+      "value": "\"API_KEY_HERE\"",
+      "storage": "1",
+      "varName": "PRIV_TOKEN",
+      "name": "Control Variable"
+    },
+    {
+      "server": "0",
+      "info": "9",
+      "storage": "1",
+      "varName": "song url",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "3",
+      "storage": "1",
+      "varName2": "mem-dis-name",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "0",
+      "info": "13",
+      "storage": "1",
+      "varName": "title",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "11",
+      "storage": "1",
+      "varName": "requester",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "9",
+      "storage": "1",
+      "varName": "url",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "14",
+      "storage": "1",
+      "varName": "duration",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "15",
+      "storage": "1",
+      "varName": "thumbnail",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "code": "const moment = require('moment');\nrequire('moment-duration-format');\nconst start =  this.dest(Audio.dispatchers[server.id], 'startTime') || 0;\nconst duration = this.getDBM().Audio.playingnow[server.id][1].duration;\nconst timeLeft = moment.duration((start + duration * 1000) - Date.now()).format('d [days] h [hours] m [minutes] s [seconds]');\nActions.storeValue(timeLeft, 1, 'timeLeft', cache);\nActions.callNextAction(cache);",
+      "behavior": "1",
+      "interpretation": "1",
+      "storage": "0",
+      "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
+      "name": "Run Script"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "e2e2e2",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"thumbnail\")}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Now playing ♪: [${tempVars(\"title\")}](${tempVars(\"url\")})\n\nDuration: `${tempVars(\"duration\")}`\nTime Remaining: `${tempVars(\"timeLeft\")}`\n\nRequested by: ${tempVars(\"requester\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "comType": "0",
+  "_aliases": [
+    "np"
+  ]
+}

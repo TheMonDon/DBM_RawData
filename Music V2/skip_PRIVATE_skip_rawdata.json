@@ -1,0 +1,126 @@
+{
+  "name": "skip",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE_skip",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot-mem",
+      "name": "Get Bot as Member"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "19",
+      "storage": "1",
+      "varName2": "author-vc",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "bot-mem",
+      "info": "19",
+      "storage": "1",
+      "varName2": "bot-vc",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "author-vc",
+      "comparison": "1",
+      "value": "tempVars(\"bot-vc\")",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: You have to be in the same voice channel as the bot to skip the current song!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "info": "5",
+      "storage": "1",
+      "varName": "queuelength",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "queuelength",
+      "conversion": "2",
+      "storage2": "1",
+      "varName2": "q-length-number",
+      "name": "Convert Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "q-length-number",
+      "comparison": "1",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "sourcetype": "0",
+      "source": "PRIVATE_stop",
+      "source2": "",
+      "type": "true",
+      "name": "Call Command/Event"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "amount": "1",
+      "name": "Skip Queue"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": ":track_next: Skipped one song in the queue!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": [
+    "s",
+    "next"
+  ]
+}

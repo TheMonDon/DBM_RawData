@@ -1,0 +1,70 @@
+{
+  "name": "stop",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE_stop",
+  "actions": [
+    {
+      "code": "if (me.voice.channelID === member.voice.channelID) {\nActions.callNextAction(cache);\n} else {\nmsg.channel.send(`Error: You have to be in the same voice channel as the bot to stop the music!`);\n}",
+      "behavior": "1",
+      "interpretation": "1",
+      "storage": "0",
+      "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
+      "name": "Run Script"
+    },
+    {
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "2",
+      "name": "Check is Bot in Voice Channel"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The bot isn't in a voice channel.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "action": "0",
+      "name": "Control Audio"
+    },
+    {
+      "name": "Leave Voice Channel"
+    },
+    {
+      "name": "Clear Queue"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Got it! All music systems have been shut down.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "is-paused",
+      "changeType": "0",
+      "value": "\"false\"",
+      "name": "Control Server Data"
+    }
+  ],
+  "_aliases": [
+    "dc",
+    "disconnect"
+  ]
+}

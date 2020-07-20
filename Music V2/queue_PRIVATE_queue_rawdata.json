@@ -1,0 +1,17 @@
+{
+  "name": "queue",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE_queue",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (!Audio.queue[server.id] || Audio.queue[server.id].length < 1) {\n    msg.channel.send('The queue is empty.');\n} else {\n    const titles = [];\n    const g = Audio.queue[server.id];\n    for (const i in g) {\n        titles.push(g[i][1].title + '\\n');\n    }\n    const embed = new DiscordJS.MessageEmbed();\n    embed.setDescription(`\\`\\`\\`${titles.toString().replace(/,/g, '')}\\`\\`\\``);\n    msg.channel.send(embed);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ],
+  "comType": "0"
+}

@@ -1,0 +1,124 @@
+{
+  "name": "resume",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE_resume",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot_mem",
+      "name": "Get Bot as Member"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "15",
+      "storage": "1",
+      "varName2": "author_vc",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "bot_mem",
+      "info": "15",
+      "storage": "1",
+      "varName2": "bot_vc",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "author_vc",
+      "comparison": "1",
+      "value": "tempVars(\"bot_vc\")",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: You have to be in the same voice channel as the bot to resume the music!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "2",
+      "varName": "bot_mem",
+      "info": "4",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: You can't resume non-existent music...can you?",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "is-paused",
+      "comparison": "1",
+      "value": "\"true\"",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "2",
+      "name": "Check Server Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: The music is not paused! Use !pause to pause music",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "action": "2",
+      "name": "Control Audio"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "emoji": "4",
+      "varName2": "▶",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "is-paused",
+      "changeType": "0",
+      "value": "\"false\"",
+      "name": "Control Server Data"
+    }
+  ]
+}

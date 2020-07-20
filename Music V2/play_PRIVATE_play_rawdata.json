@@ -1,0 +1,357 @@
+{
+  "name": "play",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE_play",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "is-paused",
+      "comparison": "1",
+      "value": "\"true\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Server Data"
+    },
+    {
+      "sourcetype": "0",
+      "source": "PRIVATE_resume",
+      "source2": "",
+      "type": "true",
+      "name": "Call Command/Event"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "4",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: You have to be inside a voice channel to play music!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "query",
+      "name": "Store Command Params"
+    },
+    {
+      "condition": "0",
+      "comparison": "3",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: Please type something to search for",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot_mem",
+      "name": "Get Bot as Member"
+    },
+    {
+      "member": "2",
+      "varName": "bot_mem",
+      "permission": "CONNECT",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: The bot doesn't have perms to join voice channels",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "2",
+      "varName": "bot_mem",
+      "permission": "SPEAK",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: The bot doesn't have perms to speak in voice channels",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "2",
+      "varName": "bot_mem",
+      "permission": "USE_VAD",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Error: The bot doesn't have perms to use voice activity in voice channels.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "changeType": "0",
+      "value": "\"API_KEY_HERE\"",
+      "storage": "1",
+      "varName": "PRIV_TOKEN",
+      "name": "Control Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Searching youtube for `${tempVars(\"query\")}`",
+      "storage": "1",
+      "varName2": "reply",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"query\")}",
+      "info0": "1",
+      "info1": "1",
+      "apikey": "${tempVars(\"PRIV_TOKEN\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "url",
+      "name": "YouTube Search"
+    },
+    {
+      "storage": "1",
+      "varName": "url",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "reply",
+      "message": "Error: Couldn't find any results for `${tempVars(\"query\")}`",
+      "storage2": "1",
+      "varName2": "",
+      "name": "Edit Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "video": "${tempVars(\"url\")}",
+      "info": "2",
+      "storage": "1",
+      "varName": "title",
+      "name": "Store YouTube Info"
+    },
+    {
+      "server": "0",
+      "info": "1",
+      "storage": "1",
+      "varName": "playing",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "playing",
+      "comparison": "0",
+      "value": "\"true\"",
+      "iftrue": "3",
+      "iftrueVal": "7",
+      "iffalse": "0",
+      "iffalseVal": "7",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "5",
+      "storage": "1",
+      "varName2": "br",
+      "name": "Store Voice Channel Info"
+    },
+    {
+      "title": "",
+      "author": "${msg.member.displayName}",
+      "color": "AQUA",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL()}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "[${tempVars(\"title\")}](${tempVars(\"url\")}) [${member}]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "reply",
+      "message": "",
+      "storage2": "1",
+      "varName2": "embed",
+      "name": "Edit Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "name": "Join Voice Channel"
+    },
+    {
+      "url": "${tempVars(\"url\")}",
+      "seek": "0",
+      "volume": "75",
+      "passes": "5",
+      "bitrate": "${tempVars(\"br\")}",
+      "type": "0",
+      "name": "Play YouTube Video"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "5",
+      "storage": "1",
+      "varName2": "br",
+      "name": "Store Voice Channel Info"
+    },
+    {
+      "url": "${tempVars(\"url\")}",
+      "seek": "0",
+      "volume": "75",
+      "passes": "5",
+      "bitrate": "${tempVars(\"br\")}",
+      "type": "0",
+      "name": "Play YouTube Video"
+    },
+    {
+      "title": "",
+      "author": "${msg.member.displayName}",
+      "color": "AQUA",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL()}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Added to Queue: [${tempVars(\"title\")}](${tempVars(\"url\")}) [${member}]",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "reply",
+      "message": "",
+      "storage2": "1",
+      "varName2": "embed",
+      "name": "Edit Message"
+    },
+    {
+      "name": "End Action Sequence"
+    }
+  ],
+  "_aliases": [
+    "p"
+  ],
+  "comType": "0"
+}
