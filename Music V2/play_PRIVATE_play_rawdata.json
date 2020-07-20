@@ -157,10 +157,10 @@
       "name": "End Action Sequence"
     },
     {
-      "changeType": "0",
-      "value": "\"API_KEY_HERE\"",
       "storage": "1",
       "varName": "PRIV_TOKEN",
+      "changeType": "0",
+      "value": "\"API_KEY_HERE\"",
       "name": "Control Variable"
     },
     {
@@ -224,10 +224,10 @@
     {
       "storage": "1",
       "varName": "playing",
-      "comparison": "0",
+      "comparison": "1",
       "value": "\"true\"",
       "iftrue": "3",
-      "iftrueVal": "7",
+      "iftrueVal": "8",
       "iffalse": "0",
       "iffalseVal": "7",
       "name": "Check Variable"
@@ -289,6 +289,9 @@
       "bitrate": "${tempVars(\"br\")}",
       "type": "0",
       "name": "Play YouTube Video"
+    },
+    {
+      "name": "End Action Sequence"
     },
     {
       "name": "End Action Sequence"
