@@ -160,7 +160,7 @@
       "storage": "1",
       "varName": "PRIV_TOKEN",
       "changeType": "0",
-      "value": "\"API_KEY_HERE\"",
+      "value": "\"API_KEY\"",
       "name": "Control Variable"
     },
     {
@@ -207,11 +207,15 @@
       "name": "End Action Sequence"
     },
     {
-      "video": "${tempVars(\"url\")}",
-      "info": "2",
+      "type": "0",
+      "input": "${tempVars(\"url\")}",
+      "info0": "2",
+      "info1": "1",
+      "apikey": "${tempVars(\"PRIV_TOKEN\")}",
+      "results": "1",
       "storage": "1",
       "varName": "title",
-      "name": "Store YouTube Info"
+      "name": "YouTube Search"
     },
     {
       "server": "0",
@@ -225,7 +229,7 @@
       "storage": "1",
       "varName": "playing",
       "comparison": "1",
-      "value": "\"true\"",
+      "value": "true",
       "iftrue": "3",
       "iftrueVal": "8",
       "iffalse": "0",
@@ -332,12 +336,12 @@
       "minute": "",
       "second": "",
       "storage": "1",
-      "varName": "embed",
+      "varName": "embed1",
       "name": "Create Embed Message"
     },
     {
       "storage": "1",
-      "varName": "embed",
+      "varName": "embed1",
       "message": "Added to Queue: [${tempVars(\"title\")}](${tempVars(\"url\")}) [${member}]",
       "name": "Set Embed Description"
     },
@@ -346,11 +350,8 @@
       "varName": "reply",
       "message": "",
       "storage2": "1",
-      "varName2": "embed",
+      "varName2": "embed1",
       "name": "Edit Message"
-    },
-    {
-      "name": "End Action Sequence"
     }
   ],
   "_aliases": [
