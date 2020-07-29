@@ -5,134 +5,26 @@
   "_id": "SsPaj",
   "actions": [
     {
-      "member": "1",
-      "varName": "",
-      "dataName": "${msg.guild.id}blacklist",
-      "defaultVal": "false",
-      "storage": "1",
-      "varName2": "blacklisted",
-      "name": "Store Member Data"
-    },
-    {
-      "storage": "1",
-      "varName": "blacklisted",
-      "comparison": "1",
-      "value": "true",
-      "iftrue": "0",
-      "iftrueVal": "",
-      "iffalse": "3",
-      "iffalseVal": "2",
-      "name": "Check Variable"
-    },
-    {
-      "channel": "0",
-      "varName": "",
-      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
-      "storage": "0",
-      "varName2": "",
-      "name": "Send Message"
-    },
-    {
-      "name": "End Action Sequence"
-    },
-    {
-      "storage": "3",
-      "varName": "commands",
-      "changeType": "1",
-      "value": "1",
-      "name": "Control Variable"
-    },
-    {
-      "storage": "3",
-      "varName": "commands",
-      "name": "Save Variable"
-    },
-    {
-      "behavior": "0",
-      "interpretation": "0",
-      "code": "var uptime = process.uptime();\nvar days = Math.floor((uptime % 31536000) / 86400);\nvar hours = Math.floor((uptime % 86400) / 3600);\nvar minutes = Math.floor((uptime % 3600) / 60);\nvar seconds = Math.round(uptime % 60);\nvar botuptime = (days > 0 ? days + \" days, \":\"\") + (hours > 0 ? hours + \" hours, \":\"\") + (minutes > 0 ? minutes + \" minutes, \":\"\") + (seconds > 0 ? seconds + \" seconds\":\"\")\nthis.storeValue(botuptime, 1, \"uptime-ms\", cache)",
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "const blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
     },
     {
-      "title": "",
-      "author": "${bot.user.username}",
-      "color": "#2ecc71",
-      "timestamp": "true",
-      "url": "",
-      "authorIcon": "${bot.user.displayAvatarURL}",
-      "imageUrl": "",
-      "thumbUrl": "${bot.user.displayAvatarURL}",
-      "storage": "1",
-      "varName": "embed",
-      "name": "Create Embed Message"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "Uptime",
-      "message": "${tempVars(\"uptime-ms\")}",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "Ping",
-      "message": "${Math.floor(client.ping)}",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "Guilds",
-      "message": "${this.getDBM().Bot.bot.guilds.array().length}",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "Channels",
-      "message": "${bot.channels.size}",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "Members",
-      "message": "${bot.users.size}",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "Commands",
-      "message": "${globalVars(\"commands\")}",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "fieldName": "RAM Usage",
-      "message": "${Math.floor((process.memoryUsage().heapUsed / 1024)/1024)} MB",
-      "inline": "0",
-      "name": "Add Embed Field"
-    },
-    {
-      "storage": "1",
-      "varName": "embed",
-      "channel": "0",
-      "varName2": "",
-      "storage3": "0",
-      "varName3": "",
-      "name": "Send Embed Message"
+      "code": "(async () => {\n    await client.guilds.cache.forEach((g) => g.available && g.members.fetch());\n    const moment = require('moment');\n    require('moment-duration-format');\n    const botuptime = moment.duration(bot.uptime).format('y[ years][,] M[ Months]d[ days][,] h[ hours][,] m[ minutes][, and] s[ seconds]');\n    \n    let commands = this.getVariable(3, 'commands', cache);\n    this.storeValue(commands += 1, 3,  'commands', cache);\n    Files.saveGlobalVariable('commands', commands);\n    \n    const embed = new DiscordJS.MessageEmbed()\n        .setColor('#2ecc71')\n        .setAuthor(bot.user.username, bot.user.displayAvatarURL())\n        .setThumbnail(bot.user.displayAvatarURL())\n        .addField('Uptime', botuptime, true)\n        .addField('Ping', Math.floor(client.ws.ping).toLocaleString(), true)\n        .addField('Guilds', bot.guilds.cache.array().length.toLocaleString(), true)\n        .addField('Channels', bot.channels.cache.size.toLocaleString(), true)\n        .addField('Members', bot.users.cache.size.toLocaleString(), true)\n        .addField('Commands Used', globalVars(\"commands\").toLocaleString(), true)\n        .addField('RAM Usage', `${Math.floor((process.memoryUsage().heapUsed / 1024)/1024).toLocaleString()} MB`, true);\n    msg.channel.send(embed);\n    })();",
+      "behavior": "0",
+      "interpretation": "0",
+      "storage": "0",
+      "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
+      "name": "Run Script"
     }
   ],
-  "comType": "0"
+  "comType": "0",
+  "_aliases": [
+    "bi"
+  ]
 }
