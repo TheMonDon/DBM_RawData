@@ -1,0 +1,13 @@
+{
+  "name": "summon",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "PRIVATE",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "name": "Join Voice Channel"
+    }
+  ]
+}
