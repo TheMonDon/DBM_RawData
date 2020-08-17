@@ -143,7 +143,7 @@
     {
       "behavior": "1",
       "interpretation": "1",
-      "code": "(async () => {\nconst embed = new DiscordJS.RichEmbed()\n    .setTitle('New Ticket')\n    .setColor('GREEN')\n    .setDescription(`To create a new ticket react with 📰 below!\n\\n If your reaction isn't auto removed, remove it and retry.\n\\n We look forward to helping you.\n`);\nconst new_tix_msg = await tempVars(\"new_tix_chan\").send(embed);\nnew_tix_msg.react(\"📰\");\n\nthis.storeValue(new_tix_msg, 2, \"new_tix_msg\", cache);\nActions.callNextAction(cache);\n})();",
+      "code": "(async () => {\nconst embed = new DiscordJS.MessageEmbed()\n    .setTitle('New Ticket')\n    .setColor('GREEN')\n    .setDescription(`To create a new ticket react with 📰 below!\n\\n If your reaction isn't auto removed, remove it and retry.\n\\n We look forward to helping you.\n`);\nconst new_tix_msg = await tempVars(\"new_tix_chan\").send(embed);\nnew_tix_msg.react(\"📰\");\n\nthis.storeValue(new_tix_msg, 2, \"new_tix_msg\", cache);\nActions.callNextAction(cache);\n})();",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
