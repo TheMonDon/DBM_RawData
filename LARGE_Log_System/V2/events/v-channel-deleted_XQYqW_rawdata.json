@@ -5,11 +5,13 @@
   "_id": "XQYqW",
   "actions": [
     {
+      "code": "const wm = this.getMods();\nconst fs = require(\"fs\");\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst channeldeleted = tempVars('channeldeleted');\nlet embed = new DiscordJS.MessageEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.v-channel-deleted`);\n    if (log_system === \"enabled\") {\n        embed.setTitle('Voice Channel Deleted');\n        embed.setColor('RED');\n        embed.addField('Name', channeldeleted.name, true);\n        embed.addField('Category', (channeldeleted.parent && channeldeleted.parent.name) ? channeldeleted.parent.name : \"None\", true);\n        embed.addField('User Limit', channeldeleted.userLimit, true);\n        embed.setFooter(`ID: ${channeldeleted.id}`);\n        embed.setTimestamp();\n        server.channels.cache.get(log_chan).send(embed);\n        db.add(`${server.id}logs.v_channel_deleted`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}",
       "behavior": "1",
       "interpretation": "1",
-      "code": "const wm = this.getWrexMods();\nconst fs = require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst channeldeleted = tempVars('channeldeleted');\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.v-channel-deleted`);\n    if (log_system === \"enabled\") {\n        embed.setTitle('Voice Channel Deleted');\n        embed.setColor('RED');\n        embed.addField('Name', channeldeleted.name, true);\n        embed.addField('Category', (channeldeleted.parent && channeldeleted.parent.name) ? channeldeleted.parent.name : \"None\", true);\n        embed.addField('User Limit', channeldeleted.userLimit, true);\n        embed.setFooter(`ID: ${channeldeleted.id}`);\n        embed.setTimestamp();\n        server.channels.get(log_chan).send(embed);\n        db.add(`${server.id}logs.v_channel_deleted`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     }
   ],

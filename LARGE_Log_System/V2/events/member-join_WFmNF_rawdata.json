@@ -5,11 +5,13 @@
   "_id": "WFmNF",
   "actions": [
     {
+      "code": "const wm = this.getMods();\nconst fs = require(\"fs\");\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst memberjoin = tempVars('memberjoin');\nlet embed = new DiscordJS.MessageEmbed();\n\n(async () => {\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.member-join`);\n    if (log_system === \"enabled\") {\n        const memS = await server.members.fetch();\n        embed.setTitle('Member Joined');\n        embed.setColor('#3dd0f4');\n        embed.setAuthor(memberjoin.user.tag, memberjoin.user.displayAvatarURL());\n        embed.setThumbnail(memberjoin.user.displayAvatarURL());\n        embed.addField('User', memberjoin, true);\n        embed.addField('Member Count', server.members.cache.size, true);\n        embed.setFooter(`ID: ${memberjoin.user.id}`);\n        embed.setTimestamp();\n        server.channels.cache.get(log_chan).send(embed);\n        db.add(`${server.id}logs.member_joined`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}\n})();",
       "behavior": "1",
       "interpretation": "1",
-      "code": "const wm = this.getWrexMods();\nconst fs = require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst memberjoin = tempVars('memberjoin');\nlet embed = new DiscordJS.RichEmbed();\n\n(async () => {\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.member-join`);\n    if (log_system === \"enabled\") {\n        const memS = await server.fetchMembers();\n        embed.setTitle('Member Joined');\n        embed.setColor('#3dd0f4');\n        embed.setAuthor(memberjoin.user.tag, memberjoin.user.displayAvatarURL);\n        embed.setThumbnail(memberjoin.user.displayAvatarURL);\n        embed.addField('User', memberjoin, true);\n        embed.addField('Member Count', server.members.size, true);\n        embed.setFooter(`ID: ${memberjoin.user.id}`);\n        embed.setTimestamp();\n        server.channels.get(log_chan).send(embed);\n        db.add(`${server.id}logs.member_joined`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}\n})();",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     }
   ],

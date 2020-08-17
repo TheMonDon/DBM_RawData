@@ -5,11 +5,13 @@
   "_id": "VDYKZ",
   "actions": [
     {
+      "code": "const wm = this.getMods();\nconst fs = require(\"fs\");\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst roledeleted = tempVars('roledeleted');\nlet embed = new DiscordJS.MessageEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.role-deleted`);\n    if (log_system === \"enabled\") {\n            embed.setTitle('Role Deleted');\n            embed.setColor(roledeleted.hexColor);\n            embed.addField('Name', roledeleted.name, true);\n            embed.addField('Managed', roledeleted.managed, true);\n            embed.addField('Position', roledeleted.position, true);\n            embed.setFooter(`ID: ${roledeleted.id}`);\n            embed.setTimestamp();\n            server.channels.cache.get(log_chan).send(embed);\n            db.add(`${server.id}logs.role_deleted`, 1);\n            db.add(`${server.id}logs.all`, 1);\n    }\n}",
       "behavior": "1",
       "interpretation": "1",
-      "code": "const wm = this.getWrexMods();\nconst fs = require(\"fs\");\nconst nodegyp = wm.require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst roledeleted = tempVars('roledeleted');\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.role-deleted`);\n    if (log_system === \"enabled\") {\n            embed.setTitle('Role Deleted');\n            embed.setColor(roledeleted.hexColor);\n            embed.addField('Name', roledeleted.name, true);\n            embed.addField('Managed', roledeleted.managed, true);\n            embed.addField('Position', roledeleted.position, true);\n            embed.setFooter(`ID: ${roledeleted.id}`);\n            embed.setTimestamp();\n            server.channels.get(log_chan).send(embed);\n            db.add(`${server.id}logs.role_deleted`, 1);\n            db.add(`${server.id}logs.all`, 1);\n    }\n}",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     }
   ],

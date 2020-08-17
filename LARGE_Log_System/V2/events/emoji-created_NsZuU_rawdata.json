@@ -5,11 +5,13 @@
   "_id": "NsZuU",
   "actions": [
     {
+      "code": "const wm = this.getMods();\nconst fs = require(\"fs\");\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst emojicreated = tempVars('emojicreated');\nlet embed = new DiscordJS.MessageEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.emoji-created`);\n    if (log_system === \"enabled\") {\n        embed.setTitle('Emoji Created');\n        embed.setColor('#20fc3a');\n        embed.setThumbnail(emojicreated.url);\n        embed.addField('Name', emojicreated.name, true);\n        embed.addField('Identifier', emojicreated.identifier, true);\n        embed.addField('Is Animated?', emojicreated.animated, true);\n        embed.setFooter(`ID: ${emojicreated.id}`);\n        embed.setTimestamp();\n        server.channels.cache.get(log_chan).send(embed);\n        db.add(`${server.id}logs.emoji_created`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}",
       "behavior": "1",
       "interpretation": "1",
-      "code": "const wm = this.getWrexMods();\nconst fs = require(\"fs\");\nconst nodegyp = require('node-gyp');\nconst db = wm.require('quick.db');\nconst path = `./resources/database/${server.id}/log_chan.txt`;\nconst emojicreated = tempVars('emojicreated');\nlet embed = new DiscordJS.RichEmbed();\n\nif (fs.existsSync(path)) {\n    const log_chan = fs.readFileSync(path, 'utf8');\n    const log_system = db.get(`${server.id}log_system.emoji-created`);\n    if (log_system === \"enabled\") {\n        embed.setTitle('Emoji Created');\n        embed.setColor('#20fc3a');\n        embed.setThumbnail(emojicreated.url);\n        embed.addField('Name', emojicreated.name, true);\n        embed.addField('Identifier', emojicreated.identifier, true);\n        embed.addField('Is Animated?', emojicreated.animated, true);\n        embed.setFooter(`ID: ${emojicreated.id}`);\n        embed.setTimestamp();\n        server.channels.get(log_chan).send(embed);\n        db.add(`${server.id}logs.emoji_created`, 1);\n        db.add(`${server.id}logs.all`, 1);\n    }\n}",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     }
   ]

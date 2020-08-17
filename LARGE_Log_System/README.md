@@ -33,6 +33,13 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 
 # Versions
 
+> **3.0**
+- Coming soon
+- Will use 100% quick.db
+
+> **2.3**
+- Updated to discord.js v12+
+
 > **2.2**
 - Removed 'fs' from being required by wrexMods.
 - Also believe this isn't beta anymore.
