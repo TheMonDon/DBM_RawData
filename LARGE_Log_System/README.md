@@ -35,6 +35,8 @@ You can also do [p]togglelog (individual types) to disable certain "modules" lik
 
 > **2.4**
 - I'm sorry to annoucne that from here on out this will recieve fixes only and will no longer be maintained through DBM.
+- Fixed console errors if log channel got deleted.
+- Fixed channel-deleted not logging parent category
 
 > **2.3**
 - Updated to discord.js v12+
