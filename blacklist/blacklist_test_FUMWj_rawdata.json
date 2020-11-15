@@ -5,11 +5,13 @@
   "_id": "FUMWj",
   "actions": [
     {
+      "code": "const mods = this.getMods();\nconst db = mods.require('quick.db');\n\n// Check if the member is blacklisted from using commands in this guild.\nif (msg.guild) {\n    const bl = db.get(`servers.${msg.guild.id}.users.${msg.member.id}.blacklist`);\n    if (bl) {\n        msg.channel.send(`Sorry ${msg.member.displayName}, you are currently blacklisted from using commands in this server.`);\n    } else {\n        Actions.callNextAction(cache)\n    }\n}",
       "behavior": "1",
       "interpretation": "1",
-      "code": "const blacklisted = member.data(`${server.id}blacklist`);\nif (blacklisted === true) {\n    msg.channel.send(`Sorry ${member.displayName}, You're currently blacklisted from using the bot in this server!`);\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     },
     {
