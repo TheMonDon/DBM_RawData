@@ -104,7 +104,13 @@
     },
     {
       "storage": "1",
-      "varName": "text",
+      "varName": "textLength",
+      "girdi": "${tempVars(\"text\")}",
+      "name": "Get String Length"
+    },
+    {
+      "storage": "1",
+      "varName": "textLength",
       "comparison": "3",
       "value": "1024",
       "iftrue": "3",
