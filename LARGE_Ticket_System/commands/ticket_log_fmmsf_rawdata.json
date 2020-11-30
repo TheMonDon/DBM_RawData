@@ -45,7 +45,7 @@
     {
       "behavior": "1",
       "interpretation": "0",
-      "code": "const d = new Date();\nconst year = d.getFullYear();\nconst month = String(d.getMonth()+1).padStart(2, \"0\");\nconst day = String(d.getDay()).padStart(2, \"0\");\nconst hour = String(d.getHours()).padStart(2, \"0\");\nconst min = String(d.getMinutes()).padStart(2, \"0\");\nconst timestamp = month + \"/\" + day + \"/\" + year + \" \" +  hour + \":\" + min;\nthis.storeValue(timestamp, 1, \"timestamp\", cache);\nActions.callNextAction(cache);",
+      "code": "const d = new Date();\nconst year = d.getFullYear();\nconst month = String(d.getMonth()+1).padStart(2, \"0\");\nconst day = String(d.getDate()).padStart(2, \"0\");\nconst hour = String(d.getHours()).padStart(2, \"0\");\nconst min = String(d.getMinutes()).padStart(2, \"0\");\nconst timestamp = month + \"/\" + day + \"/\" + year + \" \" +  hour + \":\" + min;\nthis.storeValue(timestamp, 1, \"timestamp\", cache);\nActions.callNextAction(cache);",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
