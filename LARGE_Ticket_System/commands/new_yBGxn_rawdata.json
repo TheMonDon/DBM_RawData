@@ -105,7 +105,7 @@
       "name": "End Action Sequence"
     },
     {
-      "code": "Actions.storeValue(tempVars('text').length(), 1, 'textLength', cache);",
+      "code": "Actions.storeValue(tempVars('text').length, 1, 'textLength', cache);",
       "behavior": "0",
       "interpretation": "1",
       "storage": "0",
