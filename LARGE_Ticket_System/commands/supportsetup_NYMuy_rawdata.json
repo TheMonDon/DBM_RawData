@@ -210,32 +210,44 @@
       "name": "Edit Channel"
     },
     {
-      "storage": "4",
+      "channel": "3",
       "varName": "ticketLogsChannel",
-      "permission": "READ_MESSAGES",
-      "state": "1",
-      "name": "Set Channel Permissions"
-    },
-    {
-      "storage": "4",
-      "varName": "ticketLogsChannel",
+      "role": "2",
+      "varName2": "",
       "permission": "SEND_MESSAGES",
-      "state": "1",
-      "name": "Set Channel Permissions"
+      "state": "2",
+      "reason": "",
+      "name": "Set Role Channel Perms"
     },
     {
-      "storage": "4",
+      "channel": "3",
+      "varName": "ticketLogsChannel",
+      "role": "2",
+      "varName2": "",
+      "permission": "VIEW_CHANNEL",
+      "state": "2",
+      "reason": "",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "3",
       "varName": "ticketsCategory",
-      "permission": "READ_MESSAGES",
-      "state": "1",
-      "name": "Set Channel Permissions"
+      "role": "2",
+      "varName2": "",
+      "permission": "VIEW_CHANNEL",
+      "state": "2",
+      "reason": "",
+      "name": "Set Role Channel Perms"
     },
     {
-      "storage": "4",
-      "varName": "holdCategory",
-      "permission": "READ_MESSAGES",
-      "state": "1",
-      "name": "Set Channel Permissions"
+      "channel": "3",
+      "varName": "hold_category",
+      "role": "2",
+      "varName2": "",
+      "permission": "VIEW_CHANNEL",
+      "state": "2",
+      "reason": "",
+      "name": "Set Role Channel Perms"
     },
     {
       "channel": "4",
