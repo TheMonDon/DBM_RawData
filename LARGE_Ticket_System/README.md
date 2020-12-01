@@ -1,29 +1,31 @@
 # Advanced Ticket System
+Created By: TheMonDon#1721
+Requires latest DBM Actions and latest [Mods](https://github.com/dbm-network/mods) as of **November 30, 2020.**
+This project is abandoned and will be revived for commissions only.
+
 Credits:  
 Ticket Log Idea: Blue Label#0001
-
-Created By: TheMonDon#1721
-Requires latest DBM Actions and latest [Mods](https://github.com/dbm-network/mods) as of **November 30, 2020!**
 
 # Description
 This is a large/advaned ticket system which is in its beta phases. I believe everything is working but I am not 100% sure. Please report any problems to me on discord: TheMonDon#1721
 
-# What is ...?
-Description coming soon...
-
 # How do I enable it?
 To get the basic system up and running run the command `supportSetup`, if it's already set up it will tell you.
 
-# If you have any suggestions or things to change, let me know!
-
 # Known Bugs
-No known bugs currently.
+- Global system (not per server) - Bug to me, but you may want that.
+- If there is already channels with the same name, it will break.
+- Active/Inactive doesn't check for a real ticket.
+- Display Names with emojis in them break a lot of things.
 
 # Versioning
 
+**2.2.1**
+- I have abandoned this as I have a better system on my own bot and this system has a lot of flaws that I realized while trying to fix it. I am open to comissions if you want a better ticket system for your bot.
+
 **2.2.0**
 - Bumped the DiscordJS.version check from 11.5.1 to 12.2.0
-- Fixed a lot of the bugs since the last major update of DBM and DiscordJS broke a lot. (May still be bugs)
+- Fixed a lot of the bugs since the last major update of DBM and DiscordJS broke a lot. (Definately has bugs still)
 
 **2.1.0**
 - Added check if ticket is setup before every command
