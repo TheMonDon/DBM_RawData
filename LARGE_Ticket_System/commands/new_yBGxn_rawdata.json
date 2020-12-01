@@ -13,11 +13,13 @@
       "name": "Run Script"
     },
     {
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (serverVars(\"ticketsCategoryID\")) {\nActions.callNextAction(cache);\n} else {\nmsg.channel.send('The ticket system is not setup in this server.');\n}\n",
       "behavior": "1",
       "interpretation": "1",
-      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (serverVars(\"ticketsCategoryID\") != null) {\nActions.callNextAction(cache);\n} else {\nmsg.channel.send('The ticket system is not setup in this server.');\n}\n",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     },
     {
@@ -103,10 +105,14 @@
       "name": "End Action Sequence"
     },
     {
-      "storage": "1",
-      "varName": "textLength",
-      "girdi": "${tempVars(\"text\")}",
-      "name": "Get String Length"
+      "code": "Actions.storeValue(tempVars('text').length(), 1, 'textLength', cache);",
+      "behavior": "0",
+      "interpretation": "1",
+      "storage": "0",
+      "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
+      "name": "Run Script"
     },
     {
       "storage": "1",
