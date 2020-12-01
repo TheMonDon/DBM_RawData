@@ -3,7 +3,7 @@ Credits:
 Ticket Log Idea: Blue Label#0001
 
 Created By: TheMonDon#1721
-Requires DBM Beta and latest [Mods](https://github.com/Discord-Bot-Maker-Mods/DBM-Mods/tree/master) as of **July 28th, 2019!**
+Requires latest DBM Actions and latest [Mods](https://github.com/dbm-network/mods) as of **November 30, 2020!**
 
 # Description
 This is a large/advaned ticket system which is in its beta phases. I believe everything is working but I am not 100% sure. Please report any problems to me on discord: TheMonDon#1721
@@ -20,6 +20,10 @@ To get the basic system up and running run the command `supportSetup`, if it's a
 No known bugs currently.
 
 # Versioning
+
+**2.2.0**
+- Bumped the DiscordJS.version check from 11.5.1 to 12.2.0
+- Fixed a lot of the bugs since the last major update of DBM and DiscordJS broke a lot. (May still be bugs)
 
 **2.1.0**
 - Added check if ticket is setup before every command

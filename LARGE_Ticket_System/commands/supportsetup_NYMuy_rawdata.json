@@ -54,7 +54,7 @@
     {
       "behavior": "1",
       "interpretation": "1",
-      "code": "if (!DiscordJS.version >= '11.5.1') {\n    msg.channel.send('Please update Discord.js to at least 11.5.1!');\n} else {\n    Actions.callNextAction(cache);\n}",
+      "code": "if (!DiscordJS.version >= '12.2.0') {\n    msg.channel.send('Please update Discord.js to at least 12.2.0!');\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
       "name": "Run Script"

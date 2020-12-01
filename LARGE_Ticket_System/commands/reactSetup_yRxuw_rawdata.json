@@ -44,11 +44,13 @@
       "name": "End Action Sequence"
     },
     {
+      "code": "if (DiscordJS.version < '12.2.0') {\n    msg.channel.send('Please update Discord.js to at least 12.2.0!');\n} else {\n    Actions.callNextAction(cache);\n}",
       "behavior": "0",
       "interpretation": "1",
-      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (!DiscordJS.version >= '11.5.1') {\n    msg.channel.send('Please update Discord.js to at least 11.5.1!');\n} else {\n    Actions.callNextAction(cache);\n}",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     },
     {
@@ -79,11 +81,13 @@
       "name": "Create Text Channel"
     },
     {
+      "code": "const new_tix_msg = serverVars('new_tix_msg');\n\n(() => {\nif (new_tix_msg !== null) {\n    msg.channel.send('The reaction ticket system has already been setup.');\n} else if (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else if (serverVars(\"ticketsCategoryID\") === null) {\n    msg.channel.send(`Please use \\`${server && server.tag}supportsetup\\` before running this.`);\n} else {\n    Actions.callNextAction(cache);\n}\n})();",
       "behavior": "1",
       "interpretation": "1",
-      "code": "const new_tix_msg = serverVars('new_tix_msg')\n\nif (new_tix_msg != null) {\n    msg.channel.send('The reaction ticket system has already been setup.');\n} else if (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else if (serverVars(\"ticketsCategoryID\") == null) {\n    msg.channel.send(`Please use \\`${server.tag}supportsetup\\` before running this.`);\n} else {\n    Actions.callNextAction(cache);\n}\n",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     },
     {
@@ -127,25 +131,17 @@
       "varName2": "",
       "permission": "ADD_REACTIONS",
       "state": "2",
+      "reason": "",
       "name": "Set Role Channel Perms"
     },
     {
-      "storage": "1",
-      "varName": "embed",
-      "channel": "5",
-      "varName2": "new_tix_chan",
-      "storage3": "2",
-      "varName3": "new_tix_msg",
-      "iffalse": "0",
-      "iffalseVal": "",
-      "name": "Send Embed Message"
-    },
-    {
+      "code": "const { stripIndents } = this.getMods().require('common-tags');\n\n(async () => {\n    if (!tempVars(\"new_tix_chan\")) return console.log('error no new_tix_chan');\n\n    const embed = new DiscordJS.MessageEmbed()\n        .setTitle('New Ticket')\n        .setColor('GREEN')\n        .setDescription(stripIndents`To create a new ticket react with 📰 below!\n        If your reaction isn't auto removed, remove it and retry.\n        We look forward to helping you.\n        `);\n    const new_tix_msg = await tempVars(\"new_tix_chan\").send(embed);\n    new_tix_msg.react(\"📰\");\n\n    Actions.storeValue(new_tix_msg, 2, \"new_tix_msg\", cache);\n    Actions.callNextAction(cache);\n})();",
       "behavior": "1",
       "interpretation": "1",
-      "code": "(async () => {\nconst embed = new DiscordJS.MessageEmbed()\n    .setTitle('New Ticket')\n    .setColor('GREEN')\n    .setDescription(`To create a new ticket react with 📰 below!\n\\n If your reaction isn't auto removed, remove it and retry.\n\\n We look forward to helping you.\n`);\nconst new_tix_msg = await tempVars(\"new_tix_chan\").send(embed);\nnew_tix_msg.react(\"📰\");\n\nthis.storeValue(new_tix_msg, 2, \"new_tix_msg\", cache);\nActions.callNextAction(cache);\n})();",
       "storage": "0",
       "varName": "",
+      "VTypeSelect": "0",
+      "CVTypeValue": "",
       "name": "Run Script"
     },
     {

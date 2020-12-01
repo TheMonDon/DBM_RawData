@@ -241,12 +241,14 @@
       "name": "Find Role"
     },
     {
-      "storage": "3",
+      "channel": "3",
       "varName": "newTix",
+      "role": "2",
+      "varName2": "",
       "permission": "VIEW_CHANNEL",
-      "state": "1",
+      "state": "2",
       "reason": "",
-      "name": "Set Channel Permissions"
+      "name": "Set Role Channel Perms"
     },
     {
       "channel": "3",
